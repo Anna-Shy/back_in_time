@@ -1,0 +1,94 @@
+@import "../../styles/variable.scss";
+
+.landing {
+  &__header {
+    min-height: 100vh;
+
+    background-image: url("../../source/img/landing/main_page.png");
+    mask-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+
+    .header__inner {
+      padding: 36px 80px;
+
+      .header__content {
+        max-width: 455px;
+        margin-top: 115px;
+
+        color: $total_white;
+
+        .header__title {
+          font-size: $fontLarge;
+          font-weight: $fontBold;
+          line-height: 130%;
+          text-transform: uppercase;
+        }
+
+        .header__text {
+          font-size: $fontMedium;
+          font-weight: 350;
+
+          &-span {
+            font-weight: 840;
+          }
+
+          margin-bottom: 48px;
+        }
+
+        .header__btn {
+          padding: 10px 40px;
+          background: $brown;
+          font-size: $fontSmall;
+          font-weight: $fontNormal;
+          line-height: 130%;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+.category {
+  &__inner {
+    padding: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.about {
+  background-color: $black;
+
+  &__inner {
+    padding: 100px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+  }
+
+  &__content {
+    max-width: 626px;
+  }
+
+  &__title {
+    margin-bottom: 38px;
+    font-size: $fontLarge;
+    font-weight: $fontBold;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 24px 0;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 130%;
+
+    &-span {
+      font-weight: $fontNormal;
+    }
+  }
+}

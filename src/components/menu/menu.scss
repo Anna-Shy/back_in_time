@@ -1,0 +1,17 @@
+@import '../../styles/variable.scss';
+
+.menu {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  &__item {
+    font-size: $fontSmall;
+    font-weight: $fontNormal;
+    color: $total_white;
+  }
+}
