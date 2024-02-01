@@ -1,0 +1,22 @@
+@import "./variable.scss";
+
+@font-face {
+  font-family: "KyivTypeTitling-VarGX";
+  src: url("../source/fonts/KyivTypeTitling-VarGX.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "KyivTypeTitling-VarGX";
+}
