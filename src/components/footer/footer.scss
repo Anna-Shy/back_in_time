@@ -1,0 +1,159 @@
+@import "../../styles/variable.scss";
+
+@font-face {
+  font-family: "KyivTypeTitling-VarGX";
+  src: url("../../source/fonts/KyivTypeTitling-VarGX.ttf");
+}
+
+.footer {
+  background-color: $total-black;
+
+  &__inner {
+    padding: 36px 80px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 126px;
+    margin-bottom: 34px;
+
+    &-social,
+    &-payment {
+      display: flex;
+      gap: 32px;
+    }
+  }
+
+  .divider {
+    border: 2px solid $total-white;
+  }
+
+  &__info {
+    display: flex;
+    color: $total-white;
+    margin-top: 32px;
+
+    &-about,
+    &-client {
+      min-width: 230px;
+      margin-right: 148px;
+
+      .info__about-title,
+      .info__client-title {
+        font-size: 18px;
+        font-weight: $fontBold;
+        margin-bottom: 24px;
+      }
+
+      .menu__list {
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+        gap: 16px;
+
+        .menu__item {
+          font-size: 16px;
+          font-weight: $fontNormal;
+          line-height: 19px;
+        }
+      }
+
+      .menu {
+        margin-bottom: 65px;
+      }
+
+      .copy {
+        text-align: center;
+        font-size: 10px;
+        font-weight: $fontNormal;
+        line-height: 12px;
+      }
+    }
+
+    &-contact {
+      width: 465px;
+
+      .info__contact-title {
+        font-size: 18px;
+        font-weight: $fontBold;
+        margin-bottom: 24px;
+      }
+
+      .gap {
+        margin-top: 18px;
+      }
+
+      .form__contact-email {
+        display: flex;
+        flex-direction: column;
+
+        .form__contact-label {
+          font-size: 18px;
+          font-weight: $fontBold;
+          line-height: 22px;
+        }
+
+        .form__contact-input {
+          width: 100%;
+          margin: 8px 0px;
+          padding: 14px;
+          border: 1px solid $grey;
+
+          .form__contact-input::placeholder {
+            font-family: "KyivTypeTitling-VarGX";
+            color: $black;
+            font-size: 16px;
+            font-weight: 350;
+            line-height: 19px;
+          }
+        }
+      }
+
+      .form__contact-radiobtn {
+        display: flex;
+        align-items: center;
+        margin-bottom: 18px;
+
+        .form__contact-radio {
+          width: 20px;
+          height: 20px;
+          background-color: $total-white;
+        }
+
+        .form__contact-label {
+          margin-left: 1px;
+          margin-right: 26px;
+          font-size: 18px;
+          font-weight: $fontBold;
+          line-height: 22px;
+        }
+      }
+
+      .form__contact-text {
+        font-size: 14px;
+        font-weight: 350;
+        line-height: 130%;
+        margin-bottom: 16px;
+
+        .form__contact-textLink {
+          text-decoration: underline;
+        }
+      }
+
+      .form__contact-link {
+        padding: 10px 16px;
+        border: 1px solid $total-white;
+        font-size: 12px;
+        font-weight: $fontNormal;
+        line-height: 130%;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: $brown;
+        }
+      }
+    }
+  }
+}
