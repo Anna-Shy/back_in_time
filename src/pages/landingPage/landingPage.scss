@@ -43,6 +43,10 @@
           font-weight: $fontNormal;
           line-height: 130%;
           text-transform: uppercase;
+
+          &:hover {
+            background: $black;
+          }
         }
       }
     }
@@ -89,6 +93,103 @@
 
     &-span {
       font-weight: $fontNormal;
+    }
+  }
+}
+
+.renewal,
+.sale {
+  &__inner {
+    padding: 80px;
+  }
+
+  &__title {
+    margin-bottom: 74px;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 840;
+    line-height: 50px;
+    text-transform: uppercase;
+  }
+
+  // .scroll-carousel-slider{
+  //   gap: 26px;
+  // }
+
+  .sc-slide {
+    margin-right: 26px !important;
+  }
+
+  .carousel__card {
+    width: 300px;
+    margin-bottom: 50px;
+
+    &-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: $fontNormal;
+      line-height: 130%;
+      text-transform: uppercase;
+    }
+
+    &-price {
+      text-align: center;
+      font-size: $fontSmall;
+      font-weight: $fontNormal;
+      line-height: 130%;
+
+      .price-span {
+        color: $grey;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 10px 40px;
+    margin-left: 520px;
+    font-size: $fontSmall;
+    font-weight: $fontNormal;
+    line-height: 130%;
+    text-transform: uppercase;
+    border: 1px solid $black;
+  }
+}
+
+.gender {
+  &__inner {
+    display: flex;
+  }
+
+  &__btn img {
+    width: 740px;
+  }
+}
+
+.connect {
+  background-color: $black;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 576px 288px 288px 288px;
+    grid-template-rows: repeat(2, 288px);
+  }
+
+  &__title {
+    color: $total-white;
+    margin: 76px 0 0 80px;
+    font-size: 42px;
+    font-weight: 840;
+    line-height: 50px;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    width: 288px;
+    height: 288px;
+
+    &-div {
+      display: flex;
     }
   }
 }
