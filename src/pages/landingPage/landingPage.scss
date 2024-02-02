@@ -10,7 +10,7 @@
     background-size: cover;
 
     .header__inner {
-      padding: 36px 80px;
+      padding: 36px 80px; padding: 36px 80px;
 
       .header__content {
         max-width: 455px;
@@ -153,6 +153,10 @@
     line-height: 130%;
     text-transform: uppercase;
     border: 1px solid $black;
+
+    &:hover {
+      background-color: $brown;
+    }
   }
 }
 
@@ -161,8 +165,8 @@
     display: flex;
   }
 
-  &__btn img {
-    width: 740px;
+  &__btn {
+    width: 100%;
   }
 }
 
@@ -171,8 +175,17 @@
 
   &__inner {
     display: grid;
-    grid-template-columns: 576px 288px 288px 288px;
-    grid-template-rows: repeat(2, 288px);
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(auto, 288px);
+    grid-auto-flow: dense;
+  }
+
+  .big {
+    grid-column: span 2;
+  }
+
+  .row {
+    display: flex;
   }
 
   &__title {
@@ -185,11 +198,7 @@
   }
 
   &__image {
-    width: 288px;
+    width: 100%;
     height: 288px;
-
-    &-div {
-      display: flex;
-    }
   }
 }
