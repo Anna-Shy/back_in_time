@@ -3,7 +3,17 @@ import React from "react";
 import { Link } from "../link/Link";
 import { Logo } from "../logo/Logo";
 
-import { insta, facebook, youtube, pinterest, tiktok, visa, mastercard, applepay, googlepay } from "./data";
+import {
+  insta,
+  facebook,
+  youtube,
+  pinterest,
+  tiktok,
+  visa,
+  mastercard,
+  applepay,
+  googlepay
+} from "./data";
 
 import "./footer.scss";
 
@@ -112,7 +122,7 @@ export const Footer = () => {
                 <input
                   type="radio"
                   id="women"
-                  name="women"
+                  name="gender"
                   value="women"
                   className="form__contact-radio"
                 />
@@ -123,7 +133,7 @@ export const Footer = () => {
                 <input
                   type="radio"
                   id="men"
-                  name="men"
+                  name="gender"
                   value="men"
                   className="form__contact-radio"
                 />
@@ -134,7 +144,7 @@ export const Footer = () => {
                 <input
                   type="radio"
                   id="all"
-                  name="all"
+                  name="gender"
                   value="all"
                   className="form__contact-radio"
                 />
