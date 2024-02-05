@@ -147,6 +147,7 @@ export const Footer = () => {
                   name="gender"
                   value="all"
                   className="form__contact-radio"
+                  defaultChecked
                 />
                 <label htmlFor="all" className="form__contact-label">
                   Все
