@@ -1,4 +1,28 @@
+@import "../../styles//variable.scss";
+@import "../../styles/responsive.scss";
+
 .header {
   display: flex;
   justify-content: space-between;
+
+  @include sm {
+    padding: 20px 24px;
+    background: linear-gradient($brown, $total-white);
+  }
+
+  .menu {
+    @include sm {
+      display: none;
+    }
+  }
+
+  .menu__adaptive {
+    width: 24px;
+    height: 24px;
+    display: none;
+    
+    @include sm {
+      display: block;
+    }
+  }
 }

@@ -7,8 +7,7 @@ import { Footer } from "../../components/footer/Footer";
 
 import {
   about,
-  women,
-  men,
+  genderArray,
   categoryArray,
   renewalArray,
   saleArray
@@ -31,7 +30,7 @@ export const LandingPage = () => {
     <div className="landing">
       <header className="landing__header">
         <div className="header__inner">
-          <Header landing />
+          <Header icons />
 
           <div className="header__content">
             <h1 className="header__title">машина часу</h1>
@@ -48,7 +47,13 @@ export const LandingPage = () => {
         <section className="category">
           <div className="category__inner">
             {categoryArray.map((item, key) => (
-              <Link link={item.link} img={item.image} key={key} />
+              <Link
+                link={item.link}
+                img={item.image}
+                key={key}
+                classStyleImg={"category__img"}
+                classStyle={"category__link"}
+              />
             ))}
           </div>
         </section>
@@ -59,17 +64,17 @@ export const LandingPage = () => {
               <h2 className="about__title">про нас</h2>
               <p className="about__text">
                 <span className="about__text-span">Back in time</span> - це
-                проект, який допомагає одягу з минулого отримати нове життя із
+                проєкт, який допомагає одягу з минулого отримати нове життя із
                 новими власниками.
               </p>
               <p className="about__text">
                 Наша філософія полягає у тому, що кожна річ заслуговує на
-                довгострокове життя. Ми кажемо “ні” швидкій моді і працюємо над
+                довгострокове життя. Ми кажемо “ні” швидкій моді та працюємо над
                 популяризацією вінтажного стилю серед сучасних українців.
               </p>
             </div>
 
-            <img src={about} alt="about" />
+            <img src={about} alt="about" className="about__img" />
           </div>
         </section>
 
@@ -91,18 +96,15 @@ export const LandingPage = () => {
 
         <section className="gender">
           <div className="gender__inner">
-            <Link
-              link={"#"}
-              img={men}
-              classStyleImg="gender__btn"
-              classStyle="gender__btn"
-            />
-            <Link
-              link={"#"}
-              img={women}
-              classStyleImg="gender__btn"
-              classStyle="gender__btn"
-            />
+            {genderArray.map((item, key) => (
+              <Link
+                key={key}
+                link={"#"}
+                img={item.image}
+                classStyleImg="gender__img"
+                classStyle="gender__link"
+              />
+            ))}
           </div>
         </section>
 

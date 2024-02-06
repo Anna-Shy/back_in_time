@@ -1,4 +1,5 @@
 @import "../../styles/variable.scss";
+@import "../../styles/responsive.scss";
 
 .landing {
   &__header {
@@ -9,8 +10,17 @@
     background-position: top center;
     background-size: cover;
 
+    @include sm {
+      background: none;
+      min-height: 0;
+    }
+
     .header__inner {
-      padding: 36px 80px; padding: 36px 80px;
+      padding: 36px 80px;
+
+      @include sm {
+        padding: 0;
+      }
 
       .header__content {
         max-width: 455px;
@@ -18,22 +28,47 @@
 
         color: $total_white;
 
+        @include sm {
+          background-image: url("../../source/img/landing/main_page_adaptive.png");
+          mask-repeat: no-repeat;
+          background-position: top center;
+          background-size: cover;
+          margin-top: 0;
+          max-height: 100vh;
+          height: 396px;
+          padding: 80px 58px 0 60px;
+        }
+
         .header__title {
           font-size: $fontLarge;
           font-weight: $fontBold;
           line-height: 130%;
           text-transform: uppercase;
+
+          @include sm {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 840;
+            line-height: 38px;
+          }
         }
 
         .header__text {
           font-size: $fontMedium;
           font-weight: 350;
+          margin-bottom: 48px;
 
           &-span {
             font-weight: 840;
           }
 
-          margin-bottom: 48px;
+          @include sm {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 130%;
+            margin-bottom: 38px;
+          }
         }
 
         .header__btn {
@@ -47,6 +82,10 @@
           &:hover {
             background: $black;
           }
+
+          @include sm {
+            margin-left: 46px;
+          }
         }
       }
     }
@@ -59,6 +98,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include sm {
+      padding: 0;
+      flex-direction: column;
+    }
+  }
+
+  &__link {
+    @media screen and (min-width: 392px) {
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 391px) {
+      height: 80px;
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -71,6 +140,11 @@
     justify-content: space-between;
     align-items: center;
     color: #fff;
+
+    @include sm {
+      padding: 18px 22px 0 20px;
+      flex-direction: column;
+    }
   }
 
   &__content {
@@ -83,6 +157,13 @@
     font-weight: $fontBold;
     line-height: 130%;
     text-transform: uppercase;
+
+    @include sm {
+      font-size: 20px;
+      font-weight: 840;
+      line-height: 24px;
+      margin-bottom: 12px;
+    }
   }
 
   &__text {
@@ -93,6 +174,26 @@
 
     &-span {
       font-weight: $fontNormal;
+
+      @include sm {
+        font-size: 18px;
+      }
+    }
+
+    @include sm {
+      font-size: 14px;
+      font-weight: 350;
+      line-height: 130%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    margin-left: 24px;
+
+    @include sm {
+      width: 390px;
+      margin-left: 0;
     }
   }
 }
@@ -101,15 +202,26 @@
 .sale {
   &__inner {
     padding: 80px;
+
+    @include sm {
+      padding: 24px 0;
+    }
   }
 
   &__title {
-    margin-bottom: 74px;
     text-align: center;
     font-size: 42px;
     font-weight: 840;
     line-height: 50px;
     text-transform: uppercase;
+    margin-bottom: 74px;
+
+    @include sm {
+      font-size: 20px;
+      font-weight: 840;
+      line-height: 24px;
+      margin-bottom: 18px;
+    }
   }
 
   // .scroll-carousel-slider{
@@ -118,11 +230,20 @@
 
   .sc-slide {
     margin-right: 26px !important;
+
+    @include sm {
+      margin-right: 16px !important;
+    }
   }
 
   .carousel__card {
     width: 300px;
     margin-bottom: 50px;
+
+    @include sm {
+      width: 166px;
+      margin-bottom: 18px;
+    }
 
     &-title {
       text-align: center;
@@ -130,6 +251,12 @@
       font-weight: $fontNormal;
       line-height: 130%;
       text-transform: uppercase;
+
+      @include sm {
+        font-size: 14px;
+        font-weight: 350;
+        line-height: 130%;
+      }
     }
 
     &-price {
@@ -138,10 +265,20 @@
       font-weight: $fontNormal;
       line-height: 130%;
 
+      @include sm {
+        font-size: 14px;
+        font-weight: 350;
+        line-height: 130%;
+      }
+
       .price-span {
         color: $grey;
         text-decoration: line-through;
       }
+    }
+
+    &-image {
+      width: 100%;
     }
   }
 
@@ -157,16 +294,70 @@
     &:hover {
       background-color: $brown;
     }
+
+    @include sm {
+      margin-left: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 130%;
+    }
   }
 }
 
 .gender {
   &__inner {
     display: flex;
+
+    @include sm {
+      width: 390px;
+      height: 297px;
+      position: relative;
+    }
   }
 
-  &__btn {
+  &__link {
     width: 100%;
+
+    @media screen and (min-width: 392px) {
+      &:nth-child(3),
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 391px) {
+      height: 80px;
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__link:nth-child(3) {
+    @include sm {
+      position: absolute;
+      width: 390px;
+      height: 297px;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__link:nth-child(4) {
+    @include sm {
+      position: absolute;
+      width: 390px;
+      height: 297px;
+      top: -1px;
+      left: 0;
+    }
   }
 }
 
@@ -178,14 +369,20 @@
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: minmax(auto, 288px);
     grid-auto-flow: dense;
+
+    @include sm {
+      padding: 18px 0 36px 20px;
+      grid-template-rows: auto auto;
+      gap: 22px 0;
+    }
   }
 
   .big {
     grid-column: span 2;
-  }
 
-  .row {
-    display: flex;
+    @include sm {
+      grid-column: span 8;
+    }
   }
 
   &__title {
@@ -195,10 +392,23 @@
     font-weight: 840;
     line-height: 50px;
     text-transform: uppercase;
+
+    @include sm {
+      margin: 0;
+      max-width: 350px;
+      font-size: 20px;
+      font-weight: 840;
+      line-height: 24px;
+    }
   }
 
   &__image {
     width: 100%;
     height: 288px;
+
+    @include sm {
+      width: 122px;
+      height: 122px;
+    }
   }
 }
