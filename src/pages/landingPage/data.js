@@ -1,22 +1,50 @@
 import about from "../../source/img/landing/about.png";
-import women from "../../source/img/landing/gender/women.png";
-import men from "../../source/img/landing/gender/men.png";
+import menAdaptive from '../../source/img/landing/gender/men-adaptive.svg' 
+import womenAdaptive from '../../source/img/landing/gender/women-adaptive.svg' 
+
+const genderArray = [
+    {
+        link: "#",
+        image: require("../../source/img/landing/gender/men.png")
+    },
+    {
+        link: '#',
+        image: require("../../source/img/landing/gender/women.png")
+    },
+    {
+        link: "#",
+        image: menAdaptive
+    },
+    {
+        link: '#',
+        image: womenAdaptive
+    }
+]
 
 const categoryArray = [
     {
-        id: 1,
         link: "#",
         image: require("../../source/img/landing/category/card_category_catalog.png")
     },
     {
-        id: 1,
         link: "#",
         image: require("../../source/img/landing/category/card_category_sale.png")
     },
     {
-        id: 1,
         link: "#",
         image: require("../../source/img/landing/category/card_category_new.png")
+    },
+    {
+        link: "#",
+        image: require("../../source/img/landing/category/card_category_catalog-adaptive.png")
+    },
+    {
+        link: "#",
+        image: require("../../source/img/landing/category/card_category_sale-adaptive.png")
+    },
+    {
+        link: "#",
+        image: require("../../source/img/landing/category/card_category_new-adaptive.png")
     }
 ];
 
@@ -91,4 +119,4 @@ const saleArray = [
     }
 ];
 
-export { about, women, men, categoryArray, renewalArray, saleArray };
+export { about, genderArray, categoryArray, renewalArray, saleArray };
