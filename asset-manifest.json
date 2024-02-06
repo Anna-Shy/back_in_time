@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/back_in_time/static/css/main.a47d895a.css",
-    "main.js": "/back_in_time/static/js/main.00286201.js",
+    "main.css": "/back_in_time/static/css/main.c2cb79bd.css",
+    "main.js": "/back_in_time/static/js/main.4920afed.js",
     "static/js/800.abfbac27.chunk.js": "/back_in_time/static/js/800.abfbac27.chunk.js",
     "static/js/592.efcc2154.chunk.js": "/back_in_time/static/js/592.efcc2154.chunk.js",
+    "static/media/women-adaptive.svg": "/back_in_time/static/media/women-adaptive.316b6e616792a1828f43678a1cd4ac36.svg",
     "static/media/main_page.png": "/back_in_time/static/media/main_page.a4d541e4a1c4e626666b.png",
+    "static/media/men-adaptive.svg": "/back_in_time/static/media/men-adaptive.66be471408dea0c4ff5ee1dbdbfd6959.svg",
     "static/media/about.png": "/back_in_time/static/media/about.cc3892573ba199c86fb7.png",
     "static/media/men.png": "/back_in_time/static/media/men.d49a39b756e699869d9c.png",
     "static/media/KyivTypeTitling-VarGX.ttf": "/back_in_time/static/media/KyivTypeTitling-VarGX.bf93c0ad1dcbbf69d336.ttf",
@@ -21,6 +23,7 @@
     "static/media/renewal5.png": "/back_in_time/static/media/renewal5.d04f07178bc5cc606370.png",
     "static/media/sale1.png": "/back_in_time/static/media/sale1.7a8256429ab4d59fd870.png",
     "static/media/renewal3.png": "/back_in_time/static/media/renewal3.05be65c66d66654eadc4.png",
+    "static/media/main_page_adaptive.png": "/back_in_time/static/media/main_page_adaptive.55f8560f6ea376b1a8d3.png",
     "static/media/card_category_new.png": "/back_in_time/static/media/card_category_new.2f9fb871005c389420f5.png",
     "static/media/renewal1.png": "/back_in_time/static/media/renewal1.24b0dfd367d4c0e15bfa.png",
     "static/media/card_category_catalog.png": "/back_in_time/static/media/card_category_catalog.e93dffedc9ac4969c526.png",
@@ -28,10 +31,13 @@
     "static/media/sale2.png": "/back_in_time/static/media/sale2.360d09a2085ec13dddcf.png",
     "static/media/renewal2.png": "/back_in_time/static/media/renewal2.1cece77dfe921c4394f7.png",
     "static/media/card_category_sale.png": "/back_in_time/static/media/card_category_sale.fe91190b1dcc8b2e9882.png",
+    "static/media/card_category_new-adaptive.png": "/back_in_time/static/media/card_category_new-adaptive.988f759c586e1a5d793e.png",
+    "static/media/card_category_catalog-adaptive.png": "/back_in_time/static/media/card_category_catalog-adaptive.0708992ad40e621dcb50.png",
+    "static/media/card_category_sale-adaptive.png": "/back_in_time/static/media/card_category_sale-adaptive.1742ba2d26bc2c95eeb2.png",
     "static/media/sale3.png": "/back_in_time/static/media/sale3.bc34115adab02b2c28e3.png",
     "static/media/sale4.png": "/back_in_time/static/media/sale4.b04b8a611b27a450bf95.png",
-    "static/media/logo-footer.svg": "/back_in_time/static/media/logo-footer.e03397cca2cbad11fd559c4e3073947a.svg",
     "static/media/logo.svg": "/back_in_time/static/media/logo.83e2930054e2a3d8b4369771220b3320.svg",
+    "static/media/logo-footer.svg": "/back_in_time/static/media/logo-footer.91fad0aeca0b2e26b4b6c8fe2c34f5c8.svg",
     "static/media/mastercard.svg": "/back_in_time/static/media/mastercard.64df12629a11f40cd3b1a2cd09ea848a.svg",
     "static/media/googlepay.svg": "/back_in_time/static/media/googlepay.40a2c2783251e19eb381ff596a6a10c4.svg",
     "static/media/applepay.svg": "/back_in_time/static/media/applepay.f35f1ccddbc0aecd96c4cbbeb6143da6.svg",
@@ -45,13 +51,14 @@
     "static/media/tiktok.svg": "/back_in_time/static/media/tiktok.9105cc06292e15b89446c4c424371d98.svg",
     "static/media/facebook.svg": "/back_in_time/static/media/facebook.e7e6fb24e6f86c487a9846c8c25cce01.svg",
     "index.html": "/back_in_time/index.html",
-    "main.a47d895a.css.map": "/back_in_time/static/css/main.a47d895a.css.map",
-    "main.00286201.js.map": "/back_in_time/static/js/main.00286201.js.map",
+    "static/media/menu-adaptive.svg": "/back_in_time/static/media/menu-adaptive.12c37275c941d6b1285197790ea7310f.svg",
+    "main.c2cb79bd.css.map": "/back_in_time/static/css/main.c2cb79bd.css.map",
+    "main.4920afed.js.map": "/back_in_time/static/js/main.4920afed.js.map",
     "800.abfbac27.chunk.js.map": "/back_in_time/static/js/800.abfbac27.chunk.js.map",
     "592.efcc2154.chunk.js.map": "/back_in_time/static/js/592.efcc2154.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a47d895a.css",
-    "static/js/main.00286201.js"
+    "static/css/main.c2cb79bd.css",
+    "static/js/main.4920afed.js"
   ]
 }
