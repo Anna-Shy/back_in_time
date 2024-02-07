@@ -10,19 +10,19 @@ import "./header.scss";
 
 const headerMenuArray = [
   {
-    link: "#",
+    link: "/new-arrivals",
     text: "Оновлення"
   },
   {
-    link: "#",
+    link: "/catalog",
     text: "Каталог"
   },
   {
-    link: "#",
+    link: "/sale",
     text: "Розпродаж"
   },
   {
-    link: "#",
+    link: "/contact",
     text: "Контакти"
   }
 ];
