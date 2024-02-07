@@ -2,7 +2,7 @@ import React from "react";
 import ScrollCarousel from "scroll-carousel-react";
 
 import { Header } from "../../components/header/Header";
-import { Link } from "../../components/link/Link";
+import { Linkin } from "../../components/linkin/Linkin";
 import { Footer } from "../../components/footer/Footer";
 
 import {
@@ -38,7 +38,7 @@ export const LandingPage = () => {
               в твоєму <span className="header__text-span">гардеробі</span>
             </p>
 
-            <Link link={"/catalog"} text={"вибрати"} classStyle="header__btn" />
+            <Linkin link={"/catalog"} text={"вибрати"} classStyle="header__btn" />
           </div>
         </div>
       </header>
@@ -47,7 +47,7 @@ export const LandingPage = () => {
         <section className="category">
           <div className="category__inner">
             {categoryArray.map((item, key) => (
-              <Link
+              <Linkin
                 link={item.link}
                 img={item.image}
                 key={key}
@@ -90,14 +90,14 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Link link={"/new-arrivals"} text={"показати ще"} classStyle="renewal__btn" />
+            <Linkin link={"/new-arrivals"} text={"показати ще"} classStyle="renewal__btn" />
           </div>
         </section>
 
         <section className="gender">
           <div className="gender__inner">
             {genderArray.map((item, key) => (
-              <Link
+              <Linkin
                 key={key}
                 link={"#"}
                 img={item.image}
@@ -120,7 +120,7 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Link link={"/sale"} text={"показати ще"} classStyle="sale__btn" />
+            <Linkin link={"/sale"} text={"показати ще"} classStyle="sale__btn" />
           </div>
         </section>
 

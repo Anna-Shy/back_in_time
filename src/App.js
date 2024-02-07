@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { LandingPage } from './pages/landingPage/LandingPage';
 import { NewArrivalsPage } from './pages/newArrivalsPage/NewArrivalsPage';
@@ -12,38 +9,18 @@ import { ErrorPage } from "./pages/errorPage/ErrorPage";
 
 import './styles/global.scss';
 
-const router = createBrowserRouter([
-  {
-    // path: "/back_in_time",
-    path: "/",
-    element: <LandingPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/new-arrivals",
-    element: <NewArrivalsPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/catalog",
-    element: <CatalogPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/sale",
-    element: <SalePage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/contact",
-    element: <ContactPage />,
-    errorElement: <ErrorPage />,
-  },
-]);
-
 function App() {
   return (
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/newarrivals" element={<NewArrivalsPage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/sale" element={<SalePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

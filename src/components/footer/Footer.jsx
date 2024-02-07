@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "../link/Link";
+import { Linkin } from "../linkin/Linkin";
 import { Logo } from "../logo/Logo";
 import { Menu } from "../menu/Menu";
 
@@ -20,13 +20,13 @@ export const Footer = () => {
         <section className="footer__link">
           <div className="footer__link-social">
             {socialIconArray.map((item, key) => (
-              <Link link={item.link} img={item.image} key={key} />
+              <Linkin link={item.link} img={item.image} key={key} />
             ))}
           </div>
 
           <div className="footer__link-payment">
             {paymentIconArray.map((item, key) => (
-              <Link link={item.link} img={item.image} key={key} />
+              <Linkin link={item.link} img={item.image} key={key} />
             ))}
           </div>
         </section>
@@ -109,14 +109,14 @@ export const Footer = () => {
                 Підписуючись на нашу розсилку, ти погоджуєшся з тим, що
                 отримуватимеш маркетингові повідомлення через email. Будь ласка,
                 звернися до нашої
-                <Link
+                <Linkin
                   link={"#"}
                   text={" Політики конфіденційності "}
                   classStyle={"form__contact-textLink"}
                 />
                 для більшої інформації.
               </p>
-              <Link
+              <Linkin
                 link={"#"}
                 text={"підписатись"}
                 classStyle={"form__contact-link"}

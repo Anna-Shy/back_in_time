@@ -2,7 +2,7 @@ import React from "react";
 
 import { Logo } from "../../components/logo/Logo";
 import { Menu } from "../../components/menu/Menu";
-import { Link } from "../../components/link/Link";
+import { Linkin } from "../linkin/Linkin";
 
 import menuAdaptiveIcon from "../../source/svg/icons/menu-adaptive.svg";
 
@@ -10,7 +10,7 @@ import "./header.scss";
 
 const headerMenuArray = [
   {
-    link: "/new-arrivals",
+    link: "/newarrivals",
     text: "Оновлення"
   },
   {
@@ -33,7 +33,7 @@ export const Header = ({ icons }) => {
       <Logo />
       <Menu icons={icons} link={headerMenuArray} />
 
-      <Link link={"#"} img={menuAdaptiveIcon} classStyle={"menu__adaptive"} />
+      <Linkin link={"#"} img={menuAdaptiveIcon} classStyle={"menu__adaptive"} />
     </header>
   );
 };
