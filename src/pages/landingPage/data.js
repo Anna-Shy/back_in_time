@@ -23,27 +23,27 @@ const genderArray = [
 
 const categoryArray = [
     {
-        link: "#",
+        link: "/catalog",
         image: require("../../source/img/landing/category/card_category_catalog.png")
     },
     {
-        link: "#",
+        link: "/sale",
         image: require("../../source/img/landing/category/card_category_sale.png")
     },
     {
-        link: "#",
+        link: "/new-arrivals",
         image: require("../../source/img/landing/category/card_category_new.png")
     },
     {
-        link: "#",
+        link: "/catalog",
         image: require("../../source/img/landing/category/card_category_catalog-adaptive.png")
     },
     {
-        link: "#",
+        link: "/sale",
         image: require("../../source/img/landing/category/card_category_sale-adaptive.png")
     },
     {
-        link: "#",
+        link: "/new-arrivals",
         image: require("../../source/img/landing/category/card_category_new-adaptive.png")
     }
 ];

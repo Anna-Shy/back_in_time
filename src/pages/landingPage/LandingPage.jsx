@@ -38,7 +38,7 @@ export const LandingPage = () => {
               в твоєму <span className="header__text-span">гардеробі</span>
             </p>
 
-            <Link link={"#"} text={"вибрати"} classStyle="header__btn" />
+            <Link link={"/catalog"} text={"вибрати"} classStyle="header__btn" />
           </div>
         </div>
       </header>
@@ -90,7 +90,7 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Link link={"#"} text={"показати ще"} classStyle="renewal__btn" />
+            <Link link={"/new-arrivals"} text={"показати ще"} classStyle="renewal__btn" />
           </div>
         </section>
 
@@ -120,7 +120,7 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Link link={"#"} text={"показати ще"} classStyle="sale__btn" />
+            <Link link={"/sale"} text={"показати ще"} classStyle="sale__btn" />
           </div>
         </section>
 
