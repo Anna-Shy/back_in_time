@@ -21,7 +21,7 @@ export const LandingPage = () => {
   return (
     <div className="landing">
       <header className="landing__header">
-        <Header menuLink={headerMenuArray} />
+        <Header menuLink={headerMenuArray} icons />
 
         <div className="header__content">
           <h1 className="header__title">машина часу</h1>

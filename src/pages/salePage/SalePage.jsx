@@ -12,7 +12,7 @@ import "./salePage.scss";
 export const SalePage = () => {
   return (
     <div className="sale">
-      <Header />
+      <Header icons />
 
       <main className="sale__main">
         <h2 className="main__title">розпродаж</h2>

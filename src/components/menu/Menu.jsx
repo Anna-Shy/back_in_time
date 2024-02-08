@@ -11,7 +11,7 @@ import searchBlackIcon from "../../source/svg/icons/search-black.svg";
 
 import "./menu.scss";
 
-export const Menu = ({ link }) => {
+export const Menu = ({ link, icons }) => {
   return (
     <nav className="menu">
       <ul className="menu__list">
@@ -22,15 +22,28 @@ export const Menu = ({ link }) => {
             </li>
           ))}
 
-        <li className="menu__item">
-          <Linkin link={"#"} img={link ? searchWhiteIcon : searchBlackIcon} />
-        </li>
-        <li className="menu__item">
-          <Linkin link={"#"} img={link ? personWhiteIcon : personBlackIcon} />
-        </li>
-        <li className="menu__item">
-          <Linkin link={"#"} img={link ? basketWhiteIcon : basketBlackIcon} />
-        </li>
+        {icons && (
+          <>
+            <li className="menu__item">
+              <Linkin
+                link={"#"}
+                img={link ? searchWhiteIcon : searchBlackIcon}
+              />
+            </li>
+            <li className="menu__item">
+              <Linkin
+                link={"#"}
+                img={link ? personWhiteIcon : personBlackIcon}
+              />
+            </li>
+            <li className="menu__item">
+              <Linkin
+                link={"#"}
+                img={link ? basketWhiteIcon : basketBlackIcon}
+              />
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

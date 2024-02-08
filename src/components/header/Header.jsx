@@ -8,12 +8,12 @@ import menuAdaptiveIcon from "../../source/svg/icons/menu-adaptive.svg";
 
 import "./header.scss";
 
-export const Header = ({ menuLink }) => {
+export const Header = ({ menuLink, icons }) => {
   return (
     <header className="header">
       <div className="header__inner">
         <Logo />
-        <Menu link={menuLink} />
+        <Menu link={menuLink} icons/>
 
         <Linkin
           link={"#"}

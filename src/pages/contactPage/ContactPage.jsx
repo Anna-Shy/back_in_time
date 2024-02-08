@@ -17,7 +17,7 @@ import "./contactPage.scss";
 export const ContactPage = () => {
   return (
     <div className="contact">
-      <Header />
+      <Header icons />
 
       <main className="contact__main">
         <div className="main__content">
