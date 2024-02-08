@@ -1,0 +1,74 @@
+@import "../../styles/variable.scss";
+
+.contact {
+  background: $brown;
+  background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 80px 300px 80px;
+
+    .main__title {
+      font-size: 32px;
+      font-weight: 840;
+      line-height: 38px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .main__content {
+      display: flex;
+      flex-direction: column;
+      max-width: 374px;
+
+      .divider {
+        width: 434px;
+        border: 1px solid $grey;
+      }
+
+      .content {
+        margin-top: 24px;
+
+        &__title {
+          font-size: 20px;
+          font-weight: 840;
+          line-height: 24px;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+        }
+
+        &__block {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          &-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+          }
+
+          .block-link,
+          .block-text {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 130%;
+          }
+
+          .block-text-attention {
+            font-size: 14px;
+            font-weight: 350;
+            margin-top: 12px;
+            
+            .block-attention-span {
+              font-style: 18px;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+}
