@@ -27,11 +27,11 @@ const headerMenuArray = [
   }
 ];
 
-export const Header = ({ icons }) => {
+export const Header = () => {
   return (
     <header className="header">
       <Logo />
-      <Menu icons={icons} link={headerMenuArray} />
+      <Menu link={headerMenuArray} />
 
       <Linkin link={"#"} img={menuAdaptiveIcon} classStyle={"menu__adaptive"} />
     </header>

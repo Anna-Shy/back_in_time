@@ -30,7 +30,7 @@ export const LandingPage = () => {
     <div className="landing">
       <header className="landing__header">
         <div className="header__inner">
-          <Header icons />
+          <Header />
 
           <div className="header__content">
             <h1 className="header__title">машина часу</h1>
@@ -90,7 +90,7 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Linkin link={"/new-arrivals"} text={"показати ще"} classStyle="renewal__btn" />
+            <Linkin link={"/newarrivals"} text={"показати ще"} classStyle="renewal__btn" />
           </div>
         </section>
 
