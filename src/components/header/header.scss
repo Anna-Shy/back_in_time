@@ -2,8 +2,15 @@
 @import "../../styles/responsive.scss";
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 36px 80px;
+
+    @include sm {
+      padding: 0;
+    }
+  }
 
   @include sm {
     padding: 20px 24px;
@@ -20,7 +27,7 @@
     width: 24px;
     height: 24px;
     display: none;
-    
+
     @include sm {
       display: block;
     }

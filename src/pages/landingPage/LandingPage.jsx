@@ -6,6 +6,7 @@ import { Linkin } from "../../components/linkin/Linkin";
 import { Footer } from "../../components/footer/Footer";
 
 import {
+  headerMenuArray,
   about,
   genderArray,
   categoryArray,
@@ -29,17 +30,15 @@ export const LandingPage = () => {
   return (
     <div className="landing">
       <header className="landing__header">
-        <div className="header__inner">
-          <Header />
+        <Header menuLink={headerMenuArray} />
 
-          <div className="header__content">
-            <h1 className="header__title">машина часу</h1>
-            <p className="header__text">
-              в твоєму <span className="header__text-span">гардеробі</span>
-            </p>
+        <div className="header__content">
+          <h1 className="header__title">машина часу</h1>
+          <p className="header__text">
+            в твоєму <span className="header__text-span">гардеробі</span>
+          </p>
 
-            <Linkin link={"/catalog"} text={"вибрати"} classStyle="header__btn" />
-          </div>
+          <Linkin link={"/catalog"} text={"вибрати"} classStyle="header__btn" />
         </div>
       </header>
 
@@ -90,7 +89,11 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Linkin link={"/newarrivals"} text={"показати ще"} classStyle="renewal__btn" />
+            <Linkin
+              link={"/newarrivals"}
+              text={"показати ще"}
+              classStyle="renewal__btn"
+            />
           </div>
         </section>
 
@@ -120,7 +123,11 @@ export const LandingPage = () => {
               </ScrollCarousel>
             </div>
 
-            <Linkin link={"/sale"} text={"показати ще"} classStyle="sale__btn" />
+            <Linkin
+              link={"/sale"}
+              text={"показати ще"}
+              classStyle="sale__btn"
+            />
           </div>
         </section>
 

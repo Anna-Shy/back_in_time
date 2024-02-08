@@ -2,6 +2,25 @@ import about from "../../source/img/landing/about.png";
 import menAdaptive from '../../source/img/landing/gender/men-adaptive.svg' 
 import womenAdaptive from '../../source/img/landing/gender/women-adaptive.svg' 
 
+const headerMenuArray = [
+    {
+      link: "/newarrivals",
+      text: "Оновлення"
+    },
+    {
+      link: "/catalog",
+      text: "Каталог"
+    },
+    {
+      link: "/sale",
+      text: "Розпродаж"
+    },
+    {
+      link: "/contact",
+      text: "Контакти"
+    }
+  ];
+
 const genderArray = [
     {
         link: "#",
@@ -119,4 +138,4 @@ const saleArray = [
     }
 ];
 
-export { about, genderArray, categoryArray, renewalArray, saleArray };
+export { headerMenuArray, about, genderArray, categoryArray, renewalArray, saleArray };

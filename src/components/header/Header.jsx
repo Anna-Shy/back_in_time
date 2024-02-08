@@ -8,32 +8,19 @@ import menuAdaptiveIcon from "../../source/svg/icons/menu-adaptive.svg";
 
 import "./header.scss";
 
-const headerMenuArray = [
-  {
-    link: "/newarrivals",
-    text: "Оновлення"
-  },
-  {
-    link: "/catalog",
-    text: "Каталог"
-  },
-  {
-    link: "/sale",
-    text: "Розпродаж"
-  },
-  {
-    link: "/contact",
-    text: "Контакти"
-  }
-];
-
-export const Header = () => {
+export const Header = ({ menuLink }) => {
   return (
     <header className="header">
-      <Logo />
-      <Menu link={headerMenuArray} />
+      <div className="header__inner">
+        <Logo />
+        <Menu link={menuLink} />
 
-      <Linkin link={"#"} img={menuAdaptiveIcon} classStyle={"menu__adaptive"} />
+        <Linkin
+          link={"#"}
+          img={menuAdaptiveIcon}
+          classStyle={"menu__adaptive"}
+        />
+      </div>
     </header>
   );
 };

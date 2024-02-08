@@ -15,77 +15,69 @@
       min-height: 0;
     }
 
-    .header__inner {
+    .header__content {
       padding: 36px 80px;
+      margin-top: 115px;
+
+      color: $total_white;
 
       @include sm {
-        padding: 0;
+        background-image: url("../../source/img/landing/main_page_adaptive.png");
+        mask-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+        margin-top: 0;
+        max-height: 100vh;
+        height: 396px;
+        padding: 80px 58px 0 60px;
       }
 
-      .header__content {
-        max-width: 455px;
-        margin-top: 115px;
-
-        color: $total_white;
+      .header__title {
+        font-size: $fontLarge;
+        font-weight: $fontBold;
+        line-height: 130%;
+        text-transform: uppercase;
 
         @include sm {
-          background-image: url("../../source/img/landing/main_page_adaptive.png");
-          mask-repeat: no-repeat;
-          background-position: top center;
-          background-size: cover;
-          margin-top: 0;
-          max-height: 100vh;
-          height: 396px;
-          padding: 80px 58px 0 60px;
+          text-align: center;
+          font-size: 32px;
+          font-weight: 840;
+          line-height: 38px;
+        }
+      }
+
+      .header__text {
+        font-size: $fontMedium;
+        font-weight: 350;
+        margin-bottom: 48px;
+
+        &-span {
+          font-weight: 840;
         }
 
-        .header__title {
-          font-size: $fontLarge;
-          font-weight: $fontBold;
+        @include sm {
+          text-align: center;
+          font-size: 24px;
+          font-weight: 500;
           line-height: 130%;
-          text-transform: uppercase;
+          margin-bottom: 38px;
+        }
+      }
 
-          @include sm {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 840;
-            line-height: 38px;
-          }
+      .header__btn {
+        padding: 10px 40px;
+        background: $brown;
+        font-size: $fontSmall;
+        font-weight: $fontNormal;
+        line-height: 130%;
+        text-transform: uppercase;
+
+        &:hover {
+          background: $black;
         }
 
-        .header__text {
-          font-size: $fontMedium;
-          font-weight: 350;
-          margin-bottom: 48px;
-
-          &-span {
-            font-weight: 840;
-          }
-
-          @include sm {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 500;
-            line-height: 130%;
-            margin-bottom: 38px;
-          }
-        }
-
-        .header__btn {
-          padding: 10px 40px;
-          background: $brown;
-          font-size: $fontSmall;
-          font-weight: $fontNormal;
-          line-height: 130%;
-          text-transform: uppercase;
-
-          &:hover {
-            background: $black;
-          }
-
-          @include sm {
-            margin-left: 46px;
-          }
+        @include sm {
+          margin-left: 46px;
         }
       }
     }
