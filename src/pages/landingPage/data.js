@@ -50,7 +50,7 @@ const categoryArray = [
         image: require("../../source/img/landing/category/card_category_sale.png")
     },
     {
-        link: "/new-arrivals",
+        link: "/newarrivals",
         image: require("../../source/img/landing/category/card_category_new.png")
     },
     {
@@ -62,7 +62,7 @@ const categoryArray = [
         image: require("../../source/img/landing/category/card_category_sale-adaptive.png")
     },
     {
-        link: "/new-arrivals",
+        link: "/newarrivals",
         image: require("../../source/img/landing/category/card_category_new-adaptive.png")
     }
 ];
