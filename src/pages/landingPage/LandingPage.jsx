@@ -3,6 +3,7 @@ import ScrollCarousel from "scroll-carousel-react";
 
 import { Header } from "../../components/header/Header";
 import { Linkin } from "../../components/linkin/Linkin";
+import { Card } from "../../components/card/Card";
 import { Footer } from "../../components/footer/Footer";
 
 import {
@@ -15,16 +16,6 @@ import {
 } from "./data";
 
 import "./landingPage.scss";
-
-const CarouselCard = ({ image, title, price, sale }) => (
-  <div className="carousel__card">
-    <img className="carousel__card-image" src={image} alt={title} />
-    <h4 className="carousel__card-title">{title}</h4>
-    <p className="carousel__card-price">
-      {price} <span className="price-span">{sale}</span>
-    </p>
-  </div>
-);
 
 export const LandingPage = () => {
   return (
@@ -84,7 +75,7 @@ export const LandingPage = () => {
             <div className="renewal__carousel">
               <ScrollCarousel autoplay autoplaySpeed={4} speed={3}>
                 {renewalArray.map((item, index) => (
-                  <CarouselCard key={index} {...item} />
+                  <Card key={index} {...item} />
                 ))}
               </ScrollCarousel>
             </div>
@@ -118,7 +109,7 @@ export const LandingPage = () => {
             <div className="sale__carousel">
               <ScrollCarousel autoplay autoplaySpeed={4} speed={3}>
                 {saleArray.map((item, index) => (
-                  <CarouselCard key={index} {...item} />
+                  <Card key={index} {...item} />
                 ))}
               </ScrollCarousel>
             </div>

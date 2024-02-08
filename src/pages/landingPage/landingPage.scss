@@ -228,52 +228,6 @@
     }
   }
 
-  .carousel__card {
-    width: 300px;
-    margin-bottom: 50px;
-
-    @include sm {
-      width: 166px;
-      margin-bottom: 18px;
-    }
-
-    &-title {
-      text-align: center;
-      font-size: 24px;
-      font-weight: $fontNormal;
-      line-height: 130%;
-      text-transform: uppercase;
-
-      @include sm {
-        font-size: 14px;
-        font-weight: 350;
-        line-height: 130%;
-      }
-    }
-
-    &-price {
-      text-align: center;
-      font-size: $fontSmall;
-      font-weight: $fontNormal;
-      line-height: 130%;
-
-      @include sm {
-        font-size: 14px;
-        font-weight: 350;
-        line-height: 130%;
-      }
-
-      .price-span {
-        color: $grey;
-        text-decoration: line-through;
-      }
-    }
-
-    &-image {
-      width: 100%;
-    }
-  }
-
   &__btn {
     padding: 10px 40px;
     margin-left: 520px;
