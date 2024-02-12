@@ -1,0 +1,140 @@
+@import "../../styles/variable.scss";
+
+.itemPage {
+  &__page {
+    background: $brown;
+    background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+  }
+
+  &__main {
+    padding: 0 80px 78px 80px;
+
+    .chooseItem {
+      margin: 15px 0 80px;
+      display: flex;
+      gap: 28px;
+
+      &__image {
+        width: 626px;
+        height: 662px;
+      }
+
+      &__content {
+        margin-top: 120px;
+      }
+
+      &__description {
+        margin-bottom: 74px;
+
+        .chooseItem__title {
+          font-size: 32px;
+          font-weight: 840;
+          line-height: 38px;
+          text-transform: uppercase;
+        }
+
+        .chooseItem__code {
+          font-size: 14px;
+          font-weight: 350;
+          line-height: 130%;
+          color: $grey;
+          margin-bottom: 8px;
+        }
+
+        .chooseItem__price {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 130%;
+          margin-bottom: 24px;
+        }
+
+        .chooseItem__btn {
+          padding: 10px 40px;
+          font-size: $fontSmall;
+          font-weight: $fontNormal;
+          line-height: 130%;
+          text-transform: uppercase;
+          background-color: $brown;
+          color: $total_white;
+
+          &:hover {
+            background-color: $black;
+          }
+        }
+      }
+
+      .divider {
+        border: 1px solid $total_black;
+        min-width: 626px;
+        margin: 18px 0;
+      }
+
+      &__info {
+        &-btn {
+          font-size: 20px;
+          font-weight: 840;
+          line-height: 24px;
+          text-transform: uppercase;
+          width: 626px;
+          border: none;
+          background-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &-arrow {
+          width: 24px;
+          height: 24px;
+        }
+
+        &-details {
+          padding: 24px 40px;
+          width: 466px;
+
+          .details__title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 22px;
+            margin-bottom: 12px;
+          }
+
+          .details-composition{
+            display: flex;
+          }
+
+          .detail-list {
+            list-style: none;
+            margin-left: 50px;
+
+            &-item {
+              margin-bottom: 12px;
+            }
+          }
+
+          .detail-text {
+            font-size: 14px;
+            font-weight: 350;
+            line-height: 130%;
+            margin-bottom: 12px;
+
+            .details-text-span {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .moreItem {
+      &__title {
+        font-size: 42px;
+        font-weight: 840;
+        line-height: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 74px;
+      }
+    }
+  }
+}

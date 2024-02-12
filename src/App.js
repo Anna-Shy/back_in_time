@@ -9,6 +9,7 @@ import { SalePage } from './pages/salePage/SalePage';
 import { CatalogPage } from './pages/catalogPage/CatalogPage';
 import { ContactPage } from './pages/contactPage/ContactPage';
 import { ErrorPage } from "./pages/errorPage/ErrorPage";
+import { ItemPage } from "./pages/itemPage/ItemPage";
 
 import './styles/global.scss';
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
   {
     path: "/catalog",
     element: <CatalogPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/catalog/:itemId",
+    element: <ItemPage />,
     errorElement: <ErrorPage />,
   }
 ]);
