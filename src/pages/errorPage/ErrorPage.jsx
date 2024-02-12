@@ -1,18 +1,31 @@
 import { useRouteError } from "react-router-dom";
 
-import './errorPage.scss'
+import { Header } from "../../components/header/Header";
+import { Linkin } from "../../components/linkin/Linkin";
+
+import "./errorPage.scss";
 
 export const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
 
   return (
-    <div id="error__page">
-      <h1 className="error__title">Oops!</h1>
-      <p className="error__text">Sorry, an unexpected error has occurred.</p>
-      <p className="error__text">
-        <i>{error.statusText || error.message}</i>
-      </p>
+    <div id="error" className="error">
+      <Header />
+
+      <main className="error__main">
+        <h1 className="error__title">404</h1>
+        <p className="error__text">
+          Схоже щось пішло не за планом, <br />
+          сторінки не знайдено.
+        </p>
+
+        <Linkin
+          link={"/"}
+          text={"повернутись на головну"}
+          classStyle="error__btn"
+        />
+      </main>
     </div>
   );
 };
