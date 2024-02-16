@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import ScrollCarousel from "scroll-carousel-react";
+import ImageGallery from "react-image-gallery";
 
 import { Header } from "../../components/header/Header";
 import { Breadcrumbs } from "../../components/breadcrumbs/Breadcrumbs";
@@ -14,6 +15,7 @@ import arrowUpIcon from "../../source/svg/icons/arrow-up.svg";
 import { suggestionArray } from "../../source/data/suggestion";
 
 import "./itemPage.scss";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 // id
 // image
@@ -23,6 +25,21 @@ import "./itemPage.scss";
 // details: info, state, size, length, sleeveLength, shoulders, sex, years
 // composition: string
 // care: []
+
+const images = [
+  {
+    original: "https://picsum.photos/id/1018/300/450/",
+    thumbnail: "https://picsum.photos/id/1018/150/225/",
+  },
+  {
+    original: "https://picsum.photos/id/1015/300/450/",
+    thumbnail: "https://picsum.photos/id/1015/150/225/",
+  },
+  {
+    original: "https://picsum.photos/id/1019/300/450/",
+    thumbnail: "https://picsum.photos/id/1019/150/225/",
+  },
+];
 
 export const ItemPage = () => {
   const [isVisible, setIsVisible] = useState({
@@ -68,7 +85,8 @@ export const ItemPage = () => {
         <Breadcrumbs />
 
         <section className="chooseItem">
-          <img className="chooseItem__image" src={image} alt={title} />
+          {/* <img className="chooseItem__image" src={image} alt={title} /> */}
+          <ImageGallery items={images} />;
 
           <div className="chooseItem__content">
             <div className="chooseItem__description">
