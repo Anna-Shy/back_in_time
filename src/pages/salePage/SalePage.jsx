@@ -5,7 +5,7 @@ import { Card } from "../../components/card/Card";
 import { Linkin } from "../../components/linkin/Linkin";
 import { Footer } from "../../components/footer/Footer";
 
-import { saleArray } from "./data";
+import { saleArray } from "../../source/data/sale";
 
 import "./salePage.scss";
 

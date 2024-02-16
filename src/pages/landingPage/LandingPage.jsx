@@ -11,7 +11,7 @@ import {
   about,
   genderArray,
   categoryArray,
-  renewalArray,
+  newArrivalsArray,
   saleArray
 } from "./data";
 
@@ -74,7 +74,7 @@ export const LandingPage = () => {
 
             <div className="renewal__carousel">
               <ScrollCarousel autoplay autoplaySpeed={4} speed={3}>
-                {renewalArray.map((item, index) => (
+                {newArrivalsArray.map((item, index) => (
                   <Card key={index} {...item} />
                 ))}
               </ScrollCarousel>

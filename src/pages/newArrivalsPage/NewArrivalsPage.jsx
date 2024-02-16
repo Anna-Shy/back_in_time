@@ -5,7 +5,7 @@ import { Card } from "../../components/card/Card";
 import { Linkin } from "../../components/linkin/Linkin";
 import { Footer } from "../../components/footer/Footer";
 
-import { newArrivalsArray } from "./data";
+import { newArrivalsArray } from "../../source/data/newArrivals";
 
 import "./newArrivalsPage.scss";
 
