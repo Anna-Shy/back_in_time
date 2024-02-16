@@ -1,8 +1,10 @@
 @import "../../styles/variable.scss";
 
 .sale {
-  background: $brown;
-  background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+  &-page{
+    background: $brown;
+    background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+  }
 
   &__main {
     padding: 38px 80px 80px;
