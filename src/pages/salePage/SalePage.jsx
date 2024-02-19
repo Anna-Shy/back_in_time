@@ -11,7 +11,7 @@ import "./salePage.scss";
 
 export const SalePage = () => {
   return (
-    <div className="sale-page">
+    <div className="sale__page">
       <Header icons />
 
       <main className="sale__main">

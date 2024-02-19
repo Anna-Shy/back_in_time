@@ -1,8 +1,8 @@
 @import "../../styles/variable.scss";
+@import "../../styles/service.scss";
 
 .contact {
-  background: $brown;
-  background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+  @include shadowPage;
 
   &__main {
     display: flex;
@@ -11,9 +11,7 @@
     padding: 28px 80px 300px 80px;
 
     .main__title {
-      font-size: 32px;
-      font-weight: 840;
-      line-height: 38px;
+      @include textSize($font32, $fontSuperBold, 38px);
       text-transform: uppercase;
       margin-bottom: 24px;
     }
@@ -32,9 +30,7 @@
         margin-top: 24px;
 
         &__title {
-          font-size: 20px;
-          font-weight: 840;
-          line-height: 24px;
+          @include textSize($font20, $fontSuperBold, 24px);
           text-transform: uppercase;
           margin-bottom: 12px;
         }
@@ -52,19 +48,15 @@
 
           .block-link,
           .block-text {
-            font-size: 24px;
-            font-weight: 500;
-            line-height: 130%;
+            @include textSize($font24, $fontNormal, 130%);
           }
 
           .block-text-attention {
-            font-size: 14px;
-            font-weight: 350;
+            @include textSize($font14, $fontSuperLight);
             margin-top: 12px;
-            
+
             .block-attention-span {
-              font-style: 18px;
-              font-weight: 700;
+              @include textSize($font18, $fontBold, 24px);
             }
           }
         }

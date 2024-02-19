@@ -11,7 +11,7 @@ import "./newArrivalsPage.scss";
 
 export const NewArrivalsPage = () => {
   return (
-    <div className="newArrivals-page">
+    <div className="newArrivals__page">
       <Header icons />
 
       <main className="newArrivals__main">

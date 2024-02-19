@@ -1,8 +1,8 @@
 @import "../../styles/variable.scss";
+@import "../../styles/service.scss";
 
 .error {
-  background: $brown;
-  background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+  @include shadowPage;
 
   &__main {
     background-image: url("../../source/img/error/error.png");
@@ -16,33 +16,19 @@
   }
 
   &__title {
-    font-size: 222px;
-    font-weight: 840;
-    line-height: 266px;
+    @include textSize(222px, $fontSuperBold, 266px);
     color: $brown;
     text-align: center;
   }
 
   &__text {
-    font-size: 42px;
-    font-weight: 840;
-    line-height: 50px;
+    @include textSize($font42, $fontSuperBold, 50px);
     text-align: center;
     margin-bottom: 42px;
   }
 
   &__btn {
-    padding: 10px 40px;
     margin-left: 330px;
-    font-size: $fontSmall;
-    font-weight: $fontNormal;
-    line-height: 130%;
-    text-transform: uppercase;
-    background-color: $brown;
-    color: $total_white;
-
-    &:hover {
-      background-color: $black;
-    }
+    @include lightLink;
   }
 }

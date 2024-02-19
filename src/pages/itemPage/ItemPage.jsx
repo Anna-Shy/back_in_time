@@ -29,16 +29,16 @@ import "react-image-gallery/styles/css/image-gallery.css";
 const images = [
   {
     original: "https://picsum.photos/id/1018/300/450/",
-    thumbnail: "https://picsum.photos/id/1018/150/225/",
+    thumbnail: "https://picsum.photos/id/1018/150/225/"
   },
   {
     original: "https://picsum.photos/id/1015/300/450/",
-    thumbnail: "https://picsum.photos/id/1015/150/225/",
+    thumbnail: "https://picsum.photos/id/1015/150/225/"
   },
   {
     original: "https://picsum.photos/id/1019/300/450/",
-    thumbnail: "https://picsum.photos/id/1019/150/225/",
-  },
+    thumbnail: "https://picsum.photos/id/1019/150/225/"
+  }
 ];
 
 export const ItemPage = () => {
@@ -86,7 +86,14 @@ export const ItemPage = () => {
 
         <section className="chooseItem">
           {/* <img className="chooseItem__image" src={image} alt={title} /> */}
-          <ImageGallery items={images} />;
+          <ImageGallery
+            items={images}
+            className="chooseItem__image"
+            showThumbnails={true}
+            showNav={true}
+            showFullscreenButton={false}
+            showPlayButton={false}
+          />
 
           <div className="chooseItem__content">
             <div className="chooseItem__description">

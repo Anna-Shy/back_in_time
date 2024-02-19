@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/responsive.scss";
+@import "../../styles/service.scss";
 
 .card {
   display: flex;
@@ -15,9 +16,7 @@
 
   &__title {
     text-align: center;
-    font-size: 24px;
-    font-weight: $fontNormal;
-    line-height: 130%;
+    @include textSize($font24, $fontNormal);
     text-transform: uppercase;
     margin-bottom: 12px;
 
@@ -30,14 +29,10 @@
 
   &__price {
     text-align: center;
-    font-size: $fontSmall;
-    font-weight: $fontNormal;
-    line-height: 130%;
+    @include textSize($font20, $fontNormal);
 
     @include sm {
-      font-size: 14px;
-      font-weight: 350;
-      line-height: 130%;
+      @include textSize($font14, $fontSuperLight);
     }
 
     .price-span {

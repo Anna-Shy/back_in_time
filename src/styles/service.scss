@@ -1,0 +1,35 @@
+@import "./variable.scss";
+
+@mixin shadowPage {
+  background: $brown;
+  background: linear-gradient(180deg, $brown 0%, $total_white 1.7%);
+}
+
+@mixin lightLink {
+  padding: 10px 40px;
+  background: $brown;
+  color: $total-white;
+  @include textSize($font20, $fontNormal, 130%);
+  text-transform: uppercase;
+
+  &:hover {
+    background: $black;
+  }
+}
+
+@mixin transparentLink {
+  padding: 10px 40px;
+  @include textSize($font20, $fontNormal, 130%);
+  text-transform: uppercase;
+  border: 1px solid $black;
+
+  &:hover {
+    background-color: $brown;
+  }
+}
+
+@mixin textSize($size: 14px, $weight: 500, $height: 130%) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+}

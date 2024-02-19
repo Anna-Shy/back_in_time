@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/responsive.scss";
+@import "../../styles/service.scss";
 
 .landing {
   &__header {
@@ -19,7 +20,7 @@
       padding: 36px 80px;
       margin-top: 115px;
 
-      color: $total_white;
+      color: $black;
 
       @include sm {
         background-image: url("../../source/img/landing/main_page_adaptive.png");
@@ -33,22 +34,17 @@
       }
 
       .header__title {
-        font-size: $fontLarge;
-        font-weight: $fontBold;
-        line-height: 130%;
+        @include textSize($font54, $fontBold, 130%);
         text-transform: uppercase;
 
         @include sm {
           text-align: center;
-          font-size: 32px;
-          font-weight: 840;
-          line-height: 38px;
+          @include textSize($font32, $fontSuperBold, 38px);
         }
       }
 
       .header__text {
-        font-size: $fontMedium;
-        font-weight: 350;
+        @include textSize($font28, $fontLight, 130%);
         margin-bottom: 48px;
 
         &-span {
@@ -57,24 +53,13 @@
 
         @include sm {
           text-align: center;
-          font-size: 24px;
-          font-weight: 500;
-          line-height: 130%;
+          @include textSize($font24, $fontBold, 130%);
           margin-bottom: 38px;
         }
       }
 
       .header__btn {
-        padding: 10px 40px;
-        background: $brown;
-        font-size: $fontSmall;
-        font-weight: $fontNormal;
-        line-height: 130%;
-        text-transform: uppercase;
-
-        &:hover {
-          background: $black;
-        }
+        @include lightLink;
 
         @include sm {
           margin-left: 46px;
@@ -145,24 +130,18 @@
 
   &__title {
     margin-bottom: 38px;
-    font-size: $fontLarge;
-    font-weight: $fontBold;
-    line-height: 130%;
+    @include textSize($font54, $fontBold, 130%);
     text-transform: uppercase;
 
     @include sm {
-      font-size: 20px;
-      font-weight: 840;
-      line-height: 24px;
+      @include textSize($font20, $fontSuperBold, 24px);
       margin-bottom: 12px;
     }
   }
 
   &__text {
     margin: 24px 0;
-    font-size: 24px;
-    font-weight: 200;
-    line-height: 130%;
+    @include textSize($font24, $fontSuperLight, 130%);
 
     &-span {
       font-weight: $fontNormal;
@@ -173,9 +152,7 @@
     }
 
     @include sm {
-      font-size: 14px;
-      font-weight: 350;
-      line-height: 130%;
+      @include textSize($font14, $fontSuperLight, 130%);
     }
   }
 
@@ -202,16 +179,12 @@
 
   &__title {
     text-align: center;
-    font-size: 42px;
-    font-weight: 840;
-    line-height: 50px;
+    @include textSize($font42, $fontSuperBold, 50px);
     text-transform: uppercase;
     margin-bottom: 74px;
 
     @include sm {
-      font-size: 20px;
-      font-weight: 840;
-      line-height: 24px;
+      @include textSize($font20, $fontSuperBold, 24px);
       margin-bottom: 18px;
     }
   }
@@ -229,23 +202,12 @@
   }
 
   &__btn {
-    padding: 10px 40px;
+    @include transparentLink;
     margin-left: 520px;
-    font-size: $fontSmall;
-    font-weight: $fontNormal;
-    line-height: 130%;
-    text-transform: uppercase;
-    border: 1px solid $black;
-
-    &:hover {
-      background-color: $brown;
-    }
 
     @include sm {
       margin-left: 100px;
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 130%;
+      @include textSize($font12, $fontNormal, 130%);
     }
   }
 }
@@ -334,17 +296,13 @@
   &__title {
     color: $total-white;
     margin: 76px 0 0 80px;
-    font-size: 42px;
-    font-weight: 840;
-    line-height: 50px;
+    @include textSize($font42, $fontSuperBold, 50px);
     text-transform: uppercase;
 
     @include sm {
       margin: 0;
       max-width: 350px;
-      font-size: 20px;
-      font-weight: 840;
-      line-height: 24px;
+      @include textSize($font20, $fontSuperBold, 24px);
     }
   }
 

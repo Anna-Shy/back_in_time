@@ -1,9 +1,9 @@
 @import "../../styles/variable.scss";
+@import "../../styles/service.scss";
 
 .itemPage {
   &__page {
-    background: $brown;
-    background: linear-gradient(180deg, $brown 0%, $total_white 2%);
+    @include shadowPage;
   }
 
   &__main {
@@ -27,39 +27,23 @@
         margin-bottom: 74px;
 
         .chooseItem__title {
-          font-size: 32px;
-          font-weight: 840;
-          line-height: 38px;
+          @include textSize($font32, $fontSuperBold, 38px);
           text-transform: uppercase;
         }
 
         .chooseItem__code {
-          font-size: 14px;
-          font-weight: 350;
-          line-height: 130%;
+          @include textSize($font14, $fontSuperLight, 130%);
           color: $grey;
           margin-bottom: 8px;
         }
 
         .chooseItem__price {
-          font-size: 24px;
-          font-weight: 500;
-          line-height: 130%;
+          @include textSize($font24, $fontNormal, 130%);
           margin-bottom: 24px;
         }
 
         .chooseItem__btn {
-          padding: 10px 40px;
-          font-size: $fontSmall;
-          font-weight: $fontNormal;
-          line-height: 130%;
-          text-transform: uppercase;
-          background-color: $brown;
-          color: $total_white;
-
-          &:hover {
-            background-color: $black;
-          }
+          @include lightLink;
         }
       }
 
@@ -71,9 +55,7 @@
 
       &__info {
         &-btn {
-          font-size: 20px;
-          font-weight: 840;
-          line-height: 24px;
+          @include textSize($font20, $fontSuperBold, 24px);
           text-transform: uppercase;
           width: 626px;
           border: none;
@@ -93,13 +75,11 @@
           width: 466px;
 
           .details__title {
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 22px;
+            @include textSize($font18, $fontBold, 22px);
             margin-bottom: 12px;
           }
 
-          .details-composition{
+          .details-composition {
             display: flex;
           }
 
@@ -113,9 +93,7 @@
           }
 
           .detail-text {
-            font-size: 14px;
-            font-weight: 350;
-            line-height: 130%;
+            @include textSize($font14, $fontSuperLight, 130%);
             margin-bottom: 12px;
 
             .details-text-span {
@@ -128,9 +106,7 @@
 
     .moreItem {
       &__title {
-        font-size: 42px;
-        font-weight: 840;
-        line-height: 50px;
+        @include textSize($font42, $fontSuperBold, 50px);
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 74px;
