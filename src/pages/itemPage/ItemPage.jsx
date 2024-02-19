@@ -26,21 +26,6 @@ import "react-image-gallery/styles/css/image-gallery.css";
 // composition: string
 // care: []
 
-const images = [
-  {
-    original: "https://picsum.photos/id/1018/300/450/",
-    thumbnail: "https://picsum.photos/id/1018/150/225/"
-  },
-  {
-    original: "https://picsum.photos/id/1015/300/450/",
-    thumbnail: "https://picsum.photos/id/1015/150/225/"
-  },
-  {
-    original: "https://picsum.photos/id/1019/300/450/",
-    thumbnail: "https://picsum.photos/id/1019/150/225/"
-  }
-];
-
 export const ItemPage = () => {
   const [isVisible, setIsVisible] = useState({
     description: false,
@@ -76,6 +61,24 @@ export const ItemPage = () => {
   } = Object.fromEntries(searchParams.entries());
 
   const care = careString ? JSON.parse(decodeURIComponent(careString)) : [];
+  const images = [
+    {
+      original: image,
+      thumbnail: image
+    },
+    {
+      original: "https://picsum.photos/id/1018/626/662/",
+      thumbnail: "https://picsum.photos/id/1018/134/134/"
+    },
+    {
+      original: "https://picsum.photos/id/1015/626/662/",
+      thumbnail: "https://picsum.photos/id/1015/134/134/"
+    },
+    {
+      original: "https://picsum.photos/id/1019/626/662/",
+      thumbnail: "https://picsum.photos/id/1019/134/134/"
+    }
+  ];
 
   return (
     <div className="itemPage__page">
@@ -85,7 +88,6 @@ export const ItemPage = () => {
         <Breadcrumbs />
 
         <section className="chooseItem">
-          {/* <img className="chooseItem__image" src={image} alt={title} /> */}
           <ImageGallery
             items={images}
             className="chooseItem__image"
