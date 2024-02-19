@@ -48,6 +48,7 @@ export const ItemPage = () => {
     title,
     code,
     price,
+    sale,
     info,
     state,
     size,
@@ -101,7 +102,7 @@ export const ItemPage = () => {
             <div className="chooseItem__description">
               <h2 className="chooseItem__title">{title}</h2>
               <p className="chooseItem__code">Код товару: {code}</p>
-              <p className="chooseItem__price">{price}</p>
+              <p className="chooseItem__price">{price} {sale && <span className="chooseItem__price-sale">{sale}</span>}</p>
 
               <Linkin text={"додати"} classStyle={"chooseItem__btn"} />
             </div>

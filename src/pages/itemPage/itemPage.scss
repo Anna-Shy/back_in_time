@@ -34,7 +34,7 @@
         margin-right: 30px;
       }
 
-      .image-gallery-thumbnail-image{
+      .image-gallery-thumbnail-image {
         width: 134px;
         height: 134px;
       }
@@ -77,6 +77,11 @@
         .chooseItem__price {
           @include textSize($font24, $fontNormal, 130%);
           margin-bottom: 24px;
+
+          &-sale {
+            color: $grey;
+            text-decoration: line-through;
+          }
         }
 
         .chooseItem__btn {
