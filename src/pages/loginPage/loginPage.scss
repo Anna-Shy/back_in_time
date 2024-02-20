@@ -1,0 +1,112 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+
+.login {
+  &__page {
+    @include shadowPage;
+  }
+
+  &__main {
+    display: flex;
+    gap: 160px;
+    padding: 88px 180px 342px 180px;
+    margin: 0 auto;
+
+    .main__signin {
+      width: 464px;
+
+      .signin__title {
+        @include textSize($font20, $fontSuperBold, 24px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .form__signin {
+        display: flex;
+        flex-direction: column;
+
+        &-email {
+          display: flex;
+          flex-direction: column;
+        }
+
+        &-label {
+          @include textSize($font18, $fontBold, 22px);
+        }
+
+        &-input {
+          width: 100%;
+          margin: 8px 0px;
+          padding: 14px;
+          border: 1px solid $grey;
+
+          .form__signin-input::placeholder {
+            font-family: "KyivTypeTitling-VarGX";
+            color: $black;
+            font-size: 16px;
+            font-weight: 350;
+            line-height: 19px;
+          }
+        }
+
+        .form__remember-label {
+          margin-left: 8px;
+          @include textSize($font14, $fontSuperLight);
+        }
+
+        &-btn {
+          @include lightLink;
+          font-family: "KyivTypeTitling-VarGX";
+          width: 162px;
+          border: none;
+          margin: 48px auto 24px auto;
+        }
+
+        &-link {
+          @include transparentLink;
+          width: 256px;
+          border: none;
+          margin-left: 102px;
+          color: $grey;
+        }
+      }
+    }
+
+    .main__signup {
+      .signup__title {
+        @include textSize($font20, $fontSuperBold, 24px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 52px;
+      }
+
+      .signup__link {
+        @include transparentLink;
+      }
+
+      .signup__info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 76px 34px;
+
+        &-block {
+          display: flex;
+          align-items: center;
+          gap: 22px;
+        }
+      }
+
+      .signup__text {
+        @include textSize($font14, $fontSuperLight);
+        text-align: center;
+        margin-bottom: 22px;
+      }
+
+      .long {
+        padding: 10px 190px;
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { CatalogPage } from './pages/catalogPage/CatalogPage';
 import { ContactPage } from './pages/contactPage/ContactPage';
 import { ErrorPage } from "./pages/errorPage/ErrorPage";
 import { ItemPage } from "./pages/itemPage/ItemPage";
+import { LoginPage } from "./pages/loginPage/LoginPage.jsx";
 
 import './styles/global.scss';
 
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
   {
     path: "/catalog/:itemId",
     element: <ItemPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
     errorElement: <ErrorPage />,
   }
 ]);
