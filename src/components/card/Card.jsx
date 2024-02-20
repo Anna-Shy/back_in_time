@@ -31,6 +31,10 @@ export const Card = ({
   composition,
   care
 }) => {
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     // images=images.join(",")
     <Link
@@ -53,6 +57,7 @@ export const Card = ({
       )}&composition=${composition}&care=${encodeURIComponent(
         JSON.stringify(care)
       )}`}
+      onClick={handleClick}
     >
       <div className="card">
         <img className="card__image" src={image} alt={title} />
