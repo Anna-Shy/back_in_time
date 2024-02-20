@@ -24,7 +24,7 @@ export const Breadcrumbs = () => {
             color:
               index === breadcrumbs.length - 1
                 ? "#000"
-                : "rgba(47, 47, 47, 0.35)"
+                : "#707070"
           }}
         >
           {breadcrumb}
