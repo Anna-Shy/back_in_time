@@ -5,7 +5,7 @@ import ImageGallery from "react-image-gallery";
 
 import { Header } from "../../components/header/Header";
 import { Breadcrumbs } from "../../components/breadcrumbs/Breadcrumbs";
-import { Linkin } from "../../components/linkin/Linkin";
+import { Modal } from "../../components/modal/Modal";
 import { Card } from "../../components/card/Card";
 import { Footer } from "../../components/footer/Footer";
 
@@ -32,6 +32,10 @@ export const ItemPage = () => {
     care: false,
     delivery: false
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const toggleVisibility = (key) => {
     setIsVisible((prevState) => ({
@@ -109,8 +113,9 @@ export const ItemPage = () => {
                 )}
               </p>
 
-              <Linkin text={"додати"} classStyle={"chooseItem__btn"} />
-            </div>
+              <button className="chooseItem__btn" onClick={openModal}>додати</button>
+              <Modal isOpen={isModalOpen} onClose={closeModal} image={images[0].original} title={title} price={price}/>
+             </div>
 
             <div className="divider"></div>
             <div className="chooseItem__info">

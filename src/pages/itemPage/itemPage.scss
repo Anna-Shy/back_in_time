@@ -22,16 +22,23 @@
       .image-gallery-slide-wrapper,
       .image-gallery-thumbnail {
         border: 1px solid $grey;
+        z-index: 1;
       }
 
       .image-gallery-thumbnails-container {
         text-align: left;
+        display: flex;
+        gap: 30px;
+        cursor: auto;
       }
 
       .image-gallery-thumbnail {
         width: 134px;
         height: 134px;
-        margin-right: 30px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       .image-gallery-thumbnail-image {
@@ -86,6 +93,8 @@
 
         .chooseItem__btn {
           @include lightLink;
+          font-family: "KyivTypeTitling-VarGX";
+          border: none;
         }
       }
 
@@ -105,6 +114,10 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
 
         &-arrow {
