@@ -9,6 +9,7 @@
   padding: 10px 40px;
   background: $brown;
   color: $total-white;
+  text-align: center;
   @include textSize($font20, $fontNormal, 130%);
   text-transform: uppercase;
 
@@ -19,6 +20,7 @@
 
 @mixin transparentLink {
   padding: 10px 40px;
+  text-align: center;
   @include textSize($font20, $fontNormal, 130%);
   text-transform: uppercase;
   border: 1px solid $black;
