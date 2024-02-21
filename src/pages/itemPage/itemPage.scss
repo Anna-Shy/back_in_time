@@ -22,6 +22,7 @@
       .image-gallery-slide-wrapper,
       .image-gallery-thumbnail {
         border: 1px solid $grey;
+        z-index: 1;
       }
 
       .image-gallery-thumbnails-container {
@@ -92,6 +93,8 @@
 
         .chooseItem__btn {
           @include lightLink;
+          font-family: "KyivTypeTitling-VarGX";
+          border: none;
         }
       }
 
