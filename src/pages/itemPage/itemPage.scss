@@ -26,12 +26,14 @@
 
       .image-gallery-thumbnails-container {
         text-align: left;
+        display: flex;
+        gap: 30px;
+        cursor: auto;
       }
 
       .image-gallery-thumbnail {
         width: 134px;
         height: 134px;
-        margin-right: 30px;
 
         &:hover {
           cursor: pointer;
