@@ -4,24 +4,45 @@ import axios from "axios";
 import { Header } from "../../components/header/Header";
 import { Linkin } from "../../components/linkin/Linkin";
 import { Footer } from "../../components/footer/Footer";
+import { Input } from "../../components/input/Input";
+import { Checkbox } from "../../components/checkbox/Checkbox";
 
 import sale from "../../source/svg/icons/login/sale.svg";
 import history from "../../source/svg/icons/login/history.svg";
 import delivery from "../../source/svg/icons/login/delivery.svg";
+import alertIcon from '../../source/svg/icons/alert.svg';
 
 import "./loginPage.scss";
+
+const REG_EXP_EMAIL = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/);
+
+const REG_EXP_PASSWORD = new RegExp(
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+);
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const [alert, setAlert] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!REG_EXP_EMAIL.test(email) || !REG_EXP_PASSWORD.test(password)) {
+      setAlert(true);
+      return;
+    }
+ 
     try {
-      await axios.post(`http://localhost:80/login`, { email, password });
-    } catch (err) {
-      console.log(err);
+      const response = await axios.post(
+        "https://back-in-time-shop-api.onrender.com/api/v1/auth/login",
+        { email, password, rememberMe }
+      );
+      console.log("Allowed methods:", response.headers.allow);
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -33,53 +54,36 @@ export const LoginPage = () => {
         <div className="main__signin">
           <h2 className="signin__title">Вже проходили реєстрацію?</h2>
 
+          {alert && (
+            <div className="alert">
+              <img className="alert-icon" src={alertIcon} alt="alert" />
+              <h2 className="alert-text">Недійсний email або пароль.</h2>
+            </div>
+          )}
+
           <form className="form__signin" onSubmit={handleSubmit}>
-            <div className="form__signin-email">
-              <label htmlFor="email" className="form__signin-label">
-                Email*
-              </label>
-              <input
-                id="email"
-                className="form__signin-input"
-                type="email"
-                value={email}
-                onChange={(event) => {
-                  setEmail(event.target.value);
-                }}
-                placeholder="Email"
-                required
-              />
-            </div>
+            <Input
+              label={"Email"}
+              id={"email"}
+              type={"email"}
+              value={email}
+              setValue={setEmail}
+              className={alert ? "input-alert" : ""}
+            />
+            <Input
+              label={"Пароль"}
+              type={"password"}
+              value={password}
+              setValue={setPassword}
+              className={alert ? "input-alert" : ""}
+            />
 
-            <div className="form__signin-password">
-              <label htmlFor="password" className="form__signin-label">
-                Пароль*
-              </label>
-              <input
-                id="password"
-                className="form__signin-input"
-                type="password"
-                value={password}
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                }}
-                placeholder="Пароль"
-                required
-              />
-            </div>
-
-            <div className="form__signin-checkbtn">
-              <input
-                type="checkbox"
-                id="remember"
-                name="remember"
-                value="remember"
-                className="form__signin-check"
-              />
-              <label htmlFor="remember" className="form__remember-label">
-                Запам`ятати мене
-              </label>
-            </div>
+            <Checkbox
+              label={"Запам`ятати мене"}
+              id={"remember"}
+              value={rememberMe}
+              setValue={setRememberMe}
+            />
 
             <button type="submit" className="form__signin-btn">
               увійти
@@ -97,7 +101,7 @@ export const LoginPage = () => {
           <h2 className="signup__title">це ваш перший візит?</h2>
 
           <Linkin
-            link={"#"}
+            link={"/regist"}
             text={"створити особийстий кабінет"}
             classStyle={"signup__link"}
           />

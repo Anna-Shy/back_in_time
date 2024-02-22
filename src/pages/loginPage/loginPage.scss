@@ -8,12 +8,13 @@
 
   &__main {
     display: flex;
+    justify-content: space-between;
     gap: 160px;
     padding: 88px 180px 342px 180px;
     margin: 0 auto;
 
     .main__signin {
-      width: 464px;
+      width: 100%;
 
       .signin__title {
         @include textSize($font20, $fontSuperBold, 24px);
@@ -22,53 +23,46 @@
         margin-bottom: 48px;
       }
 
+      .alert {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 48px;
+
+        &-icon {
+          width: 30px;
+          height: 30px;
+        }
+
+        &-text {
+          @include textSize($font24, $fontNormal);
+          color: $red;
+        }
+      }
+
       .form__signin {
         display: flex;
         flex-direction: column;
-
-        &-email {
-          display: flex;
-          flex-direction: column;
-        }
-
-        &-label {
-          @include textSize($font18, $fontBold, 22px);
-        }
-
-        &-input {
-          width: 100%;
-          margin: 8px 0px;
-          padding: 14px;
-          border: 1px solid $grey;
-
-          .form__signin-input::placeholder {
-            font-family: "KyivTypeTitling-VarGX";
-            color: $black;
-            font-size: 16px;
-            font-weight: 350;
-            line-height: 19px;
-          }
-        }
-
-        .form__remember-label {
-          margin-left: 8px;
-          @include textSize($font14, $fontSuperLight);
-        }
+        gap: 34px;
 
         &-btn {
           @include lightLink;
           font-family: "KyivTypeTitling-VarGX";
           width: 162px;
           border: none;
-          margin: 48px auto 24px auto;
+          margin: 12px auto 0 auto;
         }
 
         &-link {
           @include transparentLink;
           width: 256px;
           border: none;
-          margin-left: 102px;
+          margin-left: 138px;
           color: $grey;
+        }
+
+        .input-alert {
+          border: 1px solid $red;
         }
       }
     }

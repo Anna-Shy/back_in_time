@@ -10,7 +10,8 @@ import { CatalogPage } from './pages/catalogPage/CatalogPage';
 import { ContactPage } from './pages/contactPage/ContactPage';
 import { ErrorPage } from "./pages/errorPage/ErrorPage";
 import { ItemPage } from "./pages/itemPage/ItemPage";
-import { LoginPage } from "./pages/loginPage/LoginPage.jsx";
+import { LoginPage } from "./pages/loginPage/LoginPage";
+import { RegisterPage } from "./pages/registerPage/RegisterPage";
 
 import './styles/global.scss';
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/regist",
+    element: <RegisterPage />,
     errorElement: <ErrorPage />,
   }
 ]);
