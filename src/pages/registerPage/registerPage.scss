@@ -1,0 +1,75 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+
+.register {
+  &__page {
+    @include shadowPage;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    gap: 216px;
+    padding: 88px 180px 180px 180px;
+    margin: 0 auto;
+
+    .main__login {
+      width: 464px;
+
+      .login__title {
+        @include textSize($font20, $fontSuperBold, 24px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .login__link {
+        @include transparentLink;
+        margin-left: 142px;
+      }
+    }
+
+    .main__register {
+      width: 460px;
+
+      .register__title {
+        @include textSize($font20, $fontSuperBold, 24px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 44px;
+      }
+
+      .form__register {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+
+        &-block {
+          display: flex;
+          justify-content: space-between;
+          gap: 24px;
+        }
+
+        &-btn {
+          @include lightLink;
+          font-family: "KyivTypeTitling-VarGX";
+          width: 200px;
+          border: none;
+          margin: 12px auto 12px auto;
+        }
+      }
+
+      .register__text {
+        width: 350px;
+        margin-left: 52px;
+        text-align: center;
+        @include textSize($font12, $fontLight);
+        color: $grey;
+
+        &-textLink {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
