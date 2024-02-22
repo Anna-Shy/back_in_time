@@ -1,0 +1,57 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+
+.forgotPass {
+  &__page {
+    @include shadowPage;
+  }
+
+  &__main {
+    padding: 154px 388px 422px 388px;
+    text-align: center;
+
+    .main {
+      &__title {
+        @include textSize($font32, $fontSuperBold, 38px);
+        text-transform: uppercase;
+        margin-bottom: 48px;
+      }
+
+      &__text {
+        @include textSize($font24, 200);
+      }
+
+      &__input {
+        width: 436px;
+        margin: 32px 114px;
+        padding: 14px;
+        border: 1px solid $grey;
+
+        &::placeholder {
+          font-family: "KyivTypeTitling-VarGX";
+          color: $black;
+          font-size: 16px;
+          font-weight: 350;
+          line-height: 19px;
+        }
+      }
+
+      &-block {
+        display: flex;
+        gap: 24px;
+        width: 436px;
+        margin: 0 154px;
+      }
+
+      &__link-aprove {
+        @include lightLink;
+      }
+
+      &__link-cancel {
+        @include transparentLink;
+        color: $grey;
+        border: none;
+      }
+    }
+  }
+}

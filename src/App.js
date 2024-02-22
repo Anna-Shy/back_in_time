@@ -12,6 +12,7 @@ import { ErrorPage } from "./pages/errorPage/ErrorPage";
 import { ItemPage } from "./pages/itemPage/ItemPage";
 import { LoginPage } from "./pages/loginPage/LoginPage";
 import { RegisterPage } from "./pages/registerPage/RegisterPage";
+import { ForgotPassPage } from "./pages/forgotPassPage/ForgotPassPage";
 
 import './styles/global.scss';
 
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/forgotpass",
+    element: <ForgotPassPage />,
     errorElement: <ErrorPage />,
   },
   {

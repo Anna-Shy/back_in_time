@@ -128,7 +128,7 @@
           padding: 14px;
           border: 1px solid $grey;
 
-          .form__contact-input::placeholder {
+          &::placeholder {
             font-family: "KyivTypeTitling-VarGX";
             color: $black;
             font-size: 16px;

@@ -91,7 +91,7 @@ export const LoginPage = () => {
             </button>
 
             <Linkin
-              link={"#"}
+              link={"/forgotpass"}
               text={"забув пароль?"}
               classStyle={"form__signin-link"}
             />
