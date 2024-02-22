@@ -9,12 +9,6 @@ import { Checkbox } from "../../components/checkbox/Checkbox";
 
 import "./registerPage.scss";
 
-const REG_EXP_EMAIL = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/);
-
-const REG_EXP_PASSWORD = new RegExp(
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-);
-
 export const RegisterPage = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -27,18 +21,6 @@ export const RegisterPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (!REG_EXP_EMAIL) {
-      alert("Пожалуйста, введите корректный email адрес");
-      return;
-    }
-
-    if (!REG_EXP_PASSWORD) {
-      alert(
-        "Пароль должен содержать не менее 8 символов, включая цифры, заглавные и строчные буквы"
-      );
-      return;
-    }
 
     try {
       const response = await axios.post(

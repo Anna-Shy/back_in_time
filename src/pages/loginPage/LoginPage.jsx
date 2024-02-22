@@ -14,6 +14,7 @@ import alertIcon from '../../source/svg/icons/alert.svg';
 
 import "./loginPage.scss";
 
+// eslint-disable-next-line no-useless-escape
 const REG_EXP_EMAIL = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/);
 
 const REG_EXP_PASSWORD = new RegExp(
