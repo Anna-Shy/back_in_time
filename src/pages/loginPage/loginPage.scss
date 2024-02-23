@@ -1,0 +1,106 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+
+.login {
+  &__page {
+    @include shadowPage;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    gap: 160px;
+    padding: 88px 180px 342px 180px;
+    margin: 0 auto;
+
+    .main__signin {
+      width: 100%;
+
+      .signin__title {
+        @include textSize($font20, $fontSuperBold, 24px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .alert {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 48px;
+
+        &-icon {
+          width: 30px;
+          height: 30px;
+        }
+
+        &-text {
+          @include textSize($font24, $fontNormal);
+          color: $red;
+        }
+      }
+
+      .form__signin {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+
+        &-btn {
+          @include lightLink;
+          font-family: "KyivTypeTitling-VarGX";
+          width: 162px;
+          border: none;
+          margin: 12px auto 0 auto;
+        }
+
+        &-link {
+          @include transparentLink;
+          width: 256px;
+          border: none;
+          margin-left: 138px;
+          color: $grey;
+        }
+
+        .input-alert {
+          border: 1px solid $red;
+        }
+      }
+    }
+
+    .main__signup {
+      .signup__title {
+        @include textSize($font20, $fontSuperBold, 24px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 52px;
+      }
+
+      .signup__link {
+        @include transparentLink;
+      }
+
+      .signup__info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 76px 34px;
+
+        &-block {
+          display: flex;
+          align-items: center;
+          gap: 22px;
+        }
+      }
+
+      .signup__text {
+        @include textSize($font14, $fontSuperLight);
+        text-align: center;
+        margin-bottom: 22px;
+      }
+
+      .long {
+        padding: 10px 190px;
+      }
+    }
+  }
+}

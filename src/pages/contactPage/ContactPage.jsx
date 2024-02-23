@@ -89,7 +89,7 @@ export const ContactPage = () => {
 
               <p className="block-text-attention">
                 <span className="block-attention-span">Увага:</span> У зв`язку з
-                військовим становищем - можливі відхилання у графіку
+                військовим становищем - можливі відхилення у графіку
               </p>
             </div>
           </div>

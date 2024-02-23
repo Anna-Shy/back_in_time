@@ -32,7 +32,7 @@ export const Menu = ({ link, icons }) => {
             </li>
             <li className="menu__item">
               <Linkin
-                link={"#"}
+                link={"/login"}
                 img={link ? personWhiteIcon : personBlackIcon}
               />
             </li>
