@@ -11,6 +11,11 @@
     background-position: top center;
     background-size: cover;
 
+    @include s {
+      background: none;
+      min-height: 0;
+    }
+
     @include sm {
       background: none;
       min-height: 0;
@@ -22,20 +27,30 @@
 
       color: $total_black;
 
-      @include sm {
-        background-image: url("../../source/img/landing/main_page_adaptive.png");
-        mask-repeat: no-repeat;
-        background-position: top center;
-        background-size: cover;
+      @include s {
+        background-color: $total-white;
         margin-top: 0;
         max-height: 100vh;
-        height: 396px;
+        height: 375px;
+        padding: 80px 58px 0 60px;
+      }
+
+      @include sm {
+        background-color: $total-white;
+        margin-top: 0;
+        max-height: 100vh;
+        height: 394px;
         padding: 80px 58px 0 60px;
       }
 
       .header__title {
         @include textSize($font54, $fontBold, 130%);
         text-transform: uppercase;
+
+        @include s {
+          text-align: center;
+          @include textSize($font32, $fontSuperBold, 38px);
+        }
 
         @include sm {
           text-align: center;
@@ -51,6 +66,12 @@
           font-weight: 840;
         }
 
+        @include s {
+          text-align: center;
+          @include textSize($font24, $fontBold, 130%);
+          margin-bottom: 38px;
+        }
+
         @include sm {
           text-align: center;
           @include textSize($font24, $fontBold, 130%);
@@ -61,8 +82,14 @@
       .header__btn {
         @include lightLink;
 
+        @include s {
+          margin-left: 74px;
+          @include textSize($font12, $fontNormal, 130%);
+        }
+
         @include sm {
-          margin-left: 46px;
+          margin-left: 60px;
+          @include textSize($font12, $fontNormal, 130%);
         }
       }
     }
@@ -76,6 +103,11 @@
     justify-content: space-between;
     align-items: center;
 
+    @include s {
+      padding: 0;
+      flex-direction: column;
+    }
+
     @include sm {
       padding: 0;
       flex-direction: column;
@@ -83,7 +115,7 @@
   }
 
   &__link {
-    @media screen and (min-width: 392px) {
+    @media screen and (min-width: 428px) {
       &:nth-child(4),
       &:nth-child(5),
       &:nth-child(6) {
@@ -91,7 +123,7 @@
       }
     }
 
-    @media screen and (max-width: 391px) {
+    @media screen and (max-width: 427px) {
       height: 80px;
 
       &:nth-child(1),
@@ -105,6 +137,14 @@
   &__img {
     max-width: 100%;
     height: auto;
+
+    @include s {
+      width: 426px;
+    }
+
+    @include sm {
+      width: 390px;
+    }
   }
 }
 
@@ -117,6 +157,11 @@
     justify-content: space-between;
     align-items: center;
     color: #fff;
+
+    @include s {
+      padding: 24px 24px 0 20px;
+      flex-direction: column;
+    }
 
     @include sm {
       padding: 18px 22px 0 20px;
@@ -133,6 +178,11 @@
     @include textSize($font54, $fontBold, 130%);
     text-transform: uppercase;
 
+    @include s {
+      @include textSize($font20, $fontSuperBold, 24px);
+      margin-bottom: 12px;
+    }
+
     @include sm {
       @include textSize($font20, $fontSuperBold, 24px);
       margin-bottom: 12px;
@@ -144,11 +194,19 @@
     @include textSize($font24, $fontSuperLight, 130%);
 
     &-span {
-      font-weight: $fontNormal;
+      font-weight: $fontBold;
+
+      @include s {
+        font-size: 18px;
+      }
 
       @include sm {
         font-size: 18px;
       }
+    }
+
+    @include s {
+      @include textSize($font14, $fontSuperLight, 130%);
     }
 
     @include sm {
@@ -159,6 +217,11 @@
   &__img {
     width: 100%;
     margin-left: 24px;
+
+    @include s {
+      width: 426px;
+      margin-left: 0;
+    }
 
     @include sm {
       width: 390px;
@@ -172,6 +235,10 @@
   &__inner {
     padding: 80px;
 
+    @include s {
+      padding: 24px 0;
+    }
+
     @include sm {
       padding: 24px 0;
     }
@@ -182,6 +249,11 @@
     @include textSize($font42, $fontSuperBold, 50px);
     text-transform: uppercase;
     margin-bottom: 74px;
+
+    @include s {
+      @include textSize($font20, $fontSuperBold, 24px);
+      margin-bottom: 18px;
+    }
 
     @include sm {
       @include textSize($font20, $fontSuperBold, 24px);
@@ -196,6 +268,10 @@
   .sc-slide {
     margin-right: 26px !important;
 
+    @include s {
+      margin-right: 16px !important;
+    }
+
     @include sm {
       margin-right: 16px !important;
     }
@@ -204,6 +280,11 @@
   &__btn {
     @include transparentLink;
     margin-left: 520px;
+
+    @include s {
+      margin-left: 120px;
+      @include textSize($font12, $fontNormal, 130%);
+    }
 
     @include sm {
       margin-left: 100px;
@@ -215,6 +296,10 @@
 .gender {
   &__inner {
     display: flex;
+
+    @include s {
+      flex-direction: column;
+    }
 
     @include sm {
       width: 390px;
@@ -278,6 +363,12 @@
     grid-auto-rows: minmax(auto, 288px);
     grid-auto-flow: dense;
 
+    @include s {
+      padding: 18px 0 36px 20px;
+      grid-template-rows: auto auto;
+      gap: 22px 0;
+    }
+
     @include sm {
       padding: 18px 0 36px 20px;
       grid-template-rows: auto auto;
@@ -287,6 +378,10 @@
 
   .big {
     grid-column: span 2;
+
+    @include s {
+      grid-column: span 8;
+    }
 
     @include sm {
       grid-column: span 8;
@@ -299,6 +394,12 @@
     @include textSize($font42, $fontSuperBold, 50px);
     text-transform: uppercase;
 
+    @include s {
+      margin: 0;
+      max-width: 350px;
+      @include textSize($font20, $fontSuperBold, 24px);
+    }
+
     @include sm {
       margin: 0;
       max-width: 350px;
@@ -310,9 +411,25 @@
     width: 100%;
     height: 288px;
 
+    @include s {
+      width: 122px;
+      height: 122px;
+    }
+
     @include sm {
       width: 122px;
       height: 122px;
+    }
+
+    @media screen and (max-width: 427px) {
+      &:nth-child(1),
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(9) {
+        display: none;
+      }
     }
   }
 }

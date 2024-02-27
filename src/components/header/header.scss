@@ -1,5 +1,6 @@
 @import "../../styles//variable.scss";
 @import "../../styles/responsive.scss";
+@import "../../styles/service.scss";
 
 .header {
   &__inner {
@@ -7,17 +8,30 @@
     justify-content: space-between;
     padding: 36px 80px;
 
+    @include s {
+      padding: 0;
+    }
+
     @include sm {
       padding: 0;
     }
   }
 
+  @include s {
+    padding: 20px 24px;
+    @include shadowAdaptivePage;
+  }
+
   @include sm {
     padding: 20px 24px;
-    background: linear-gradient($brown, $total-white);
+    @include shadowAdaptivePage;
   }
 
   .menu {
+    @include s {
+      display: none;
+    }
+
     @include sm {
       display: none;
     }
@@ -27,6 +41,10 @@
     width: 24px;
     height: 24px;
     display: none;
+
+    @include s {
+      display: block;
+    }
 
     @include sm {
       display: block;

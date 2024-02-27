@@ -13,6 +13,11 @@
   &__inner {
     padding: 36px 80px;
 
+    @include s {
+      padding: 12px 20px;
+      height: 1130px;
+    }
+
     @include sm {
       padding: 12px 20px;
       height: 1130px;
@@ -25,6 +30,12 @@
     justify-content: center;
     gap: 126px;
     margin-bottom: 34px;
+
+    @include s {
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
 
     @include sm {
       flex-direction: column;
@@ -42,6 +53,10 @@
   .divider {
     border: 2px solid $total-white;
 
+    @include s {
+      border: 1px solid $total-white;
+    }
+
     @include sm {
       border: 1px solid $total-white;
     }
@@ -51,6 +66,10 @@
     display: flex;
     color: $total-white;
     margin-top: 32px;
+
+    @include s {
+      flex-direction: column;
+    }
 
     @include sm {
       flex-direction: column;
@@ -84,6 +103,10 @@
       .menu {
         margin-bottom: 65px;
 
+        @include s {
+          margin-bottom: 32px;
+        }
+
         @include sm {
           margin-bottom: 32px;
         }
@@ -94,6 +117,10 @@
       width: 465px;
       margin-left: auto;
 
+      @include s {
+        width: 386px;
+      }
+
       @include sm {
         width: 350px;
       }
@@ -102,6 +129,10 @@
         font-size: 18px;
         font-weight: $fontBold;
         margin-bottom: 24px;
+
+        @include s {
+          margin-bottom: 12px;
+        }
 
         @include sm {
           margin-bottom: 12px;
@@ -218,6 +249,13 @@
         font-size: 10px;
         font-weight: $fontNormal;
         line-height: 12px;
+      }
+
+      @include s {
+        left: 69px;
+        right: 69px;
+        top: 1038px;
+        bottom: 24px;
       }
 
       @include sm {

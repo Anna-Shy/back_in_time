@@ -5,6 +5,11 @@
   background: linear-gradient(180deg, $brown 0%, $total_white 1.7%);
 }
 
+@mixin shadowAdaptivePage {
+  background: $brown;
+  background: linear-gradient(180deg, $brown 0%, $total_white 22px);
+}
+
 @mixin lightLink {
   padding: 10px 40px;
   background: $brown;

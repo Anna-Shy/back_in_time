@@ -9,6 +9,11 @@
   width: 300px;
   margin-bottom: 50px;
 
+  @include s {
+    width: 166px;
+    margin-bottom: 18px;
+  }
+
   @include sm {
     width: 166px;
     margin-bottom: 18px;
@@ -20,6 +25,12 @@
     text-transform: uppercase;
     margin-bottom: 12px;
 
+    @include s {
+      font-size: 14px;
+      font-weight: 350;
+      line-height: 130%;
+    }
+
     @include sm {
       font-size: 14px;
       font-weight: 350;
@@ -30,6 +41,10 @@
   &__price {
     text-align: center;
     @include textSize($font20, $fontNormal);
+
+    @include s {
+      @include textSize($font14, $fontSuperLight);
+    }
 
     @include sm {
       @include textSize($font14, $fontSuperLight);
