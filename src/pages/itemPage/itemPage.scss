@@ -95,6 +95,10 @@
           @include lightLink;
           font-family: "KyivTypeTitling-VarGX";
           border: none;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 
