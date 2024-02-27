@@ -116,7 +116,7 @@ export const RegisterPage = () => {
               text={"Правилами сайту"}
               classStyle={"register__text-textLink"}
             />{" "}
-            та умовами
+            та умовами{" "} 
             <Linkin
               link={"#"}
               text={"Політики конфіденційності"}
