@@ -65,7 +65,6 @@ export const LoginPage = () => {
           <form className="form__signin" onSubmit={handleSubmit}>
             <Input
               label={"Email"}
-              id={"email"}
               type={"email"}
               value={email}
               setValue={setEmail}
