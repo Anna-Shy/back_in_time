@@ -34,7 +34,6 @@ export const Modal = ({ isOpen, onClose, image, title, price }) => {
 
         <div className="modal__btn">
           <Linkin link={"/"} text={"в кошик"} classStyle="modal__btn-basket" />
-          <Linkin link={"/"} text={"оформити"} classStyle="modal__btn-buy" />
           <button className="modal__btn-continue" onClick={onClose}>
             продовжити покупки
           </button>

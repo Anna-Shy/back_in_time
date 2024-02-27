@@ -16,7 +16,7 @@
 
 .modal {
   width: 650px;
-  height: 642px;
+  height: 560px;
   background-color: $total_white;
   padding: 22px 40px;
 
@@ -60,6 +60,7 @@
       .content-title {
         @include textSize($font24, $fontNormal);
         margin-bottom: 20px;
+        text-transform: uppercase
       }
 
       .content-price {
@@ -75,11 +76,6 @@
     padding: 0 100px;
 
     &-basket {
-      @include transparentLink;
-      padding: 18px 54px;
-    }
-
-    &-buy {
       @include lightLink;
       padding: 18px 54px;
     }
@@ -92,7 +88,7 @@
       background-color: transparent;
       color: $grey;
 
-      &:hover{
+      &:hover {
         color: $total-white;
       }
     }
