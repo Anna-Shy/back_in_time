@@ -2,7 +2,7 @@ import React from "react";
 
 import "./input.scss";
 
-export const Input = ({ label, id, type, value, setValue }) => {
+export const Input = ({ label, id, type, value, setValue, alert }) => {
   return (
     <div className="block__input">
       <label htmlFor={id} className="block__input-label">
@@ -10,7 +10,7 @@ export const Input = ({ label, id, type, value, setValue }) => {
       </label>
       <input
         id={id}
-        className="block__input-input"
+        className={`block__input-input ${alert ? 'input-alert' : ''}`}
         type={type}
         value={value}
         onChange={(event) => {

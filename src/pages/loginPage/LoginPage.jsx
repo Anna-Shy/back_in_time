@@ -10,7 +10,7 @@ import { Checkbox } from "../../components/checkbox/Checkbox";
 import sale from "../../source/svg/icons/login/sale.svg";
 import history from "../../source/svg/icons/login/history.svg";
 import delivery from "../../source/svg/icons/login/delivery.svg";
-import alertIcon from '../../source/svg/icons/alert.svg';
+import alertIcon from "../../source/svg/icons/alert.svg";
 
 import "./loginPage.scss";
 
@@ -35,7 +35,7 @@ export const LoginPage = () => {
       setAlert(true);
       return;
     }
- 
+
     try {
       const response = await axios.post(
         "https://back-in-time-shop-api.onrender.com/api/v1/auth/login",
@@ -69,14 +69,14 @@ export const LoginPage = () => {
               type={"email"}
               value={email}
               setValue={setEmail}
-              className={alert ? "input-alert" : ""}
+              alert={alert ? alert : null}
             />
             <Input
               label={"Пароль"}
               type={"password"}
               value={password}
               setValue={setPassword}
-              className={alert ? "input-alert" : ""}
+              alert={alert ? alert : null}
             />
 
             <Checkbox
