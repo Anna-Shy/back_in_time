@@ -25,7 +25,7 @@
       padding: 36px 80px;
       margin-top: 115px;
 
-      color: $total_black;
+      color: $black;
 
       @include s {
         background-color: $total-white;
@@ -246,6 +246,7 @@
 
   &__title {
     text-align: center;
+    color: $black;
     @include textSize($font42, $fontSuperBold, 50px);
     text-transform: uppercase;
     margin-bottom: 74px;

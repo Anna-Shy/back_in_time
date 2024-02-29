@@ -8,6 +8,7 @@
 
   &__main {
     padding: 38px 80px 80px;
+    color: $black;
 
     .main__title {
       @include textSize($font42, $fontSuperBold, 50px);
