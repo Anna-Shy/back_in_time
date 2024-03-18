@@ -22,8 +22,13 @@ export const RegisterPage = () => {
 
     try {
       const response = await axios.post(
-        "https://back-in-time-shop-api.onrender.com/api/v1/auth/register",
-        { email, firstname, lastname, password, rememberMe }
+        "https://backintimeshopapi-1-2-1.onrender.com/api/v1/auth/register",
+        {
+          firstName: firstname,
+          lastName: lastname,
+          email: email,
+          password: password
+        }
       );
       console.log("Allowed methods:", response.headers.allow);
     } catch (error) {
