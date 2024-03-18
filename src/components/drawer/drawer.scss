@@ -1,0 +1,62 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 66%;
+  height: 100%;
+  background: $brown;
+  background: linear-gradient(0deg, $brown 0, 1%, $total_white 20%);
+  z-index: 1;
+}
+
+.drawer {
+  padding: 24px 24px;
+
+  &__menu {
+    list-style: none;
+
+    .menu__item {
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: 1px solid $total_black;
+      padding: 7px 0;
+
+      .item-btn {
+        border: none;
+        background-color: transparent;
+
+        .icon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .item-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 12px;
+      }
+
+      .item-text {
+        @include textSize($font18, $fontBold);
+        color: $black;
+      }
+
+      .item-input {
+        text-align: right;
+        border: none;
+
+        &::placeholder {
+          font-family: "KyivTypeTitling-VarGX";
+          color: $grey;
+          font-size: 16px;
+          font-weight: 350;
+          line-height: 19px;
+        }
+      }
+    }
+  }
+}

@@ -49,6 +49,8 @@
     width: 24px;
     height: 24px;
     display: none;
+    border: none;
+    background-color: transparent;
 
     @include s {
       display: block;
