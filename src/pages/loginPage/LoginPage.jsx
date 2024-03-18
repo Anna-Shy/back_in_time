@@ -7,6 +7,8 @@ import { Footer } from "../../components/footer/Footer";
 import { Input } from "../../components/input/Input";
 import { Checkbox } from "../../components/checkbox/Checkbox";
 
+import google from "../../source/svg/icons/login/google.svg";
+
 import sale from "../../source/svg/icons/login/sale.svg";
 import history from "../../source/svg/icons/login/history.svg";
 import delivery from "../../source/svg/icons/login/delivery.svg";
@@ -38,8 +40,11 @@ export const LoginPage = () => {
 
     try {
       const response = await axios.post(
-        "https://back-in-time-shop-api.onrender.com/api/v1/auth/login",
-        { email, password, rememberMe }
+        "https://backintimeshopapi-1-2-1.onrender.com/api/v1/auth/login",
+        {
+          email: email,
+          password: password
+        }
       );
       console.log("Allowed methods:", response.headers.allow);
     } catch (error) {
@@ -123,7 +128,12 @@ export const LoginPage = () => {
 
           <p className="signup__text">або реєстрація через</p>
 
-          <Linkin link={"#"} text={"google"} classStyle={"signup__link long"} />
+          <Linkin
+            link={"#"}
+            img={google}
+            classStyle={"signup__link long"}
+            classStyleImg={"google-icon"}
+          />
         </div>
       </main>
       <Footer />

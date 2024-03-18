@@ -58,13 +58,15 @@
           @include transparentLink;
           width: 256px;
           border: none;
-          margin-left: 138px;
+          margin-left: 120px;
           color: $grey;
         }
       }
     }
 
     .main__signup {
+      width: 100%;
+
       .signup__title {
         @include textSize($font20, $fontSuperBold, 24px);
         text-transform: uppercase;
@@ -74,6 +76,7 @@
 
       .signup__link {
         @include transparentLink;
+        padding: 10px 38px;
       }
 
       .signup__info {
@@ -96,7 +99,8 @@
       }
 
       .long {
-        padding: 10px 190px;
+        padding: 10px 142px;
+        margin-left: 20px;
       }
     }
   }
