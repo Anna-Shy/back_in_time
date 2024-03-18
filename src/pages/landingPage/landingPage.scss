@@ -21,6 +21,16 @@
       min-height: 0;
     }
 
+    .header-adaptive {
+      @include s {
+        border-bottom: 1px solid $total_black;
+      }
+
+      @include sm {
+        border-bottom: 1px solid $total_black;
+      }
+    }
+
     .header__content {
       padding: 36px 80px;
       margin-top: 115px;
