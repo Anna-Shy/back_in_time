@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .newArrivals {
   &__page {
@@ -10,29 +11,62 @@
     padding: 38px 80px 80px;
     color: $black;
 
+    @include s {
+      padding: 12px 20px 32px;
+    }
+
+    @include sm {
+      padding: 14px 20px 34px;
+    }
+
     .main__title {
       @include textSize($font42, $fontSuperBold, 50px);
       text-align: center;
       text-transform: uppercase;
       margin-bottom: 58px;
+
+      @include s {
+        @include textSize($font20, $fontSuperBold, 24px);
+        margin-bottom: 32px;
+      }
+
+      @include sm {
+        @include textSize($font20, $fontSuperBold, 24px);
+        margin-bottom: 34px;
+      }
     }
 
     .main__cards {
       display: grid;
+      gap: 26px;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(3, auto);
+
+      @include s {
+        gap: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 48px;
+      }
+
+      @include sm {
+        gap: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 50px;
+      }
     }
 
     .main__btn {
       margin-left: 520px;
       @include transparentLink;
 
-      // @include sm {
-      //   margin-left: 100px;
-      //   font-size: 12px;
-      //   font-weight: 500;
-      //   line-height: 130%;
-      // }
+      @include s {
+        margin-left: 82px;
+      }
+
+      @include sm {
+        margin-left: 20px;
+        padding: 10px 80px;
+      }
     }
   }
 }

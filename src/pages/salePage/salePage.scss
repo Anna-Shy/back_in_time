@@ -27,10 +27,12 @@
 
       @include s {
         @include textSize($font20, $fontSuperBold, 24px);
+        margin-bottom: 32px;
       }
 
       @include sm {
         @include textSize($font20, $fontSuperBold, 24px);
+        margin-bottom: 34px;
       }
     }
 
