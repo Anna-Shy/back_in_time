@@ -33,6 +33,7 @@
         max-height: 100vh;
         height: 375px;
         padding: 80px 58px 0 60px;
+        border-bottom: 1px solid $total_black;
       }
 
       @include sm {
@@ -41,6 +42,7 @@
         max-height: 100vh;
         height: 394px;
         padding: 80px 58px 0 60px;
+        border-bottom: 1px solid $total_black;
       }
 
       .header__title {
