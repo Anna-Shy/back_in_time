@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .contact {
   @include shadowPage;
@@ -11,10 +12,28 @@
     color: $black;
     padding: 28px 80px 300px 80px;
 
+    @include s {
+      padding: 12px 20px 52px;
+    }
+
+    @include sm {
+      padding: 14px 20px 52px;
+    }
+
     .main__title {
       @include textSize($font32, $fontSuperBold, 38px);
       text-transform: uppercase;
       margin-bottom: 24px;
+
+      @include s {
+        @include textSize($font20, $fontSuperBold, 24px);
+        margin-bottom: 12px;
+      }
+
+      @include sm {
+        @include textSize($font20, $fontSuperBold, 24px);
+        margin-bottom: 12px;
+      }
     }
 
     .main__content {
@@ -25,15 +44,39 @@
       .divider {
         width: 434px;
         border: 1px solid $grey;
+
+        @include s {
+          width: 384px;
+        }
+
+        @include sm {
+          width: 350px;
+        }
       }
 
       .content {
         margin-top: 24px;
 
+        @include s {
+          margin-top: 40px;
+        }
+
+        @include sm {
+          margin-top: 40px;
+        }
+
         &__title {
           @include textSize($font20, $fontSuperBold, 24px);
           text-transform: uppercase;
           margin-bottom: 12px;
+
+          @include s {
+            @include textSize($font18, $fontSuperBold, 22px);
+          }
+
+          @include sm {
+            @include textSize($font18, $fontSuperBold, 22px);
+          }
         }
 
         &__block {
@@ -50,6 +93,10 @@
           .block-link,
           .block-text {
             @include textSize($font24, $fontNormal, 130%);
+
+            @include sm {
+              @include textSize($font18, $fontSuperBold, 22px);
+            }
           }
 
           .block-text-attention {
@@ -61,6 +108,16 @@
             }
           }
         }
+      }
+    }
+
+    .main__img {
+      @include s {
+        display: none;
+      }
+
+      @include sm {
+        display: none;
       }
     }
   }
