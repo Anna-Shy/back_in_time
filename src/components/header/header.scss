@@ -3,6 +3,14 @@
 @import "../../styles/service.scss";
 
 .header {
+  @include s {
+    border-bottom: 1px solid $total_black;
+  }
+
+  @include sm {
+    border-bottom: 1px solid $total_black;
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
