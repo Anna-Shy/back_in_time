@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .register {
   &__page {
@@ -14,30 +15,84 @@
     margin: 0 auto;
     color: $black;
 
+    @include s {
+      flex-direction: column;
+      gap: 48px;
+      padding: 32px 20px 48px;
+    }
+
+    @include sm {
+      flex-direction: column;
+      gap: 48px;
+      padding: 32px 20px 48px;
+    }
+
     .main__login {
       width: 464px;
+
+      @include s {
+        width: 386px;
+      }
+
+      @include sm {
+        width: 348px;
+      }
 
       .login__title {
         @include textSize($font20, $fontSuperBold, 24px);
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 48px;
+
+        @include s {
+          @include textSize($font18, $fontSuperBold, 22px);
+        }
+
+        @include sm {
+          @include textSize($font18, $fontSuperBold, 22px);
+        }
       }
 
       .login__link {
         @include transparentLink;
         margin-left: 142px;
+
+        @include s {
+          margin-left: 116px;
+        }
+
+        @include sm {
+          margin-left: 94px;
+        }
       }
     }
 
     .main__register {
       width: 460px;
 
+      @include s {
+        width: 386px;
+      }
+
+      @include sm {
+        width: 348px;
+      }
+
       .register__title {
         @include textSize($font20, $fontSuperBold, 24px);
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 44px;
+
+        @include s {
+          @include textSize($font18, $fontSuperBold, 22px);
+          margin-bottom: 48px;
+        }
+
+        @include sm {
+          @include textSize($font18, $fontSuperBold, 22px);
+          margin-bottom: 48px;
+        }
       }
 
       .form__register {
@@ -62,10 +117,19 @@
 
       .register__text {
         width: 350px;
-        margin-left: 52px;
+        margin: 0 auto; 
         text-align: center;
         @include textSize($font12, $fontLight);
         color: $grey;
+
+        @include s {
+          width: 386px;
+          @include textSize($font14, $fontLight);
+        }
+  
+        @include sm {
+          width: 348px;
+        }
 
         &-textLink {
           text-decoration: underline;
