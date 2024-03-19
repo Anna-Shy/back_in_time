@@ -107,22 +107,22 @@ export const LoginPage = () => {
 
           <Linkin
             link={"/regist"}
-            text={"створити особийстий кабінет"}
+            text={"створити кабінет"}
             classStyle={"signup__link"}
           />
 
           <div className="signup__info">
             <div className="signup__info-block">
               <img className="block-img" src={sale} alt="icon" />
-              <p className="blovk-text">Отримуйте персональну знижку 5%</p>
+              <p className="block-text">Отримуйте персональну знижку 5%</p>
             </div>
             <div className="signup__info-block">
               <img className="block-img" src={delivery} alt="icon" />
-              <p className="blovk-text">Відслідковуйте своє замовлення</p>
+              <p className="block-text">Відслідковуйте своє замовлення</p>
             </div>
             <div className="signup__info-block">
               <img className="block-img" src={history} alt="icon" />
-              <p className="blovk-text">Переглядайте історію замовлень</p>
+              <p className="block-text">Переглядайте історію замовлень</p>
             </div>
           </div>
 
