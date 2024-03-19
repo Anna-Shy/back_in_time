@@ -60,7 +60,7 @@
       .content-title {
         @include textSize($font24, $fontNormal);
         margin-bottom: 20px;
-        text-transform: uppercase
+        text-transform: uppercase;
       }
 
       .content-price {
@@ -89,7 +89,8 @@
       color: $grey;
 
       &:hover {
-        color: $total-white;
+        background-color: transparent;
+        color: $black;
       }
     }
   }
