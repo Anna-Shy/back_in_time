@@ -34,15 +34,6 @@ export const Drawer = ({ isOpen, onClose }) => {
               )}
             </li>
           ))}
-
-          <li className="menu__item">
-            <input
-              className="item-input"
-              type="text"
-              placeholder="Пошук товарів"
-            />
-            <img src={search} alt="icon" className="item-icon" />
-          </li>
         </ul>
       </div>
     </div>

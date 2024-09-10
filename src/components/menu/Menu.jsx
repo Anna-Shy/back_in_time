@@ -6,8 +6,6 @@ import basketWhiteIcon from "../../source/svg/icons/basket-white.svg";
 import basketBlackIcon from "../../source/svg/icons/basket-black.svg";
 import personWhiteIcon from "../../source/svg/icons/person-white.svg";
 import personBlackIcon from "../../source/svg/icons/person-black.svg";
-import searchWhiteIcon from "../../source/svg/icons/search-white.svg";
-import searchBlackIcon from "../../source/svg/icons/search-black.svg";
 
 import "./menu.scss";
 
@@ -24,12 +22,6 @@ export const Menu = ({ link, icons }) => {
 
         {icons && (
           <>
-            <li className="menu__item">
-              <Linkin
-                link={"#"}
-                img={link ? searchWhiteIcon : searchBlackIcon}
-              />
-            </li>
             <li className="menu__item">
               <Linkin
                 link={"/login"}
