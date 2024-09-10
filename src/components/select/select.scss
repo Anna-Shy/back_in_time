@@ -1,0 +1,42 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+
+.block__select {
+    position: relative;
+
+    &-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: $black;
+        @include textSize($font18, $fontBold, 22px);
+    }
+
+    &-arrow {
+        width: 20px;
+        height: 20px;
+        margin: 0 4px;
+    }
+
+    &-list {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 24px 20px 24px 14px;
+        background-color: $total_white;
+        border: 1px solid $black;
+        list-style: none;
+    }
+
+    &-item {
+        padding: 5px 10px;
+        @include textSize($font14, $fontLight, 130%);
+    }
+
+    &-item:hover {
+        background-color: $white;
+        cursor: pointer;
+    }
+
+}

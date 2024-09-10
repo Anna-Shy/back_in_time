@@ -1,0 +1,116 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
+
+.catalog {
+    &__page {
+        @include shadowPage;
+    }
+
+    &__main {
+        padding: 38px 80px 80px;
+        color: $black;
+
+        @include s {
+            padding: 12px 20px 32px;
+        }
+
+        @include sm {
+            padding: 14px 20px 34px;
+        }
+
+        .main__navbar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 12px 0 24px;
+
+            &-sort {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 24px;
+
+                .sort__text {
+                    color: $grey;
+                    @include textSize($font20, $fontNormal, 130%);
+                }
+
+                .sort__input {
+                    position: relative;
+
+                    &-input {
+                        padding: 12px 74px 12px 14px;
+                        border: 1px solid $grey;
+
+                        &::placeholder {
+                            font-family: "KyivTypeTitling-VarGX";
+                            color: $grey;
+                            @include textSize($font20, $fontNormal, 130%);
+                        }
+                    }
+
+
+                    &::before {
+                        content: url('../../source/svg/icons/search-black.svg');
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        pointer-events: none;
+                    }
+                }
+
+            }
+
+            .divider {
+                width: 24px;
+                height: 0;
+                border: 1px solid $grey;
+                transform: rotate(90deg);
+            }
+
+            &-filter{
+                display: flex;
+                align-items: center;
+                gap: 48px;
+                padding: 12px 0;
+                border-bottom: 1px solid $grey;
+                border-top: 1px solid $grey;
+            }
+        }
+
+        .main__cards {
+            display: grid;
+            gap: 26px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, auto);
+
+            @include s {
+                gap: 18px;
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 48px;
+            }
+
+            @include sm {
+                gap: 18px;
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 50px;
+            }
+        }
+
+        .main__btn {
+            margin-left: 520px;
+            @include transparentLink;
+
+            @include s {
+                margin-left: 82px;
+            }
+
+            @include sm {
+                margin-left: 20px;
+                padding: 10px 80px;
+            }
+        }
+    }
+}
