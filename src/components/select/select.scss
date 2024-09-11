@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .block__select {
     position: relative;
@@ -10,12 +11,21 @@
         cursor: pointer;
         color: $black;
         @include textSize($font18, $fontBold, 22px);
+
+        @include s {
+            @include textSize($font14, $fontBold, 22px);
+        }
     }
 
     &-arrow {
         width: 20px;
         height: 20px;
         margin: 0 4px;
+
+        @include s {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     &-list {
@@ -27,6 +37,11 @@
         background-color: $total_white;
         border: 1px solid $black;
         list-style: none;
+
+        @include s {
+            gap: 10px;
+            padding: 16px 10px 18px 6px;
+        }
     }
 
     &-item {

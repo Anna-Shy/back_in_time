@@ -25,28 +25,57 @@
             gap: 24px;
             padding: 12px 0 24px;
 
+            @include s {
+                gap: 14px;
+            }
+
             &-sort {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
                 gap: 24px;
 
+                @include s {
+                    gap: 10px;
+                }
+
+                @include sm {
+                    gap: 8px;
+                }
+
                 .sort__text {
                     color: $grey;
                     @include textSize($font20, $fontNormal, 130%);
+
+                    @include s {
+                        @include textSize($font14, $fontNormal, 130%);
+                    }
                 }
 
                 .sort__input {
                     position: relative;
 
+
                     &-input {
                         padding: 12px 74px 12px 14px;
                         border: 1px solid $grey;
+
+                        @include s {
+                            padding: 10px 30px 10px 10px;
+                        }
+
+                        @include sm {
+                            padding: 8px 20px 8px 6px;
+                        }
 
                         &::placeholder {
                             font-family: "KyivTypeTitling-VarGX";
                             color: $grey;
                             @include textSize($font20, $fontNormal, 130%);
+
+                            @include s {
+                                @include textSize($font14, $fontNormal, 130%);
+                            }
                         }
                     }
 
@@ -70,13 +99,17 @@
                 transform: rotate(90deg);
             }
 
-            &-filter{
+            &-filter {
                 display: flex;
                 align-items: center;
                 gap: 48px;
                 padding: 12px 0;
                 border-bottom: 1px solid $grey;
                 border-top: 1px solid $grey;
+
+                @include s {
+                    gap: 18px;
+                }
             }
         }
 
