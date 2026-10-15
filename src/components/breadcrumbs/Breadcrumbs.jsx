@@ -2,12 +2,17 @@ import useBreadcrumbs from "use-react-router-breadcrumbs";
 
 import { Link } from "react-router-dom";
 
+import { getProduct } from "../../source/data/products";
+
 import "./breadcrumbs.scss";
 
 const routes = [
-  { path: "/", breadcrumb: "Головна" },
-  { path: "/catalog", breadcrumb: "Каталог" },
-  { path: "/catalog/:itemId", breadcrumb: "Одяг" }
+  { path: "/", breadcrumb: "Home" },
+  { path: "/catalog", breadcrumb: "Catalog" },
+  {
+    path: "/catalog/:itemId",
+    breadcrumb: ({ match }) => getProduct(match.params.itemId)?.title || "Product"
+  }
 ];
 
 export const Breadcrumbs = () => {

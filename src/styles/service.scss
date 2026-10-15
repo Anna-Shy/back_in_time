@@ -36,6 +36,14 @@
   }
 }
 
+// block-level link/button centered horizontally
+@mixin centerBlock {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @mixin textSize($size: 14px, $weight: 500, $height: 130%) {
   font-size: $size;
   font-weight: $weight;

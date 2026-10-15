@@ -6,18 +6,26 @@
   @include shadowPage;
 
   &__main {
+    @include container;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
     color: $black;
-    padding: 28px 80px 300px 80px;
+    padding-top: 28px;
+    padding-bottom: 300px;
 
-    @include s {
-      padding: 12px 20px 52px;
+    @include lg {
+      padding-bottom: 160px;
     }
 
-    @include sm {
-      padding: 14px 20px 52px;
+    @include md {
+      padding-bottom: 80px;
+    }
+
+    @include s {
+      padding-top: 12px;
+      padding-bottom: 52px;
     }
 
     .main__title {
@@ -29,39 +37,32 @@
         @include textSize($font20, $fontSuperBold, 24px);
         margin-bottom: 12px;
       }
-
-      @include sm {
-        @include textSize($font20, $fontSuperBold, 24px);
-        margin-bottom: 12px;
-      }
     }
 
     .main__content {
       display: flex;
       flex-direction: column;
-      max-width: 374px;
+      flex-shrink: 0;
+      width: 434px;
+      max-width: 100%;
+
+      @include md {
+        width: 380px;
+      }
+
+      @include s {
+        width: 100%;
+      }
 
       .divider {
-        width: 434px;
+        width: 100%;
         border: 1px solid $grey;
-
-        @include s {
-          width: 384px;
-        }
-
-        @include sm {
-          width: 350px;
-        }
       }
 
       .content {
         margin-top: 24px;
 
         @include s {
-          margin-top: 40px;
-        }
-
-        @include sm {
           margin-top: 40px;
         }
 
@@ -73,16 +74,16 @@
           @include s {
             @include textSize($font18, $fontSuperBold, 22px);
           }
-
-          @include sm {
-            @include textSize($font18, $fontSuperBold, 22px);
-          }
         }
 
         &__block {
           display: flex;
           align-items: center;
           gap: 12px;
+
+          &-img {
+            flex-shrink: 0;
+          }
 
           &-info {
             display: flex;
@@ -93,6 +94,11 @@
           .block-link,
           .block-text {
             @include textSize($font24, $fontNormal, 130%);
+            overflow-wrap: anywhere;
+
+            @include md {
+              font-size: $font20;
+            }
 
             @include sm {
               @include textSize($font18, $fontSuperBold, 22px);
@@ -112,11 +118,12 @@
     }
 
     .main__img {
-      @include s {
-        display: none;
-      }
+      display: block;
+      min-width: 0;
+      width: 720px;
+      max-width: 55%;
 
-      @include sm {
+      @include s {
         display: none;
       }
     }

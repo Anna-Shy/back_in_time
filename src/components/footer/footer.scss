@@ -11,16 +11,14 @@
   background-color: $total-black;
 
   &__inner {
-    padding: 36px 80px;
+    @include container;
+    position: relative;
+    padding-top: 36px;
+    padding-bottom: 36px;
 
     @include s {
-      padding: 12px 20px;
-      height: 1130px;
-    }
-
-    @include sm {
-      padding: 12px 20px;
-      height: 1130px;
+      padding-top: 12px;
+      padding-bottom: 24px;
     }
   }
 
@@ -28,16 +26,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 126px;
+    flex-wrap: wrap;
+    gap: 24px 126px;
     margin-bottom: 34px;
 
-    @include s {
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 12px;
+    @include md {
+      gap: 24px 64px;
     }
 
-    @include sm {
+    @include s {
       flex-direction: column;
       gap: 18px;
       margin-bottom: 12px;
@@ -46,7 +43,13 @@
     &-social,
     &-payment {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 32px;
+
+      @include sm {
+        gap: 24px;
+      }
     }
   }
 
@@ -56,10 +59,6 @@
     @include s {
       border: 1px solid $total-white;
     }
-
-    @include sm {
-      border: 1px solid $total-white;
-    }
   }
 
   &__info {
@@ -67,11 +66,11 @@
     color: $total-white;
     margin-top: 32px;
 
-    @include s {
-      flex-direction: column;
+    @include md {
+      flex-wrap: wrap;
     }
 
-    @include sm {
+    @include s {
       flex-direction: column;
     }
 
@@ -79,6 +78,20 @@
     &-client {
       min-width: 230px;
       margin-right: 148px;
+
+      @include lg {
+        margin-right: 64px;
+      }
+
+      @include md {
+        flex: 1;
+        min-width: 0;
+        margin-right: 24px;
+      }
+
+      @include s {
+        margin-right: 0;
+      }
 
       .info__about-title,
       .info__client-title {
@@ -103,11 +116,7 @@
       .menu {
         margin-bottom: 65px;
 
-        @include s {
-          margin-bottom: 32px;
-        }
-
-        @include sm {
+        @include md {
           margin-bottom: 32px;
         }
       }
@@ -115,14 +124,12 @@
 
     &-contact {
       width: 465px;
+      max-width: 100%;
       margin-left: auto;
 
-      @include s {
-        width: 386px;
-      }
-
-      @include sm {
-        width: 350px;
+      @include md {
+        width: 100%;
+        margin-left: 0;
       }
 
       .info__contact-title {
@@ -131,10 +138,6 @@
         margin-bottom: 24px;
 
         @include s {
-          margin-bottom: 12px;
-        }
-
-        @include sm {
           margin-bottom: 12px;
         }
       }
@@ -154,10 +157,15 @@
         }
 
         .form__contact-input {
-          // width: 100%;
+          width: 100%;
           margin: 8px 0px;
           padding: 14px;
           border: 1px solid $grey;
+
+          &-error {
+            border-color: $red;
+            box-shadow: inset 0 0 0 1px $red;
+          }
 
           &::placeholder {
             font-family: "KyivTypeTitling-VarGX";
@@ -169,9 +177,22 @@
         }
       }
 
+      .form__contact-error {
+        margin-bottom: 8px;
+        color: $red;
+        font-size: 14px;
+        line-height: 130%;
+      }
+
+      .form__contact-done b {
+        overflow-wrap: anywhere;
+      }
+
       .form__contact-radiobtn {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        row-gap: 12px;
         margin-bottom: 18px;
 
         .form__contact-radio {
@@ -209,6 +230,11 @@
         .form__contact-label {
           margin-left: 1px;
           margin-right: 26px;
+
+          @include sm {
+            margin-right: 16px;
+          }
+
           font-size: 18px;
           font-weight: $fontBold;
           line-height: 22px;
@@ -227,12 +253,17 @@
       }
 
       .form__contact-link {
+        display: inline-block;
         padding: 10px 16px;
         border: 1px solid $total-white;
         font-size: 12px;
         font-weight: $fontNormal;
         line-height: 130%;
         text-transform: uppercase;
+        background-color: transparent;
+        color: inherit;
+        font-family: inherit;
+        cursor: pointer;
 
         &:hover {
           background-color: $brown;
@@ -251,18 +282,14 @@
         line-height: 12px;
       }
 
-      @include s {
-        left: 69px;
-        right: 69px;
-        top: 1038px;
-        bottom: 24px;
-      }
-
-      @include sm {
-        left: 69px;
-        right: 69px;
-        top: 1038px;
-        bottom: 24px;
+      // on smaller screens the logo goes into the normal flow under the columns
+      @include md {
+        position: static;
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     }
   }

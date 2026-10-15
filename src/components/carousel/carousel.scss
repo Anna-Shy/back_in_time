@@ -1,0 +1,114 @@
+@import "../../styles/variable.scss";
+@import "../../styles/responsive.scss";
+
+.carousel {
+  --gap: 26px;
+  --visible: 4;
+  position: relative;
+  margin-bottom: 48px;
+
+  @include md {
+    --gap: 22px;
+    --visible: 3;
+  }
+
+  // phones: part of the next card peeks out, hinting that the row scrolls
+  @include s {
+    --gap: 16px;
+    --visible: 2.25;
+    margin-bottom: 32px;
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    list-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include s {
+      padding: 0 20px;
+      scroll-padding: 0 20px;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    flex: 0 0 calc((100% - var(--gap) * (var(--visible) - 1)) / var(--visible));
+    scroll-snap-align: start;
+
+    > a {
+      display: flex;
+      width: 100%;
+    }
+
+    .card {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    // vertically centered on the product photo
+    top: 36%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $black;
+    border-radius: 50%;
+    background-color: $total_white;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: opacity 0.2s, background-color 0.2s;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      background-color: $white;
+    }
+
+    &:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &-prev {
+      left: -24px;
+
+      img {
+        transform: rotate(90deg);
+      }
+    }
+
+    &-next {
+      right: -24px;
+
+      img {
+        transform: rotate(-90deg);
+      }
+    }
+
+    // touch screens scroll with a swipe
+    @media (hover: none) {
+      display: none;
+    }
+
+    @include s {
+      display: none;
+    }
+  }
+}

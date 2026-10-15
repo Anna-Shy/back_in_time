@@ -1,23 +1,55 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .itemPage {
   &__page {
     @include shadowPage;
+    overflow-x: hidden;
   }
 
   &__main {
-    padding: 0 80px 78px 80px;
+    @include container;
+    padding-bottom: 78px;
     color: $black;
+
+    @include s {
+      padding-top: 12px;
+      padding-bottom: 40px;
+    }
 
     .chooseItem {
       margin: 15px 0 80px;
       display: flex;
       gap: 28px;
 
+      @include lg {
+        gap: 40px;
+        margin-bottom: 56px;
+      }
+
+      @include md {
+        flex-direction: column;
+        gap: 32px;
+        margin-bottom: 48px;
+      }
+
       &__image {
         width: 626px;
         height: 662px;
+      }
+
+      // gallery takes about half of the row and keeps proportions
+      .image-gallery {
+        flex: 0 1 626px;
+        min-width: 0;
+
+        @include md {
+          flex: none;
+          width: 100%;
+          max-width: 626px;
+          margin: 0 auto;
+        }
       }
 
       .image-gallery-slide-wrapper,
@@ -26,25 +58,43 @@
         z-index: 1;
       }
 
+      .image-gallery-slide .image-gallery-image {
+        aspect-ratio: 626 / 662;
+        object-fit: cover;
+        max-height: none;
+        width: 100%;
+      }
+
       .image-gallery-thumbnails-container {
         text-align: left;
         display: flex;
         gap: 30px;
         cursor: auto;
+
+        @include s {
+          gap: 10px;
+        }
       }
 
       .image-gallery-thumbnail {
-        width: 134px;
-        height: 134px;
+        width: calc((100% - 90px) / 4);
+        height: auto;
+        aspect-ratio: 1;
+
+        @include s {
+          width: calc((100% - 30px) / 4);
+        }
 
         &:hover {
           cursor: pointer;
         }
       }
 
+      .image-gallery-thumbnail-inner,
       .image-gallery-thumbnail-image {
-        width: 134px;
-        height: 134px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .image-gallery-svg {
@@ -54,10 +104,18 @@
 
       .image-gallery-right-nav {
         padding: 30px 12px 30px 20px;
+
+        @include s {
+          padding: 18px 6px 18px 10px;
+        }
       }
 
       .image-gallery-left-nav {
         padding: 30px 20px 30px 12px;
+
+        @include s {
+          padding: 18px 10px 18px 6px;
+        }
       }
 
       .image-gallery-icon {
@@ -65,15 +123,33 @@
       }
 
       &__content {
+        flex: 1;
+        min-width: 0;
         margin-top: 120px;
+
+        @include lg {
+          margin-top: 40px;
+        }
+
+        @include md {
+          margin-top: 0;
+        }
       }
 
       &__description {
         margin-bottom: 74px;
 
+        @include md {
+          margin-bottom: 40px;
+        }
+
         .chooseItem__title {
           @include textSize($font32, $fontSuperBold, 38px);
           text-transform: uppercase;
+
+          @include s {
+            @include textSize($font24, $fontSuperBold, 29px);
+          }
         }
 
         .chooseItem__code {
@@ -94,8 +170,23 @@
 
         .chooseItem__btn {
           @include lightLink;
-          font-family: "KyivTypeTitling-VarGX";
+          display: inline-block;
           border: none;
+
+          &-added {
+            background-color: $total_white;
+            color: $brown;
+            box-shadow: inset 0 0 0 1px $brown;
+
+            &:hover {
+              background-color: $brown;
+              color: $total_white;
+            }
+          }
+
+          @include s {
+            width: 100%;
+          }
 
           &:hover {
             cursor: pointer;
@@ -103,36 +194,59 @@
         }
       }
 
+      .chooseItem__unique {
+        margin-top: 12px;
+        color: $grey;
+        @include textSize($font14, $fontSuperLight, 130%);
+      }
+
       .divider {
         border: 1px solid $total_black;
-        min-width: 626px;
+        width: 100%;
+        max-width: 626px;
         margin: 18px 0;
+
+        @include md {
+          max-width: none;
+        }
       }
 
       &__info {
+        max-width: 626px;
+
+        @include md {
+          max-width: none;
+        }
+
         &-btn {
           @include textSize($font20, $fontSuperBold, 24px);
           text-transform: uppercase;
-          width: 626px;
+          width: 100%;
           border: none;
           background-color: transparent;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 12px;
+          text-align: left;
+          color: $black;
+
+          @include s {
+            @include textSize($font16, $fontSuperBold, 20px);
+          }
 
           &:hover {
             cursor: pointer;
           }
         }
 
-        &-arrow {
-          width: 24px;
-          height: 24px;
-        }
-
         &-details {
           padding: 24px 40px;
-          width: 466px;
+          max-width: 546px;
+
+          @include s {
+            padding: 18px 0 6px;
+          }
 
           .details__title {
             @include textSize($font18, $fontBold, 22px);
@@ -141,11 +255,19 @@
 
           .details-composition {
             display: flex;
+
+            @include s {
+              flex-direction: column;
+            }
           }
 
           .detail-list {
             list-style: none;
             margin-left: 50px;
+
+            @include s {
+              margin-left: 0;
+            }
 
             &-item {
               margin-bottom: 12px;
@@ -170,6 +292,22 @@
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 74px;
+
+        @include md {
+          @include textSize($font32, $fontSuperBold, 38px);
+          margin-bottom: 40px;
+        }
+
+        @include s {
+          @include textSize($font20, $fontSuperBold, 24px);
+          margin-bottom: 18px;
+        }
+      }
+
+      .carousel__track {
+        @include s {
+          margin: 0 -20px;
+        }
       }
     }
   }

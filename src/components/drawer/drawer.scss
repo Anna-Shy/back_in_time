@@ -6,10 +6,13 @@
   top: 0;
   right: 0;
   width: 66%;
+  max-width: 380px;
   height: 100%;
+  overflow-y: auto;
   background: $brown;
   background: linear-gradient(0deg, $brown 0, 1%, $total_white 20%);
-  z-index: 1;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
 
 .drawer {

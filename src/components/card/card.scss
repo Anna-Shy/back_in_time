@@ -2,63 +2,142 @@
 @import "../../styles/responsive.scss";
 @import "../../styles/service.scss";
 
+// fixed width is used inside carousels; grids stretch the card to the cell
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 300px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   color: $black;
+  text-align: center;
+
+  @include lg {
+    width: 260px;
+  }
+
+  @include md {
+    width: 220px;
+    margin-bottom: 32px;
+  }
 
   @include s {
     width: 166px;
     margin-bottom: 18px;
   }
 
-  @include sm {
-    width: 166px;
-    margin-bottom: 18px;
-  }
+  &__link {
+    display: block;
 
-  &__title {
-    text-align: center;
-    @include textSize($font24, $fontNormal);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-
-    @include s {
-      font-size: 14px;
-      font-weight: 350;
-      line-height: 130%;
+    &:hover .card__image {
+      transform: scale(1.04);
     }
 
-    @include sm {
-      font-size: 14px;
-      font-weight: 350;
-      line-height: 130%;
+    &:hover .card__title {
+      color: $brown;
     }
   }
 
-  &__price {
-    text-align: center;
-    @include textSize($font20, $fontNormal);
+  &__media {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
 
     @include s {
-      @include textSize($font14, $fontSuperLight);
-    }
-
-    @include sm {
-      @include textSize($font14, $fontSuperLight);
-    }
-
-    .price-span {
-      color: $grey;
-      text-decoration: line-through;
+      margin-bottom: 10px;
     }
   }
 
   &__image {
+    display: block;
     width: 100%;
-    margin-bottom: 18px;
+    aspect-ratio: 300 / 360;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &__badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 6px;
+
+    @include s {
+      top: 8px;
+      left: 8px;
+      gap: 4px;
+    }
+  }
+
+  &__badge {
+    padding: 4px 8px;
+    background-color: $black;
+    color: $total_white;
+    @include textSize($font12, $fontNormal, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    @include s {
+      padding: 3px 6px;
+      font-size: $font10;
+    }
+
+    &-sale {
+      background-color: $brown;
+    }
+  }
+
+  // two lines at most and always two lines tall, so prices line up in a row
+  &__title {
+    @include textSize($font18, $fontNormal, 1.3);
+    min-height: 2.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-transform: uppercase;
+    transition: color 0.2s;
+
+    @include md {
+      font-size: $font16;
+    }
+
+    @include s {
+      @include textSize($font14, $fontSuperLight, 1.3);
+    }
+  }
+
+  &__details {
+    margin-top: 4px;
+    color: $grey;
+    @include textSize($font14, $fontSuperLight, 1.3);
+
+    @include s {
+      font-size: $font12;
+    }
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+    margin-top: 8px;
+    @include textSize($font18, $fontBold, 1.3);
+
+    @include s {
+      margin-top: 6px;
+      @include textSize($font14, $fontNormal, 1.3);
+    }
+
+    &-current {
+      color: $brown;
+    }
+
+    &-old {
+      color: $grey;
+      font-weight: $fontSuperLight;
+      text-decoration: line-through;
+    }
   }
 }

@@ -8,141 +8,223 @@
     }
 
     &__main {
-        padding: 38px 80px 80px;
+        @include container;
+        padding-top: 16px;
+        padding-bottom: 80px;
         color: $black;
 
+        @include md {
+            padding-bottom: 56px;
+        }
+
         @include s {
-            padding: 12px 20px 32px;
+            padding-top: 4px;
+            padding-bottom: 32px;
         }
 
-        @include sm {
-            padding: 14px 20px 34px;
-        }
-
+        // one toolbar: filters on the left, count and search on the right
         .main__navbar {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
             gap: 24px;
-            padding: 12px 0 24px;
+            padding: 10px 0;
+            margin-bottom: 24px;
+            border-top: 1px solid $grey;
+            border-bottom: 1px solid $grey;
+
+            // tablets & phones: search on top, filters under it
+            @include md {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                padding-top: 0;
+                border-top: none;
+            }
 
             @include s {
-                gap: 14px;
+                margin-bottom: 18px;
+            }
+
+            &-filter {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+
+                @include lg {
+                    gap: 20px;
+                }
+
+                @include s {
+                    justify-content: space-between;
+                    gap: 8px;
+                }
             }
 
             &-sort {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
-                gap: 24px;
+                gap: 20px;
 
-                @include s {
-                    gap: 10px;
+                @include md {
+                    order: -1;
                 }
 
-                @include sm {
-                    gap: 8px;
+                @include s {
+                    gap: 12px;
                 }
 
                 .sort__text {
+                    flex-shrink: 0;
                     color: $grey;
-                    @include textSize($font20, $fontNormal, 130%);
+                    white-space: nowrap;
+                    @include textSize($font16, $fontNormal, 130%);
 
                     @include s {
-                        @include textSize($font14, $fontNormal, 130%);
+                        font-size: $font14;
                     }
                 }
 
                 .sort__input {
                     position: relative;
+                    width: 280px;
+                    min-width: 0;
 
+                    @include md {
+                        flex: 1;
+                        order: -1;
+                        width: auto;
+                    }
 
                     &-input {
-                        padding: 12px 74px 12px 14px;
+                        width: 100%;
+                        padding: 9px 40px 9px 12px;
                         border: 1px solid $grey;
-
-                        @include s {
-                            padding: 10px 30px 10px 10px;
-                        }
-
-                        @include sm {
-                            padding: 8px 20px 8px 6px;
-                        }
+                        border-radius: 0;
+                        background-color: $total_white;
+                        // 16px keeps iOS from zooming in on focus
+                        @include textSize($font16, $fontNormal, 130%);
+                        appearance: none;
 
                         &::placeholder {
                             font-family: "KyivTypeTitling-VarGX";
                             color: $grey;
-                            @include textSize($font20, $fontNormal, 130%);
+                        }
 
-                            @include s {
-                                @include textSize($font14, $fontNormal, 130%);
-                            }
+                        &::-webkit-search-cancel-button {
+                            display: none;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: $black;
                         }
                     }
-
 
                     &::before {
                         content: url('../../source/svg/icons/search-black.svg');
                         position: absolute;
                         right: 10px;
                         top: 50%;
-                        transform: translateY(-50%);
+                        transform: translateY(-50%) scale(0.85);
                         pointer-events: none;
+                        line-height: 0;
                     }
-                }
-
-            }
-
-            .divider {
-                width: 24px;
-                height: 0;
-                border: 1px solid $grey;
-                transform: rotate(90deg);
-            }
-
-            &-filter {
-                display: flex;
-                align-items: center;
-                gap: 48px;
-                padding: 12px 0;
-                border-bottom: 1px solid $grey;
-                border-top: 1px solid $grey;
-
-                @include s {
-                    gap: 18px;
                 }
             }
         }
 
         .main__cards {
-            display: grid;
-            gap: 26px;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, auto);
+            @include cardsGrid;
 
-            @include s {
-                gap: 18px;
-                grid-template-columns: repeat(2, 1fr);
-                margin-bottom: 48px;
-            }
-
-            @include sm {
-                gap: 18px;
-                grid-template-columns: repeat(2, 1fr);
-                margin-bottom: 50px;
+            .card {
+                width: 100%;
+                height: 100%;
             }
         }
 
-        .main__btn {
-            margin-left: 520px;
-            @include transparentLink;
+        .main__active {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin: -8px 0 24px;
 
             @include s {
-                margin-left: 82px;
+                gap: 8px;
+                margin: -6px 0 18px;
             }
 
-            @include sm {
-                margin-left: 20px;
-                padding: 10px 80px;
+            .active__chip {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 6px 12px;
+                border: 1px solid $brown;
+                background-color: $white;
+                color: $black;
+                cursor: pointer;
+                @include textSize($font14, $fontNormal, 130%);
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: $total_white;
+                }
+
+                &-close {
+                    color: $brown;
+                    font-size: $font18;
+                    line-height: 1;
+                }
+            }
+
+            .active__clear {
+                padding: 6px 4px;
+                border: none;
+                background-color: transparent;
+                color: $grey;
+                text-decoration: underline;
+                cursor: pointer;
+                @include textSize($font14, $fontNormal, 130%);
+
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+
+        .main__empty {
+            padding: 80px 20px 120px;
+            text-align: center;
+
+            @include s {
+                padding: 48px 0 64px;
+            }
+
+            &-title {
+                @include textSize($font32, $fontSuperBold, 38px);
+                text-transform: uppercase;
+                margin-bottom: 16px;
+
+                @include s {
+                    @include textSize($font20, $fontSuperBold, 24px);
+                }
+            }
+
+            &-text {
+                @include textSize($font18, $fontSuperLight, 150%);
+                color: $grey;
+                margin-bottom: 32px;
+
+                @include s {
+                    font-size: $font16;
+                }
+            }
+
+            &-btn {
+                @include lightLink;
+                border: none;
+                cursor: pointer;
             }
         }
     }

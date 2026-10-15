@@ -1,6 +1,10 @@
-$sm: 392px; 
-$s: 428px; 
-$xl: 1440px; 
+$sm: 392px; // small phones
+$s: 767px; // phones
+$md: 1024px; // tablets
+$lg: 1280px; // small laptops
+$xl: 1440px;
+
+$container: 1760px; // 1600px of content + 80px gutters
 
 @mixin sm {
   @media screen and (max-width: ($sm)) {
@@ -14,9 +18,58 @@ $xl: 1440px;
   }
 }
 
+@mixin md {
+  @media screen and (max-width: ($md)) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (max-width: ($lg)) {
+    @content;
+  }
+}
 
 @mixin xl {
   @media screen and (max-width: ($xl)) {
     @content;
+  }
+}
+
+// centered content with side gutters that shrink on smaller screens
+@mixin container {
+  width: 100%;
+  max-width: $container;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 80px;
+  padding-right: 80px;
+
+  @include lg {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include s {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+// product grid used on catalog / new arrivals / sale pages
+@mixin cardsGrid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include md {
+    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include s {
+    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 48px;
   }
 }

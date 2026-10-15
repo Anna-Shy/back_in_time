@@ -1,6 +1,8 @@
 import {
   createBrowserRouter,
+  Outlet,
   RouterProvider,
+  ScrollRestoration,
 } from "react-router-dom";
 
 import { LandingPage } from './pages/landingPage/LandingPage';
@@ -13,60 +15,113 @@ import { ItemPage } from "./pages/itemPage/ItemPage";
 import { LoginPage } from "./pages/loginPage/LoginPage";
 import { RegisterPage } from "./pages/registerPage/RegisterPage";
 import { ForgotPassPage } from "./pages/forgotPassPage/ForgotPassPage";
+import { InfoPage } from "./pages/infoPage/InfoPage";
+import { FaqPage } from "./pages/infoPage/FaqPage";
+import { CartPage } from "./pages/cartPage/CartPage";
+import { CheckoutPage } from "./pages/checkoutPage/CheckoutPage";
+import { AccountPage } from "./pages/accountPage/AccountPage";
+
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 
 import './styles/global.scss';
 
+// opens every new page from the top (links in the footer are at the bottom)
+const Root = () => (
+  <>
+    <Outlet />
+    <ScrollRestoration />
+  </>
+);
+
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <LandingPage />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/newarrivals",
-    element: <NewArrivalsPage />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/sale",
-    element: <SalePage />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/contact",
-    element: <ContactPage />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/catalog",
-    element: <CatalogPage />,
+    element: <Root />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/catalog/:itemId",
-    element: <ItemPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/forgotpass",
-    element: <ForgotPassPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/regist",
-    element: <RegisterPage />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />
+      },
+      {
+        path: "/newarrivals",
+        element: <NewArrivalsPage />
+      },
+      {
+        path: "/sale",
+        element: <SalePage />
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />
+      },
+      {
+        path: "/catalog",
+        element: <CatalogPage />
+      },
+      {
+        path: "/catalog/:itemId",
+        element: <ItemPage />
+      },
+      {
+        path: "/login",
+        element: <LoginPage />
+      },
+      {
+        path: "/forgotpass",
+        element: <ForgotPassPage />
+      },
+      {
+        path: "/regist",
+        element: <RegisterPage />
+      },
+      {
+        path: "/about",
+        element: <InfoPage page="about" />
+      },
+      {
+        path: "/terms",
+        element: <InfoPage page="terms" />
+      },
+      {
+        path: "/privacy",
+        element: <InfoPage page="privacy" />
+      },
+      {
+        path: "/shipping",
+        element: <InfoPage page="shipping" />
+      },
+      {
+        path: "/returns",
+        element: <InfoPage page="returns" />
+      },
+      {
+        path: "/faq",
+        element: <FaqPage />
+      },
+      {
+        path: "/cart",
+        element: <CartPage />
+      },
+      {
+        path: "/checkout",
+        element: <CheckoutPage />
+      },
+      {
+        path: "/account",
+        element: <AccountPage />
+      }
+    ]
   }
 ]);
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

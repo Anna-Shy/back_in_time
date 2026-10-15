@@ -3,38 +3,37 @@
 @import "../../styles/service.scss";
 
 .header {
-
+  @include md {
+    @include shadowAdaptivePage;
+  }
 
   &__inner {
+    @include container;
     display: flex;
     justify-content: space-between;
-    padding: 36px 80px;
+    align-items: center;
+    gap: 24px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+
+    @include lg {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    @include md {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
 
     @include s {
-      padding: 0;
+      padding-left: 24px;
+      padding-right: 24px;
     }
-
-    @include sm {
-      padding: 0;
-    }
-  }
-
-  @include s {
-    padding: 20px 24px;
-    @include shadowAdaptivePage;
-  }
-
-  @include sm {
-    padding: 20px 24px;
-    @include shadowAdaptivePage;
   }
 
   .menu {
-    @include s {
-      display: none;
-    }
-
-    @include sm {
+    @include md {
       display: none;
     }
   }
@@ -43,14 +42,12 @@
     width: 24px;
     height: 24px;
     display: none;
+    flex-shrink: 0;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 
-    @include s {
-      display: block;
-    }
-
-    @include sm {
+    @include md {
       display: block;
     }
   }

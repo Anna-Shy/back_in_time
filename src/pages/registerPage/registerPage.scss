@@ -8,36 +8,51 @@
   }
 
   &__main {
+    @include container;
     display: flex;
     justify-content: space-between;
     gap: 216px;
-    padding: 88px 180px 180px 180px;
-    margin: 0 auto;
+    padding-top: 88px;
+    padding-bottom: 180px;
+    padding-left: 180px;
+    padding-right: 180px;
     color: $black;
 
-    @include s {
-      flex-direction: column;
+    @include lg {
+      gap: 80px;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-bottom: 120px;
+    }
+
+    @include md {
       gap: 48px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 80px;
+    }
+
+    // tablets & phones: one centered column, register form first
+    @media screen and (max-width: 900px) {
+      flex-direction: column-reverse;
+      max-width: 540px;
+    }
+
+    @include s {
       padding: 32px 20px 48px;
     }
 
-    @include sm {
-      flex-direction: column;
-      gap: 48px;
-      padding: 32px 20px 48px;
+    .main__login,
+    .main__register {
+      flex: 0 1 464px;
+      min-width: 0;
+
+      @media screen and (max-width: 900px) {
+        flex: none;
+      }
     }
 
     .main__login {
-      width: 464px;
-
-      @include s {
-        width: 386px;
-      }
-
-      @include sm {
-        width: 348px;
-      }
-
       .login__title {
         @include textSize($font20, $fontSuperBold, 24px);
         text-transform: uppercase;
@@ -46,38 +61,17 @@
 
         @include s {
           @include textSize($font18, $fontSuperBold, 22px);
-        }
-
-        @include sm {
-          @include textSize($font18, $fontSuperBold, 22px);
+          margin-bottom: 32px;
         }
       }
 
       .login__link {
         @include transparentLink;
-        margin-left: 142px;
-
-        @include s {
-          margin-left: 116px;
-        }
-
-        @include sm {
-          margin-left: 94px;
-        }
+        @include centerBlock;
       }
     }
 
     .main__register {
-      width: 460px;
-
-      @include s {
-        width: 386px;
-      }
-
-      @include sm {
-        width: 348px;
-      }
-
       .register__title {
         @include textSize($font20, $fontSuperBold, 24px);
         text-transform: uppercase;
@@ -86,12 +80,7 @@
 
         @include s {
           @include textSize($font18, $fontSuperBold, 22px);
-          margin-bottom: 48px;
-        }
-
-        @include sm {
-          @include textSize($font18, $fontSuperBold, 22px);
-          margin-bottom: 48px;
+          margin-bottom: 38px;
         }
       }
 
@@ -100,35 +89,45 @@
         flex-direction: column;
         gap: 34px;
 
+        @include s {
+          gap: 28px;
+        }
+
         &-block {
           display: flex;
           justify-content: space-between;
           gap: 24px;
+
+          @include sm {
+            flex-direction: column;
+            gap: 28px;
+          }
+
+          .block__input {
+            flex: 1;
+            min-width: 0;
+          }
         }
 
         &-btn {
           @include lightLink;
-          font-family: "KyivTypeTitling-VarGX";
-          width: 200px;
+          min-width: 200px;
+          white-space: nowrap;
           border: none;
           margin: 12px auto 12px auto;
+          cursor: pointer;
         }
       }
 
       .register__text {
-        width: 350px;
-        margin: 0 auto; 
+        max-width: 350px;
+        margin: 0 auto;
         text-align: center;
         @include textSize($font12, $fontLight);
         color: $grey;
 
         @include s {
-          width: 386px;
           @include textSize($font14, $fontLight);
-        }
-  
-        @include sm {
-          width: 348px;
         }
 
         &-textLink {

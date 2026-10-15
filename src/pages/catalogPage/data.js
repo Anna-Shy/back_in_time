@@ -1,102 +1,27 @@
-export const typeFilterArray = [
-    {
-        id: 1,
-        value: "",
-        name: "Всі"
-    },
-    {
-        id: 2,
-        value: "Одяг",
-        name: "Одяг"
-    },
-    {
-        id: 3,
-        value: "Взуття",
-        name: "Взуття"
-    }
+import { catalogArray } from "../../source/data/products";
+
+const SIZE_ORDER = ["XS", "S", "M", "L", "XL", "XXL"];
+
+// letter sizes in their usual order, then shoe sizes by number, then "One size"
+const sizeRank = (size) => {
+    const letter = SIZE_ORDER.indexOf(size);
+    if (letter !== -1) return letter;
+    if (!Number.isNaN(Number(size))) return 100 + Number(size);
+    return 1000;
+};
+
+const compareSizes = (a, b) => sizeRank(a) - sizeRank(b);
+
+// filter options are built from the products, so a new brand or size
+// appears in the filter as soon as such a product is added
+const optionsFor = (field, compare = (a, b) => a.localeCompare(b)) => [
+    { id: "all", value: "", name: "All" },
+    ...[...new Set(catalogArray.map((item) => item[field]).filter(Boolean))]
+        .sort(compare)
+        .map((value) => ({ id: value, value, name: value }))
 ];
 
-export const genderFilterArray = [
-    {
-        id: 1,
-        value: "",
-        name: "Всі"
-    },
-    {
-        id: 2,
-        value: "Чоловіча",
-        name: "Чоловіча"
-    },
-    {
-        id: 3,
-        value: "Жіноча",
-        name: "Жіноча"
-    }
-];
-
-
-export const sizeFilterArray = [
-    {
-        id: 1,
-        value: "",
-        name: "Всі"
-    },
-    {
-        id: 2,
-        value: "XS",
-        name: "XS"
-    },
-    {
-        id: 3,
-        value: "S",
-        name: "S"
-    },
-    {
-        id: 4,
-        value: "M",
-        name: "M"
-    },
-    {
-        id: 5,
-        value: "L",
-        name: "L"
-    },
-    {
-        id: 6,
-        value: "XL",
-        name: "XL"
-    },
-    {
-        id: 7,
-        value: "XXL",
-        name: "XXL"
-    }
-];
-
-export const brandFilterArray = [
-    {
-        id: 1,
-        value: "",
-        name: "Всі"
-    },
-    {
-        id: 2,
-        value: "LEVI’S",
-        name: "LEVI’S"
-    },
-    {
-        id: 3,
-        value: "ASICS",
-        name: "ASICS"
-    },
-    {
-        id: 4,
-        value: "Polo",
-        name: "Polo"
-    },
-    {
-        id: 5,
-        value: "Fila",
-        name: "Fila"
-    }
-];
+export const typeFilterArray = optionsFor("type");
+export const genderFilterArray = optionsFor("sex");
+export const sizeFilterArray = optionsFor("size", compareSizes);
+export const brandFilterArray = optionsFor("brand");

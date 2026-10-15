@@ -8,28 +8,48 @@
   }
 
   &__main {
+    @include container;
+    max-width: 1600px;
     display: flex;
     justify-content: space-between;
     gap: 160px;
-    padding: 88px 180px 342px 180px;
-    margin: 0 auto;
+    padding-top: 88px;
+    padding-bottom: 342px;
+    padding-left: 180px;
+    padding-right: 180px;
     color: $black;
 
-    @include s {
-      flex-direction: column;
+    @include lg {
+      gap: 80px;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-bottom: 160px;
+    }
+
+    @include md {
       gap: 48px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 80px;
+    }
+
+    // tablets & phones: one centered column
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      max-width: 540px;
+    }
+
+    @include s {
       padding: 32px 20px 48px;
     }
 
-    @include sm {
-      flex-direction: column;
-      gap: 48px;
-      padding: 32px 20px 48px;
+    .main__signin,
+    .main__signup {
+      flex: 1;
+      min-width: 0;
     }
 
     .main__signin {
-      width: 100%;
-
       .signin__title {
         @include textSize($font20, $fontSuperBold, 24px);
         text-transform: uppercase;
@@ -37,11 +57,6 @@
         margin-bottom: 48px;
 
         @include s {
-          @include textSize($font18, $fontSuperBold, 22px);
-          margin-bottom: 38px;
-        }
-
-        @include sm {
           @include textSize($font18, $fontSuperBold, 22px);
           margin-bottom: 38px;
         }
@@ -53,14 +68,23 @@
         gap: 4px;
         margin-bottom: 48px;
 
+        @include s {
+          margin-bottom: 28px;
+        }
+
         &-icon {
           width: 30px;
           height: 30px;
+          flex-shrink: 0;
         }
 
         &-text {
           @include textSize($font24, $fontNormal);
           color: $red;
+
+          @include s {
+            font-size: $font18;
+          }
         }
       }
 
@@ -73,38 +97,28 @@
           gap: 28px;
         }
 
-        @include sm {
-          gap: 28px;
-        }
-
         &-btn {
           @include lightLink;
-          font-family: "KyivTypeTitling-VarGX";
-          width: 162px;
+          min-width: 162px;
+          white-space: nowrap;
           border: none;
           margin: 12px auto 0 auto;
+          cursor: pointer;
         }
 
         &-link {
           @include transparentLink;
-          width: 256px;
+          @include centerBlock;
           border: none;
-          margin-left: 120px;
           color: $grey;
-
-          @include s {
-            margin-left: 64px;
-          }
-
-          @include sm {
-            margin-left: 46px;
-          }
         }
       }
     }
 
     .main__signup {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       .signup__title {
         @include textSize($font20, $fontSuperBold, 24px);
@@ -116,38 +130,29 @@
           @include textSize($font18, $fontSuperBold, 22px);
           margin-bottom: 48px;
         }
-
-        @include sm {
-          @include textSize($font18, $fontSuperBold, 22px);
-          margin-bottom: 48px;
-        }
       }
 
       .signup__link {
         @include transparentLink;
-        padding: 10px 120px;
-
-        @include s {
-          padding: 10px 82px;
-        }
-
-        @include sm {
-          padding: 10px 64px;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 466px;
       }
 
       .signup__info {
+        align-self: stretch;
         display: flex;
         flex-direction: column;
         gap: 40px;
         padding: 76px 34px;
 
-        @include s {
-          padding: 34px 40px;
-          gap: 36px;
+        @include md {
+          padding: 48px 20px;
         }
 
-        @include sm {
+        @include s {
           padding: 34px 20px;
           gap: 36px;
         }
@@ -157,38 +162,49 @@
           align-items: center;
           gap: 22px;
 
+          .block-img {
+            flex-shrink: 0;
+          }
+
           .block-text {
             @include s {
-              @include textSize($font14, $fontSuperLight);
-            }
-
-            @include sm {
               @include textSize($font14, $fontSuperLight);
             }
           }
         }
       }
 
-      .signup__text {
-        @include textSize($font14, $fontSuperLight);
-        text-align: center;
-        margin-bottom: 22px;
-      }
-
-      .long {
-        padding: 10px 120px;
-        margin-left: 56px;
-
-        @include s {
-          padding: 10px 128px;
-          margin: 0;
-        }
-
-        @include sm {
-          padding: 10px 110px;
-          margin: 0;
-        }
-      }
     }
+  }
+}
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 14px 16px;
+  margin-bottom: 40px;
+  border: 1px dashed $brown;
+  @include textSize($font14, $fontSuperLight, 140%);
+
+  @include s {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 28px;
+  }
+
+  &__text b {
+    font-weight: $fontBold;
+    overflow-wrap: anywhere;
+  }
+
+  &__btn {
+    @include transparentLink;
+    flex-shrink: 0;
+    padding: 8px 20px;
+    font-size: $font16;
+    background-color: transparent;
+    cursor: pointer;
   }
 }

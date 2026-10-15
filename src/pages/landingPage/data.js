@@ -1,63 +1,36 @@
 import about from "../../source/img/landing/about.png";
 
-import { saleArray } from "../../source/data/sale";
-import { newArrivalsArray } from "../../source/data/newArrivals";
-
-const headerMenuArray = [
-    {
-        link: "/newarrivals",
-        text: "Оновлення"
-    },
-    {
-        link: "/catalog",
-        text: "Каталог"
-    },
-    {
-        link: "/sale",
-        text: "Розпродаж"
-    },
-    {
-        link: "/contact",
-        text: "Контакти"
-    }
-];
+import { saleArray, newArrivalsArray } from "../../source/data/products";
 
 const genderArray = [
     {
-        link: "#",
+        link: "/catalog?gender=Men",
+        text: "Menswear",
         image: require("../../source/img/landing/gender/men.png")
     },
     {
-        link: '#',
+        link: "/catalog?gender=Women",
+        text: "Womenswear",
         image: require("../../source/img/landing/gender/women.png")
     }
-]
+];
 
 const categoryArray = [
     {
         link: "/newarrivals",
+        text: "New arrivals",
         image: require("../../source/img/landing/category/card_category_new.png")
     },
     {
         link: "/sale",
+        text: "Sale",
         image: require("../../source/img/landing/category/card_category_sale.png")
     },
     {
         link: "/catalog",
+        text: "Catalog",
         image: require("../../source/img/landing/category/card_category_catalog.png")
-    },
-    {
-        link: "/newarrivals",
-        image: require("../../source/img/landing/category/card_category_new-adaptive.png")
-    },
-    {
-        link: "/sale",
-        image: require("../../source/img/landing/category/card_category_sale-adaptive.png")
-    },
-    {
-        link: "/catalog",
-        image: require("../../source/img/landing/category/card_category_catalog-adaptive.png")
     }
 ];
 
-export { headerMenuArray, about, genderArray, categoryArray, newArrivalsArray, saleArray };
+export { about, genderArray, categoryArray, newArrivalsArray, saleArray };

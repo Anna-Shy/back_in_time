@@ -11,20 +11,35 @@
 
   &-input {
     width: 100%;
-    margin: 8px 0px;
+    margin: 8px 0 0;
     padding: 14px;
     border: 1px solid $grey;
+    border-radius: 0;
+    // 16px keeps iOS from zooming in on focus
+    @include textSize($font16, $fontNormal, 130%);
 
-    .form__signin-input::placeholder {
+    &::placeholder {
       font-family: "KyivTypeTitling-VarGX";
-      color: $black;
-      font-size: 16px;
-      font-weight: 350;
-      line-height: 19px;
+      color: $grey;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $black;
     }
   }
 
   .input-alert {
     border: 1px solid $red;
+  }
+
+  &-note {
+    margin-top: 6px;
+    color: $grey;
+    @include textSize($font12, $fontSuperLight, 130%);
+
+    &-error {
+      color: $red;
+    }
   }
 }

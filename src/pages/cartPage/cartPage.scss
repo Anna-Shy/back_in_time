@@ -1,0 +1,195 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
+
+// shared by the cart, checkout and account pages
+.shop {
+  &__page {
+    @include shadowPage;
+  }
+
+  &__main {
+    @include container;
+    padding-top: 28px;
+    padding-bottom: 120px;
+    color: $black;
+
+    @include md {
+      padding-bottom: 80px;
+    }
+
+    @include s {
+      padding-top: 12px;
+      padding-bottom: 52px;
+    }
+  }
+
+  &__title {
+    @include textSize($font32, $fontSuperBold, 38px);
+    text-transform: uppercase;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $grey;
+
+    @include s {
+      @include textSize($font20, $fontSuperBold, 24px);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+  }
+
+  // content on the left, summary on the right
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 48px;
+    align-items: start;
+
+    @include lg {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 32px;
+    }
+
+    @include md {
+      grid-template-columns: 1fr;
+    }
+
+    .summary {
+      position: sticky;
+      top: 24px;
+
+      @include md {
+        position: static;
+      }
+    }
+  }
+
+  &__btn {
+    @include lightLink;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+
+    &-wide {
+      display: block;
+      width: 100%;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+
+  &__note {
+    margin-top: 12px;
+    color: $grey;
+    text-align: center;
+    @include textSize($font12, $fontSuperLight, 130%);
+  }
+
+  &__empty {
+    padding: 64px 0 40px;
+    text-align: center;
+
+    &-title {
+      @include textSize($font24, $fontSuperBold, 130%);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    &-text {
+      color: $grey;
+      margin-bottom: 32px;
+      @include textSize($font18, $fontSuperLight, 150%);
+    }
+  }
+}
+
+.cart {
+  &__list {
+    list-style: none;
+    margin-top: -20px; // the page title already has a line under it
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid $grey;
+
+    @include s {
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    &-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 300 / 360;
+      object-fit: cover;
+    }
+
+    &-title {
+      @include textSize($font18, $fontNormal, 130%);
+      text-transform: uppercase;
+
+      &:hover {
+        color: $brown;
+      }
+
+      @include s {
+        font-size: $font14;
+      }
+    }
+
+    &-details {
+      margin-top: 6px;
+      color: $grey;
+      @include textSize($font14, $fontSuperLight, 130%);
+    }
+
+    &-remove {
+      margin-top: 16px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      color: $grey;
+      text-decoration: underline;
+      cursor: pointer;
+      @include textSize($font14, $fontNormal, 130%);
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    &-price {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      white-space: nowrap;
+      @include textSize($font18, $fontBold, 130%);
+
+      @include s {
+        grid-column: 2;
+        flex-direction: row;
+        gap: 8px;
+        font-size: $font16;
+      }
+
+      &-sale {
+        color: $brown;
+      }
+
+      s {
+        color: $grey;
+        font-weight: $fontSuperLight;
+        font-size: $font14;
+      }
+    }
+  }
+}

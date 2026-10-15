@@ -15,7 +15,7 @@ export const Modal = ({ isOpen, onClose, image, title, price }) => {
         <div className="modal__header">
           <div className="modal__header-block">
             <img className="block-icon" src={check} alt="check" />
-            <p className="block-text">Товар додано до кошика</p>
+            <p className="block-text">Item added to cart</p>
           </div>
 
           <button className="modal__header-btn" onClick={onClose}>
@@ -33,9 +33,9 @@ export const Modal = ({ isOpen, onClose, image, title, price }) => {
         </div>
 
         <div className="modal__btn">
-          <Linkin link={"/"} text={"в кошик"} classStyle="modal__btn-basket" />
+          <Linkin link={"/cart"} text={"go to cart"} classStyle="modal__btn-basket" />
           <button className="modal__btn-continue" onClick={onClose}>
-            продовжити покупки
+            continue shopping
           </button>
         </div>
       </div>

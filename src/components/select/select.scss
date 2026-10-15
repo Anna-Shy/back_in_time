@@ -8,19 +8,58 @@
     &-label {
         display: flex;
         align-items: center;
+        padding: 6px 10px;
+        margin: 0 -10px;
+        border: none;
+        background-color: transparent;
         cursor: pointer;
         color: $black;
         @include textSize($font18, $fontBold, 22px);
+        transition: background-color 0.2s, color 0.2s;
 
         @include s {
+            padding: 6px 8px;
+            margin: 0 -8px;
             @include textSize($font14, $fontBold, 22px);
+        }
+
+        &:hover {
+            background-color: $white;
+        }
+
+        // a filter is applied
+        &-active {
+            color: $brown;
+        }
+    }
+
+    &-value {
+        font-weight: $fontNormal;
+        white-space: nowrap;
+
+        // phones: the value is shown in the chips under the toolbar
+        @include s {
+            display: none;
+        }
+    }
+
+    &-dot {
+        display: none;
+        width: 6px;
+        height: 6px;
+        margin-left: 4px;
+        border-radius: 50%;
+        background-color: $brown;
+
+        @include s {
+            display: block;
         }
     }
 
     &-arrow {
         width: 20px;
         height: 20px;
-        margin: 0 4px;
+        margin-left: 4px;
 
         @include s {
             width: 16px;
@@ -30,28 +69,75 @@
 
     &-list {
         position: absolute;
+        top: calc(100% + 6px);
+        left: -10px;
+        z-index: 5;
+        min-width: 200px;
+        max-width: calc(100vw - 40px);
         display: flex;
         flex-direction: column;
-        gap: 14px;
-        padding: 24px 20px 24px 14px;
+        gap: 2px;
+        padding: 10px;
         background-color: $total_white;
         border: 1px solid $black;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         list-style: none;
 
         @include s {
-            gap: 10px;
-            padding: 16px 10px 18px 6px;
+            min-width: 170px;
+            left: -8px;
+        }
+    }
+
+    // the last filters open to the left so the list stays on screen
+    &:nth-last-child(-n + 2) &-list {
+        @include s {
+            left: auto;
+            right: -8px;
         }
     }
 
     &-item {
-        padding: 5px 10px;
-        @include textSize($font14, $fontLight, 130%);
-    }
-
-    &-item:hover {
-        background-color: $white;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 8px 10px;
+        border: none;
+        background-color: transparent;
+        color: $black;
+        text-align: left;
+        white-space: nowrap;
         cursor: pointer;
+        @include textSize($font14, $fontLight, 130%);
+
+        &:hover {
+            background-color: $white;
+        }
+
+        &-selected {
+            font-weight: $fontBold;
+        }
+
+        &:disabled {
+            color: $grey;
+            opacity: 0.5;
+            cursor: default;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 
+    &-check {
+        width: 14px;
+        color: $brown;
+    }
+
+    &-count {
+        margin-left: auto;
+        padding-left: 16px;
+        color: $grey;
+    }
 }

@@ -1,13 +1,13 @@
 import React from "react";
-import ScrollCarousel from "scroll-carousel-react";
+import { Link } from "react-router-dom";
 
 import { Header } from "../../components/header/Header";
 import { Linkin } from "../../components/linkin/Linkin";
 import { Card } from "../../components/card/Card";
+import { Carousel } from "../../components/carousel/Carousel";
 import { Footer } from "../../components/footer/Footer";
 
 import {
-  headerMenuArray,
   about,
   genderArray,
   categoryArray,
@@ -22,30 +22,27 @@ export const LandingPage = () => {
     <div className="landing">
       <header className="landing__header">
         <div className="header-adaptive">
-          <Header menuLink={headerMenuArray} icons />
+          <Header light />
         </div>
 
         <div className="header__content">
-          <h1 className="header__title">машина часу</h1>
+          <h1 className="header__title">time machine</h1>
           <p className="header__text">
-            в твоєму <span className="header__text-span">гардеробі</span>
+            for <span className="header__text-span">your wardrobe</span>
           </p>
 
-          <Linkin link={"/catalog"} text={"вибрати"} classStyle="header__btn" />
+          <Linkin link={"/catalog"} text={"shop now"} classStyle="header__btn" />
         </div>
       </header>
 
       <main className="landing__main">
         <section className="category">
           <div className="category__inner">
-            {categoryArray.map((item, key) => (
-              <Linkin
-                link={item.link}
-                img={item.image}
-                key={key}
-                classStyleImg={"category__img"}
-                classStyle={"category__link"}
-              />
+            {categoryArray.map((item) => (
+              <Link to={item.link} key={item.text} className="category__link">
+                <img className="category__img" src={item.image} alt="" />
+                <span className="category__text">{item.text}</span>
+              </Link>
             ))}
           </div>
         </section>
@@ -53,16 +50,16 @@ export const LandingPage = () => {
         <section className="about">
           <div className="about__inner">
             <div className="about__content">
-              <h2 className="about__title">про нас</h2>
+              <h2 className="about__title">about us</h2>
               <p className="about__text">
-                <span className="about__text-span">Back in time</span> - це
-                проєкт, який допомагає одягу з минулого отримати нове життя із
-                новими власниками.
+                <span className="about__text-span">Back in time</span> is a
+                project that helps clothes from the past get a new life with new
+                owners.
               </p>
               <p className="about__text">
-                Наша філософія полягає у тому, що кожна річ заслуговує на
-                довгострокове життя. Ми кажемо “ні” швидкій моді та працюємо над
-                популяризацією вінтажного стилю серед сучасних українців.
+                Our philosophy is that every piece deserves a long life. We say
+                “no” to fast fashion and work to make vintage style popular
+                among modern Ukrainians.
               </p>
             </div>
 
@@ -72,19 +69,17 @@ export const LandingPage = () => {
 
         <section className="renewal">
           <div className="renewal__inner">
-            <h2 className="renewal__title">оновлення</h2>
+            <h2 className="renewal__title">new arrivals</h2>
 
-            <div className="renewal__carousel">
-              <ScrollCarousel autoplay autoplaySpeed={4} speed={3}>
-                {newArrivalsArray.map((item, index) => (
-                  <Card key={index} {...item} />
-                ))}
-              </ScrollCarousel>
-            </div>
+            <Carousel label="New arrivals">
+              {newArrivalsArray.map((item) => (
+                <Card key={item.id} {...item} />
+              ))}
+            </Carousel>
 
             <Linkin
               link={"/newarrivals"}
-              text={"показати ще"}
+              text={"show more"}
               classStyle="renewal__btn"
             />
           </div>
@@ -92,33 +87,28 @@ export const LandingPage = () => {
 
         <section className="gender">
           <div className="gender__inner">
-            {genderArray.map((item, key) => (
-              <Linkin
-                key={key}
-                link={"#"}
-                img={item.image}
-                classStyleImg="gender__img"
-                classStyle="gender__link"
-              />
+            {genderArray.map((item) => (
+              <Link to={item.link} key={item.text} className="gender__link">
+                <img className="gender__img" src={item.image} alt="" />
+                <span className="gender__text">{item.text}</span>
+              </Link>
             ))}
           </div>
         </section>
 
         <section className="sale">
           <div className="sale__inner">
-            <h2 className="sale__title">розпродаж</h2>
+            <h2 className="sale__title">sale</h2>
 
-            <div className="sale__carousel">
-              <ScrollCarousel autoplay autoplaySpeed={4} speed={3}>
-                {saleArray.map((item, index) => (
-                  <Card key={index} {...item} />
-                ))}
-              </ScrollCarousel>
-            </div>
+            <Carousel label="Sale">
+              {saleArray.map((item) => (
+                <Card key={item.id} {...item} />
+              ))}
+            </Carousel>
 
             <Linkin
               link={"/sale"}
-              text={"показати ще"}
+              text={"show more"}
               classStyle="sale__btn"
             />
           </div>
@@ -127,7 +117,7 @@ export const LandingPage = () => {
         <section className="connect">
           <div className="connect__inner">
             <h1 className="connect__title big">
-              долучайтесь до нашої спільноти в інстаграм
+              join our community on instagram
             </h1>
 
             {Array.from({ length: 8 }).map((_, index) => (

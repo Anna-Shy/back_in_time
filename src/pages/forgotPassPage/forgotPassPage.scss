@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .forgotPass {
   &__page {
@@ -7,23 +8,53 @@
   }
 
   &__main {
-    padding: 154px 388px 422px 388px;
+    @include container;
+    max-width: 744px;
+    padding-top: 154px;
+    padding-bottom: 422px;
     text-align: center;
+    color: $black;
+
+    @include lg {
+      padding-top: 100px;
+      padding-bottom: 240px;
+    }
+
+    @include md {
+      padding-top: 64px;
+      padding-bottom: 120px;
+    }
+
+    @include s {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
 
     .main {
       &__title {
         @include textSize($font32, $fontSuperBold, 38px);
         text-transform: uppercase;
         margin-bottom: 48px;
+
+        @include s {
+          @include textSize($font20, $fontSuperBold, 24px);
+          margin-bottom: 24px;
+        }
       }
 
       &__text {
         @include textSize($font24, 200);
+
+        @include s {
+          font-size: $font16;
+        }
       }
 
       &__input {
-        width: 436px;
-        margin: 32px 114px;
+        display: block;
+        width: 100%;
+        max-width: 436px;
+        margin: 32px auto;
         padding: 14px;
         border: 1px solid $grey;
 
@@ -38,19 +69,45 @@
 
       &-block {
         display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 24px;
-        width: 436px;
-        margin: 0 154px;
+
+        @include s {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+
+      &__input-error {
+        border-color: $red;
+      }
+
+      &__error {
+        margin: -20px 0 24px;
+        color: $red;
+        @include textSize($font14, $fontSuperLight, 130%);
+      }
+
+      &-block-sent {
+        margin-top: 40px;
       }
 
       &__link-aprove {
         @include lightLink;
+        border: none;
+        cursor: pointer;
       }
 
       &__link-cancel {
         @include transparentLink;
         color: $grey;
         border: none;
+
+        &:hover {
+          background-color: transparent;
+          color: $black;
+        }
       }
     }
   }

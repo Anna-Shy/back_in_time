@@ -1,0 +1,11 @@
+.chevron {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.25s ease;
+
+  &-open {
+    transform: rotate(180deg);
+  }
+}

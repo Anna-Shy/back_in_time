@@ -1,0 +1,66 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
+
+.summary {
+  padding: 28px;
+  border: 1px solid $black;
+  background-color: $total_white;
+  color: $black;
+
+  @include s {
+    padding: 20px;
+  }
+
+  &__title {
+    @include textSize($font20, $fontSuperBold, 24px);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    @include textSize($font16, $fontNormal, 130%);
+
+    dd {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    &-muted {
+      color: $grey;
+      font-weight: $fontSuperLight;
+    }
+
+    &-discount {
+      color: $green;
+    }
+
+    &-total {
+      padding-top: 16px;
+      margin-top: 4px;
+      border-top: 1px solid $grey;
+      @include textSize($font20, $fontBold, 130%);
+    }
+  }
+
+  &__hint {
+    padding: 10px 12px;
+    background-color: $white;
+    @include textSize($font14, $fontSuperLight, 130%);
+
+    a {
+      color: $brown;
+      text-decoration: underline;
+    }
+  }
+}

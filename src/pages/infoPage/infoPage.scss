@@ -1,0 +1,141 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
+
+.info {
+  &__page {
+    @include shadowPage;
+  }
+
+  &__main {
+    @include container;
+    padding-top: 28px;
+    padding-bottom: 120px;
+    color: $black;
+
+    @include md {
+      padding-bottom: 80px;
+    }
+
+    @include s {
+      padding-top: 12px;
+      padding-bottom: 52px;
+    }
+
+    // left-aligned with the logo, lines kept short enough to read
+    > * {
+      max-width: 880px;
+    }
+
+    .divider {
+      border: 1px solid $grey;
+    }
+  }
+
+  &__title {
+    @include textSize($font32, $fontSuperBold, 38px);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+
+    @include s {
+      @include textSize($font20, $fontSuperBold, 24px);
+      margin-bottom: 12px;
+    }
+  }
+
+  &__lead {
+    margin-top: 32px;
+    @include textSize($font24, $fontNormal, 130%);
+
+    @include s {
+      margin-top: 24px;
+      font-size: $font18;
+    }
+  }
+
+  &__section {
+    margin-top: 48px;
+
+    @include s {
+      margin-top: 36px;
+    }
+
+    &-title {
+      @include textSize($font20, $fontSuperBold, 24px);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+
+      @include s {
+        @include textSize($font18, $fontSuperBold, 22px);
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &__text {
+    @include textSize($font18, $fontSuperLight, 150%);
+
+    & + & {
+      margin-top: 12px;
+    }
+
+    @include s {
+      font-size: $font16;
+    }
+  }
+
+  &__list {
+    padding-left: 22px;
+
+    .info__text::marker {
+      color: $brown;
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+    color: $brown;
+  }
+}
+
+.faq {
+  margin-top: 40px;
+  border-top: 2px solid $total_black;
+
+  &__item {
+    border-bottom: 2px solid $total_black;
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 20px 0;
+    border: none;
+    background-color: transparent;
+    color: $black;
+    text-align: left;
+    cursor: pointer;
+    @include textSize($font20, $fontSuperBold, 24px);
+    text-transform: uppercase;
+
+    @include s {
+      padding: 16px 0;
+      @include textSize($font16, $fontSuperBold, 20px);
+    }
+  }
+
+  &__answer {
+    padding: 0 40px 24px 0;
+
+    @include s {
+      padding: 0 0 18px;
+    }
+  }
+
+  &__more {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,114 @@
+@import "../../styles/variable.scss";
+@import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
+
+.account {
+  &__heading {
+    @include textSize($font20, $fontSuperBold, 24px);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__empty {
+    padding: 32px;
+    border: 1px dashed $grey;
+    text-align: center;
+
+    p {
+      color: $grey;
+      margin-bottom: 24px;
+      @include textSize($font18, $fontSuperLight, 150%);
+    }
+  }
+
+  &__orders {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+  }
+
+  &__order {
+    padding: 20px;
+    border: 1px solid $grey;
+
+    &-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      @include textSize($font16, $fontNormal, 130%);
+    }
+
+    &-status {
+      padding: 4px 10px;
+      background-color: $white;
+      color: $brown;
+      @include textSize($font12, $fontBold, 1.3);
+      text-transform: uppercase;
+
+      &-done {
+        color: $green;
+      }
+    }
+
+    &-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+      list-style: none;
+
+      img {
+        display: block;
+        width: 64px;
+        aspect-ratio: 300 / 360;
+        object-fit: cover;
+      }
+    }
+
+    &-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: $grey;
+      @include textSize($font14, $fontSuperLight, 130%);
+
+      b {
+        color: $black;
+        font-size: $font18;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__name {
+    @include textSize($font18, $fontBold, 130%);
+  }
+
+  &__email {
+    margin-top: 4px;
+    color: $grey;
+    overflow-wrap: anywhere;
+    @include textSize($font16, $fontSuperLight, 130%);
+  }
+
+  &__perk {
+    margin: 20px 0 24px;
+    padding: 12px;
+    background-color: $white;
+    @include textSize($font14, $fontSuperLight, 130%);
+
+    b {
+      color: $green;
+    }
+  }
+
+  &__logout {
+    @include transparentLink;
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

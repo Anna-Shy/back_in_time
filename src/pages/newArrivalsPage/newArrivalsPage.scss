@@ -8,15 +8,18 @@
   }
 
   &__main {
-    padding: 38px 80px 80px;
+    @include container;
+    padding-top: 38px;
+    padding-bottom: 80px;
     color: $black;
 
-    @include s {
-      padding: 12px 20px 32px;
+    @include md {
+      padding-bottom: 56px;
     }
 
-    @include sm {
-      padding: 14px 20px 34px;
+    @include s {
+      padding-top: 12px;
+      padding-bottom: 32px;
     }
 
     .main__title {
@@ -25,47 +28,33 @@
       text-transform: uppercase;
       margin-bottom: 58px;
 
+      @include md {
+        @include textSize($font32, $fontSuperBold, 38px);
+        margin-bottom: 40px;
+      }
+
       @include s {
         @include textSize($font20, $fontSuperBold, 24px);
         margin-bottom: 32px;
       }
-
-      @include sm {
-        @include textSize($font20, $fontSuperBold, 24px);
-        margin-bottom: 34px;
-      }
     }
 
     .main__cards {
-      display: grid;
-      gap: 26px;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, auto);
+      @include cardsGrid;
 
-      @include s {
-        gap: 18px;
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 48px;
-      }
-
-      @include sm {
-        gap: 18px;
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 50px;
+      .card {
+        width: 100%;
+        height: 100%;
       }
     }
 
     .main__btn {
-      margin-left: 520px;
       @include transparentLink;
+      @include centerBlock;
+      margin-top: 16px;
 
       @include s {
-        margin-left: 82px;
-      }
-
-      @include sm {
-        margin-left: 20px;
-        padding: 10px 80px;
+        width: 100%;
       }
     }
   }

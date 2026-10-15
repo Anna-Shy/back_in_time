@@ -1,35 +1,22 @@
-import basketBlack from '../../source/svg/icons/basket-black.svg'
-import personBlack from '../../source/svg/icons/person-black.svg'
-
 export const menuArray = [
     {
         link: "/",
-        text: "Головна"
+        text: "Home"
     },
     {
         link: "/catalog",
-        text: "Каталог"
+        text: "Catalog"
     },
     {
         link: "/newarrivals",
-        text: "Оновлення"
+        text: "New arrivals"
     },
     {
         link: "/sale",
-        text: "Розпродаж"
+        text: "Sale"
     },
     {
         link: "/contact",
-        text: "Контакти"
-    },
-    {
-        link: "#",
-        text: "Кошик",
-        icon: basketBlack
-    },
-    {
-        link: "#",
-        text: "Вхід/Реєстрація",
-        icon: personBlack
+        text: "Contacts"
     }
 ];

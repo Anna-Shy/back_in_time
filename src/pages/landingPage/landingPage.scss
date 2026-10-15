@@ -3,6 +3,8 @@
 @import "../../styles/service.scss";
 
 .landing {
+  overflow-x: hidden;
+
   &__header {
     min-height: 100vh;
 
@@ -11,62 +13,72 @@
     background-position: top center;
     background-size: cover;
 
-    @include s {
-      background: none;
-      min-height: 0;
-    }
-
-    @include sm {
+    // tablets: header becomes a white bar, hero image moves under it
+    @include md {
       background: none;
       min-height: 0;
     }
 
     .header-adaptive {
-      @include s {
-        border-bottom: 1px solid $total_black;
-      }
-
-      @include sm {
+      @include md {
         border-bottom: 1px solid $total_black;
       }
     }
 
     .header__content {
-      padding: 36px 80px;
+      @include container;
+      padding-top: 36px;
+      padding-bottom: 36px;
       margin-top: 115px;
 
       color: $black;
 
-      @include s {
-        background-color: $total-white;
+      @include lg {
+        margin-top: 80px;
+      }
+
+      // the left ~43% of the image is a plain light wall, text sits there
+      @include md {
+        max-width: none;
         margin-top: 0;
-        max-height: 100vh;
-        height: 375px;
-        padding: 80px 58px 0 60px;
+        aspect-ratio: 1440 / 606;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-right: 60%;
+        background-image: url("../../source/img/landing/main_page.png");
+        background-size: cover;
+        background-position: center;
         border-bottom: 1px solid $total_black;
       }
 
+      @include s {
+        aspect-ratio: auto;
+        align-items: center;
+        background: $total-white;
+        padding: 80px 20px;
+      }
+
       @include sm {
-        background-color: $total-white;
-        margin-top: 0;
-        max-height: 100vh;
-        height: 394px;
-        padding: 80px 58px 0 60px;
-        border-bottom: 1px solid $total_black;
+        padding: 64px 20px;
       }
 
       .header__title {
         @include textSize($font54, $fontBold, 130%);
         text-transform: uppercase;
 
-        @include s {
-          text-align: center;
+        @include lg {
+          font-size: $font42;
+        }
+
+        @include md {
           @include textSize($font32, $fontSuperBold, 38px);
         }
 
-        @include sm {
+        @include s {
           text-align: center;
-          @include textSize($font32, $fontSuperBold, 38px);
+          max-width: 260px;
         }
       }
 
@@ -78,13 +90,12 @@
           font-weight: 840;
         }
 
-        @include s {
-          text-align: center;
-          @include textSize($font24, $fontBold, 130%);
-          margin-bottom: 38px;
+        @include md {
+          @include textSize($font20, $fontLight, 130%);
+          margin-bottom: 28px;
         }
 
-        @include sm {
+        @include s {
           text-align: center;
           @include textSize($font24, $fontBold, 130%);
           margin-bottom: 38px;
@@ -93,14 +104,13 @@
 
       .header__btn {
         @include lightLink;
+        display: inline-block;
 
-        @include s {
-          margin-left: 74px;
-          @include textSize($font12, $fontNormal, 130%);
+        @include md {
+          @include textSize($font14, $fontNormal, 130%);
         }
 
-        @include sm {
-          margin-left: 60px;
+        @include s {
           @include textSize($font12, $fontNormal, 130%);
         }
       }
@@ -110,52 +120,95 @@
 
 .category {
   &__inner {
-    padding: 80px;
+    @include container;
+    padding-top: 80px;
+    padding-bottom: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 26px;
+
+    // wide screens: images are 348px, keep them sharp and keep the 1440 rhythm
+    @media screen and (min-width: ($xl + 1)) {
+      justify-content: center;
+      gap: 118px;
+    }
+
+    @include md {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      gap: 18px;
+    }
 
     @include s {
       padding: 0;
-      flex-direction: column;
-    }
-
-    @include sm {
-      padding: 0;
+      gap: 0;
       flex-direction: column;
     }
   }
 
   &__link {
-    @media screen and (min-width: 428px) {
-      &:nth-child(4),
-      &:nth-child(5),
-      &:nth-child(6) {
-        display: none;
-      }
+    position: relative;
+    display: block;
+    flex: 0 1 348px;
+    overflow: hidden;
+
+    &:hover .category__img {
+      transform: scale(1.04);
     }
 
-    @media screen and (max-width: 427px) {
+    @include s {
+      flex: none;
+      width: 100%;
       height: 80px;
 
-      &:nth-child(1),
-      &:nth-child(2),
-      &:nth-child(3) {
-        display: none;
+      // faded photo strip with the label on top
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(255, 255, 255, 0.55);
       }
     }
   }
 
   &__img {
-    max-width: 100%;
-    height: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
 
     @include s {
-      width: 426px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+  }
+
+  // sits on the light band at the bottom of the photo (15% of its height)
+  &__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 15.2%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $black;
+    @include textSize($font18, $fontSuperBold, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    @include md {
+      font-size: $font14;
     }
 
-    @include sm {
-      width: 390px;
+    @include s {
+      top: 0;
+      height: auto;
+      @include textSize($font20, $fontSuperBold, 1);
     }
   }
 }
@@ -164,34 +217,41 @@
   background-color: $black;
 
   &__inner {
-    padding: 100px 80px;
+    @include container;
+    padding-top: 100px;
+    padding-bottom: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
     color: #fff;
+
+    @include md {
+      padding-top: 56px;
+      padding-bottom: 56px;
+      flex-direction: column;
+      align-items: stretch;
+    }
 
     @include s {
       padding: 0;
-      flex-direction: column;
-    }
-
-    @include sm {
-      padding: 0;
-      flex-direction: column;
+      gap: 0;
     }
   }
 
   &__content {
     max-width: 626px;
 
-    @include s {
-      padding: 24px 20px;
-      flex-direction: column;
+    @media screen and (min-width: ($xl + 1)) {
+      max-width: 760px;
     }
 
-    @include sm {
-      padding: 18px 20px;
-      flex-direction: column;
+    @include md {
+      max-width: none;
+    }
+
+    @include s {
+      padding: 24px 20px;
     }
   }
 
@@ -200,12 +260,16 @@
     @include textSize($font54, $fontBold, 130%);
     text-transform: uppercase;
 
-    @include s {
-      @include textSize($font20, $fontSuperBold, 24px);
-      margin-bottom: 12px;
+    @include lg {
+      font-size: $font42;
     }
 
-    @include sm {
+    @include md {
+      @include textSize($font32, $fontSuperBold, 38px);
+      margin-bottom: 18px;
+    }
+
+    @include s {
       @include textSize($font20, $fontSuperBold, 24px);
       margin-bottom: 12px;
     }
@@ -215,41 +279,37 @@
     margin: 24px 0;
     @include textSize($font24, $fontSuperLight, 130%);
 
+    @include lg {
+      font-size: $font20;
+    }
+
+    @include md {
+      margin: 16px 0;
+      font-size: $font18;
+    }
+
+    @include s {
+      @include textSize($font14, $fontSuperLight, 130%);
+    }
+
     &-span {
       font-weight: $fontBold;
 
       @include s {
         font-size: 18px;
       }
-
-      @include sm {
-        font-size: 18px;
-      }
-    }
-
-    @include s {
-      @include textSize($font14, $fontSuperLight, 130%);
-    }
-
-    @include sm {
-      @include textSize($font14, $fontSuperLight, 130%);
     }
   }
 
   &__img {
-    width: 100%;
-    margin-left: 24px;
+    display: block;
+    width: 50%;
+    max-width: 626px;
+    flex-shrink: 0;
 
-    @include s {
+    @include md {
       width: 100%;
-      max-width: 426px;
-      margin-left: 0;
-    }
-
-    @include sm {
-      width: 100%;
-      max-width: 390px;
-      margin-left: 0;
+      max-width: none;
     }
   }
 }
@@ -257,13 +317,16 @@
 .renewal,
 .sale {
   &__inner {
-    padding: 80px;
+    @include container;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
-    @include s {
-      padding: 24px 0;
+    @include md {
+      padding-top: 56px;
+      padding-bottom: 56px;
     }
 
-    @include sm {
+    @include s {
       padding: 24px 0;
     }
   }
@@ -275,44 +338,22 @@
     text-transform: uppercase;
     margin-bottom: 74px;
 
+    @include md {
+      @include textSize($font32, $fontSuperBold, 38px);
+      margin-bottom: 40px;
+    }
+
     @include s {
       @include textSize($font20, $fontSuperBold, 24px);
       margin-bottom: 18px;
-    }
-
-    @include sm {
-      @include textSize($font20, $fontSuperBold, 24px);
-      margin-bottom: 18px;
-    }
-  }
-
-  // .scroll-carousel-slider{
-  //   gap: 26px;
-  // }
-
-  .sc-slide {
-    margin-right: 26px !important;
-
-    @include s {
-      margin-right: 16px !important;
-    }
-
-    @include sm {
-      margin-right: 16px !important;
     }
   }
 
   &__btn {
     @include transparentLink;
-    margin-left: 520px;
+    @include centerBlock;
 
     @include s {
-      margin-left: 120px;
-      @include textSize($font12, $fontNormal, 130%);
-    }
-
-    @include sm {
-      margin-left: 100px;
       @include textSize($font12, $fontNormal, 130%);
     }
   }
@@ -325,15 +366,38 @@
     @include s {
       flex-direction: column;
     }
+  }
 
-    @include sm {
-      flex-direction: column;
+  &__link {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    container-type: inline-size;
+
+    &:hover .gender__img {
+      transform: scale(1.03);
     }
   }
 
   &__img {
+    display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  // same place and size as the label that used to be part of the photo
+  &__text {
+    position: absolute;
+    top: 50.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $total_white;
+    @include textSize(7.4cqi, $fontSuperBold, 1);
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -341,76 +405,64 @@
   background-color: $black;
 
   &__inner {
+    max-width: 1920px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: minmax(auto, 288px);
     grid-auto-flow: dense;
 
-    @include s {
-      padding: 18px 0 36px 20px;
-      grid-template-rows: auto auto;
-      gap: 22px 0;
+    @include md {
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    @include sm {
-      padding: 18px 0 36px 20px;
-      grid-template-rows: auto auto;
-      gap: 22px 0;
+    @include s {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 18px 20px 36px;
+      gap: 22px 8px;
     }
   }
 
   .big {
     grid-column: span 2;
 
-    @include s {
-      grid-column: span 8;
-    }
-
-    @include sm {
-      grid-column: span 8;
+    @include md {
+      grid-column: 1 / -1;
     }
   }
 
   &__title {
     color: $total-white;
-    margin: 76px 0 0 80px;
+    margin: 76px 40px 0 80px;
     @include textSize($font42, $fontSuperBold, 50px);
     text-transform: uppercase;
 
-    @include s {
-      margin: 0;
-      max-width: 350px;
-      @include textSize($font20, $fontSuperBold, 24px);
+    @include lg {
+      margin: 48px 24px 0 40px;
+      @include textSize($font32, $fontSuperBold, 38px);
     }
 
-    @include sm {
+    @include md {
       margin: 0;
+      padding: 40px;
+    }
+
+    @include s {
+      padding: 0;
       max-width: 350px;
       @include textSize($font20, $fontSuperBold, 24px);
     }
   }
 
   &__image {
+    display: block;
     width: 100%;
-    height: 288px;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
 
+    // phones: only first three photos
     @include s {
-      width: 122px;
-      height: 122px;
-    }
-
-    @include sm {
-      width: 122px;
-      height: 122px;
-    }
-
-    @media screen and (max-width: 427px) {
-      &:nth-child(1),
-      &:nth-child(5),
-      &:nth-child(6),
-      &:nth-child(7),
-      &:nth-child(8),
-      &:nth-child(9) {
+      &:nth-child(n + 5) {
         display: none;
       }
     }

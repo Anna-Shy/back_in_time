@@ -5,25 +5,25 @@ import { Card } from "../../components/card/Card";
 import { Linkin } from "../../components/linkin/Linkin";
 import { Footer } from "../../components/footer/Footer";
 
-import { newArrivalsArray } from "../../source/data/newArrivals";
+import { newArrivalsArray } from "../../source/data/products";
 
 import "./newArrivalsPage.scss";
 
 export const NewArrivalsPage = () => {
   return (
     <div className="newArrivals__page">
-      <Header icons />
+      <Header />
 
       <main className="newArrivals__main">
-        <h2 className="main__title">оновлення</h2>
+        <h2 className="main__title">new arrivals</h2>
 
         <div className="main__cards">
-          {newArrivalsArray.map((item, key) => (
-            <Card key={key} {...item} />
+          {newArrivalsArray.map((item) => (
+            <Card key={item.id} {...item} />
           ))}
         </div>
 
-        <Linkin link={"/catalog"} text={"показати ще"} classStyle="main__btn" />
+        <Linkin link={"/catalog"} text={"view full catalog"} classStyle="main__btn" />
       </main>
 
       <Footer />

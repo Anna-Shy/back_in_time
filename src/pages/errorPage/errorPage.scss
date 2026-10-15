@@ -1,8 +1,10 @@
 @import "../../styles/variable.scss";
 @import "../../styles/service.scss";
+@import "../../styles/responsive.scss";
 
 .error {
   @include shadowPage;
+  min-height: 100vh;
 
   &__main {
     background-image: url("../../source/img/error/error.png");
@@ -10,25 +12,44 @@
     background-position: top center;
     background-size: cover;
 
-    width: 1014px;
-    height: 456px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 40px);
+    max-width: 1014px;
+    min-height: 456px;
     margin: 0 auto;
+    padding-bottom: 40px;
+
+    @include s {
+      min-height: 0;
+      margin-top: 40px;
+      background-size: contain;
+    }
   }
 
   &__title {
-    @include textSize(222px, $fontSuperBold, 266px);
+    @include textSize(clamp(120px, 22vw, 222px), $fontSuperBold, 120%);
     color: $brown;
     text-align: center;
   }
 
   &__text {
-    @include textSize($font42, $fontSuperBold, 50px);
+    @include textSize(clamp(20px, 4vw, 42px), $fontSuperBold, 120%);
     text-align: center;
     margin-bottom: 42px;
+
+    @include s {
+      margin-bottom: 28px;
+    }
   }
 
   &__btn {
-    margin-left: 330px;
     @include lightLink;
+
+    @include s {
+      @include textSize($font14, $fontNormal, 130%);
+      padding: 10px 24px;
+    }
   }
 }

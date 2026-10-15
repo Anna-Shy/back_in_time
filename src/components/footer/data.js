@@ -36,69 +36,57 @@ const socialIconArray = [
 const paymentIconArray = [
     {
         image: visa,
-        link: '#'
+        name: "Visa"
     },
     {
         image: mastercard,
-        link: '#'
+        name: "Mastercard"
     },
     {
         image: applepay,
-        link: '#'
+        name: "Apple Pay"
     },
     {
         image: googlepay,
-        link: '#'
+        name: "Google Pay"
     }
 ]
 
 const footerAboutArray = [
     {
-        link: "#",
-        text: "Про нас"
+        link: "/about",
+        text: "About us"
     },
     {
-        link: "#",
-        text: "Співпраця"
+        link: "/terms",
+        text: "Terms of sale"
     },
     {
-        link: "#",
-        text: "Блог"
-    },
-    {
-        link: "#",
-        text: "Договір оферти"
-    },
-    {
-        link: "#",
-        text: "Політика конфіденційності"
+        link: "/privacy",
+        text: "Privacy Policy"
     }
 ];
 
 const footerClientArray = [
     {
-        link: "#",
-        text: "Особистий кабінет"
+        link: "/login",
+        text: "My account"
     },
     {
-        link: "#",
-        text: "Доставка та оплата"
+        link: "/shipping",
+        text: "Shipping & payment"
     },
     {
-        link: "#",
-        text: "Обмін та повернення"
+        link: "/returns",
+        text: "Exchanges & returns"
     },
     {
-        link: "#",
-        text: "Контакти"
+        link: "/contact",
+        text: "Contacts"
     },
     {
-        link: "#",
+        link: "/faq",
         text: "FAQ"
-    },
-    {
-        link: "#",
-        text: 'Подарункові сертифікати'
     }
 ];
 

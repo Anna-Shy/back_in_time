@@ -1,4 +1,6 @@
 @import '../../styles/variable.scss';
+@import '../../styles/responsive.scss';
+@import '../../styles/service.scss';
 
 .menu {
   &__list {
@@ -7,11 +9,92 @@
     align-items: center;
     gap: 32px;
     list-style: none;
+
+    @include lg {
+      gap: 22px;
+    }
   }
 
   &__item {
     font-size: $fontSmall;
     font-weight: $fontNormal;
     color: $total_white;
+
+    @include lg {
+      font-size: $font18;
+    }
+
+    img {
+      display: block;
+    }
   }
+
+  &__link {
+    position: relative;
+    transition: color 0.2s;
+
+    // underline for the current page and on hover
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &-dark {
+    .menu__item {
+      color: $black;
+    }
+
+    .menu__link:hover,
+    .menu__link-active {
+      color: $brown;
+    }
+  }
+}
+
+.menu__icon {
+  position: relative;
+  display: block;
+
+  &-badge {
+    position: absolute;
+    top: -6px;
+    right: -9px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background-color: $brown;
+    color: $total_white;
+    @include textSize($font12, $fontBold, 18px);
+    text-align: center;
+  }
+
+  // signed in
+  &-dot {
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    border: 2px solid $total_white;
+    border-radius: 50%;
+    background-color: $green;
+  }
+}
+
+// the current page is highlighted only in the header, not in the footer
+.header .menu__link-active::after {
+  transform: scaleX(1);
 }

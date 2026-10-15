@@ -16,13 +16,13 @@ export const ErrorPage = () => {
       <main className="error__main">
         <h1 className="error__title">404</h1>
         <p className="error__text">
-          Схоже щось пішло не за планом, <br />
-          сторінки не знайдено.
+          Looks like something went wrong, <br />
+          page not found.
         </p>
 
         <Linkin
           link={"/"}
-          text={"повернутись на головну"}
+          text={"back to home page"}
           classStyle="error__btn"
         />
       </main>
